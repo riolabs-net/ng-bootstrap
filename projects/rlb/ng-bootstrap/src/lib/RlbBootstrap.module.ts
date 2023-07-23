@@ -14,6 +14,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { RlbDataTableComponent } from './data/datatable/rlb-dt-table.component'
 import { HelpText } from './forms/inputs/rlb-help-text.directive';
+import { RlbColorComponent } from './forms/inputs/rlb-color.component';
+import { RlbDatalistComponent } from './forms/inputs/rlb-datalist.component';
+import { RlbRangeComponent } from './forms/inputs/rlb-range.component';
+import { RlbSelectComponent } from './forms/inputs/rlb-select.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,10 @@ import { HelpText } from './forms/inputs/rlb-help-text.directive';
     RlbInputComponent,
     RlbSwitchComponent,
     RlbTextAreaComponent,
+    RlbColorComponent,
+    RlbDatalistComponent,
+    RlbRangeComponent,
+    RlbSelectComponent,
     HelpText
   ],
   imports: [
@@ -33,7 +41,6 @@ import { HelpText } from './forms/inputs/rlb-help-text.directive';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    CommonModule,
     TranslateModule,
     RouterModule
   ],
@@ -47,6 +54,10 @@ import { HelpText } from './forms/inputs/rlb-help-text.directive';
     RlbInputComponent,
     RlbSwitchComponent,
     RlbTextAreaComponent,
+    RlbColorComponent,
+    RlbDatalistComponent,
+    RlbRangeComponent,
+    RlbSelectComponent,
     HelpText
   ]
 })
