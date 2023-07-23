@@ -18,10 +18,11 @@ export class RlbDataTableComponent implements AfterViewInit {
   @Input() creationUrl!: any[] | string | null | undefined
   @Output() createItem:EventEmitter<void> = new EventEmitter()
   @Output() queryChanged: EventEmitter<TableDataQuery> = new EventEmitter()
+  
+  private tableDataQuery: TableDataQuery = {};
 
   @ContentChildren(RlbDtHeaderComponent) columns!: QueryList<RlbDtHeaderComponent>;
   @ViewChild('projectedDisplayColumns', { read: ViewContainerRef }) _projectedDisplayColumns!: ViewContainerRef;
-  private tableDataQuery: TableDataQuery = {};
 
   ngAfterViewInit() {
     for (let i = this._projectedDisplayColumns.length; i > 0; i--) {

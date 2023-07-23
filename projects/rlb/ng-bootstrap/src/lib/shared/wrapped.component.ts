@@ -9,18 +9,18 @@ import { DynamicWrapper } from './dynamic-wrapper';
     </ng-template>
   `,
 })
-export class WrappedColumn implements DynamicWrapper, AfterViewInit, OnDestroy {
+export class WrappedComponent implements DynamicWrapper, AfterViewInit, OnDestroy {
   _dynamic = false;
 
   @ViewChild('portal') templateRef!: TemplateRef<void>;
-  columnView!: EmbeddedViewRef<void>; // the component projected view (in memory)
+  componentView!: EmbeddedViewRef<void>; // the component projected view (in memory)
 
   ngAfterViewInit() {
     // Create the inner components in memory, not the DOM.
-    this.columnView = this.templateRef.createEmbeddedView();
+    this.componentView = this.templateRef.createEmbeddedView();
   }
 
   ngOnDestroy() {
-    this.columnView.destroy();
+    this.componentView.destroy();
   }
 }

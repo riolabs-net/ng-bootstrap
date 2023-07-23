@@ -1,5 +1,5 @@
 import { Component, Injector, Input, ViewContainerRef } from '@angular/core';
-import { WrappedColumn } from '../../shared/wrapped.component';
+import { WrappedComponent } from '../../shared/wrapped.component';
 import { HostWrapper } from '../../shared/host-wrapper';
 
 
@@ -18,11 +18,11 @@ export class RlbDtHeaderComponent {
   constructor(private vcr: ViewContainerRef) { }
 
   get _view() {
-    return this.wrappedInjector.get(WrappedColumn, this.vcr).columnView;
+    return this.wrappedInjector.get(WrappedComponent, this.vcr).componentView;
   }
 
   ngOnInit() {
-    this.wrappedInjector = new HostWrapper(WrappedColumn, this.vcr);
+    this.wrappedInjector = new HostWrapper(WrappedComponent, this.vcr);
   }
 
 }

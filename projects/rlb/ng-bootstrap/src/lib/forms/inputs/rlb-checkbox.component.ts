@@ -6,7 +6,7 @@ import { UniqueIdService } from "../../shared/unique-id.service";
 @Component({
   selector: 'rlb-checkbox',
   template: `
-  <div class="form-check form-switch">
+  <div class="form-check">
     <label class="form-check-label" [for]="id">
       <span *ngIf="beforeText">{{ label }}</span>
       <input 
@@ -14,9 +14,7 @@ import { UniqueIdService } from "../../shared/unique-id.service";
         type="checkbox" 
         [id]="id" 
         [attr.disabled]="disabled?true:undefined" 
-        [attr.readonly]="readonly?true:undefined" 
-        [ngClass.form-select-lg]="size === 'large'"
-        [ngClass.form-select-sm]="size === 'small'" 
+        [attr.readonly]="readonly?true:undefined"
         [value]="value"
         (blur)="touch();"             
         [ngClass]="{'is-invalid': control?.touched && control?.invalid}"
@@ -30,7 +28,6 @@ export class RlbCheckboxComponent extends RlbAbstractComponent<boolean> implemen
   @Input() readonly = false;
   @Input() label: string = '';
   @Input() beforeText: boolean = false
-  @Input() size: "small" | "large" | undefined = undefined
 
   constructor(idService: UniqueIdService, @Self() @Optional() override control?: NgControl) {
     super(idService, control)
