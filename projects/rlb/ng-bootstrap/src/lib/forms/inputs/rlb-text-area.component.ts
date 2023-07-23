@@ -12,6 +12,9 @@ import { UniqueIdService } from '../../shared/unique-id.service';
              class="form-control" 
              [attr.disabled]="disabled?true:undefined"
              [attr.readonly]="readonly?true:undefined"
+             [attr.placeholder]="placeholder"
+             [ngClass.form-select-lg]="size === 'large'"
+             [ngClass.form-select-sm]="size === 'small'"
              [value]="value"
              (blur)="touch();"             
              [ngClass]="{'is-invalid': control?.touched && control?.invalid}"
@@ -28,6 +31,7 @@ export class RlbTextAreaComponent extends RlbAbstractComponent<string> implement
   @Input() label: string = '';
   @Input() beforeText: boolean = false
   @Input() placeholder!: string
+  @Input() size: "small" | "large" | undefined = undefined
 
   constructor(idService: UniqueIdService, @Self() @Optional() override control?: NgControl) {
     super(idService, control)

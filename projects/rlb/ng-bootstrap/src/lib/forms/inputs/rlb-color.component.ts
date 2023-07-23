@@ -12,7 +12,9 @@ import { UniqueIdService } from "../../shared/unique-id.service";
          class="form-control form-control-color" 
          type="color" 
          [attr.disabled]="disabled?true:undefined" 
-         [attr.readonly]="readonly?true:undefined"              
+         [attr.readonly]="readonly?true:undefined"
+         [ngClass.form-select-lg]="size === 'large'"
+         [ngClass.form-select-sm]="size === 'small'"          
          [value]="value"
          (blur)="touch();"             
          [ngClass]="{'is-invalid': control?.touched && control?.invalid}"
@@ -22,6 +24,7 @@ export class RlbColorComponent extends RlbAbstractComponent<string> implements C
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() label: string = '';
+  @Input() size: "small" | "large" | undefined = undefined
 
   constructor(idService: UniqueIdService, @Self() @Optional() override control?: NgControl) {
     super(idService, control)

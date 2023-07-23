@@ -12,10 +12,13 @@ import { UniqueIdService } from "../../shared/unique-id.service";
              [id]="id"
              class="form-control" 
              [type]="type" 
-             [attr.disabled]="disabled?true:undefined" 
-             [attr.readonly]="readonly?true:undefined"              
+             [attr.disabled]="disabled?true:undefined"
+             [attr.readonly]="readonly?true:undefined"
+             [attr.placeholder]="placeholder"
+             [ngClass.form-select-lg]="size === 'large'"
+             [ngClass.form-select-sm]="size === 'small'"
              [value]="value"
-             (blur)="touch();"             
+             (blur)="touch();"
              [ngClass]="{'is-invalid': control?.touched && control?.invalid}"
              (input)="update($event.target);"
              >
@@ -31,6 +34,7 @@ export class RlbInputComponent extends RlbAbstractComponent<string> implements C
   @Input() beforeText: boolean = false
   @Input() type: "text" | 'email' | 'number' | 'password' | 'search' | 'tel' | 'url' | string = 'text'
   @Input() placeholder!: string
+  @Input() size: "small" | "large" | undefined = undefined
 
   constructor(idService: UniqueIdService, @Self() @Optional() override control?: NgControl) {
     super(idService, control)
