@@ -1,0 +1,32 @@
+<ng-container *ngIf="filtrable">
+  <ng-content select="rlb-form-fields"></ng-content>
+</ng-container>
+<div class="row" *ngIf="creationStrategy !=='none'">
+  <div class="col">
+    <ng-container *ngIf="creationStrategy === 'page';else createModal">
+      <button type="button" class="btn btn-primary float-end mb-2" [routerLink]="creationUrl">{{ 'common.create' | translate}}</button>
+    </ng-container>
+    <ng-template #createModal>
+      <button type="button" class="btn btn-primary float-end mb-2" (click)="createItem.emit()">{{ 'common.create' | translate}}</button>
+    </ng-template>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <ng-container #projectedDisplayColumns></ng-container>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-content select="tr[rlb-dt-row]" />
+      </tbody>
+      <tfoot>
+        <div class="clearfix">
+          <button type="button" class="btn btn-primary float-end btn-sm mt-2">Load more </button>
+        </div>
+      </tfoot>
+    </table>
+  </div>
+</div>

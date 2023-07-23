@@ -1,0 +1,41 @@
+<ng-container *ngIf="noCard;else card">
+  <ng-container [ngTemplateOutlet]="form"></ng-container>
+</ng-container>
+
+<ng-template #card>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title" *ngIf="title">{{ title | translate}}</h5>
+      <p class="card-text" *ngIf="subTitle">{{ subTitle | translate }}</p>
+      <ng-container [ngTemplateOutlet]="form"></ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #form>
+  <form *ngIf="filterForm" [formGroup]="filterForm" [class.was-validated]="ngForm.submitted" class="needs-validation"
+    #ngForm="ngForm" (ngSubmit)="onFilterSubmit()">
+    <div class="row">
+      <div class="col" [ngClass]="input.cols" *ngFor="let input of _fields;trackBy:identify">
+        <div class="mb-3">
+          <ng-container *ngIf="isText(input.type)">
+            <rlb-input [formControlName]="input.property" [type]="input.type" [label]="input.name | translate"
+              [placeholder]="input.name | translate" />
+          </ng-container>
+          <ng-container *ngIf="isSwitch(input.type)">
+            <rlb-switch [formControlName]="input.property" [label]="input.name | translate" />
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="!noSubmit">
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary float-end" [disabled]="!filterForm.valid">
+            {{ "common.filter" | translate }}
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </form>
+</ng-template>
