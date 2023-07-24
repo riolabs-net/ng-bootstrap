@@ -6,8 +6,11 @@ import { RlbOptionComponent } from './rlb-options.component';
 
 @Component({
   selector: 'rlb-radio',
+  host: {
+    class: 'd-flex flex-grow-1 flex-shrink-1 flex-auto'
+  },
   template: `
-    <label class="form-label">{{ label }}</label>
+    <label *ngIf="label" [for]="id" class="form-label">{{ label }}</label>
     <ng-container *ngFor="let option of options;index as i">
       <div class="form-check">
         <input #input

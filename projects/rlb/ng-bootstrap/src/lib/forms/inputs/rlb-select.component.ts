@@ -6,8 +6,11 @@ import { RlbOptionComponent } from './rlb-options.component';
 
 @Component({
   selector: 'rlb-select',
+  host: {
+    class: 'd-flex flex-grow-1 flex-shrink-1 flex-auto'
+  },
   template: `
-  <label [for]="id" class="form-label">{{ label }}</label>
+  <label *ngIf="label" [for]="id" class="form-label">{{ label }}</label>
   <select 
       class="form-select" 
       [attr.aria-label]="label"

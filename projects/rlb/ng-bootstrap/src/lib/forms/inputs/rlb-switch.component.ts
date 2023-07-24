@@ -5,25 +5,25 @@ import { UniqueIdService } from "../../shared/unique-id.service";
 
 @Component({
   selector: 'rlb-switch',
+  host: {
+    class: 'd-flex flex-grow-1 flex-shrink-1 flex-auto'
+  },
   template: `
   <div class="form-check form-switch">
-    <label class="form-check-label" [for]="id">
-      <span *ngIf="beforeText">{{ label }}</span>
-      <input 
-        class="form-check-input" 
-        type="checkbox" 
-        [id]="id" 
-        [attr.disabled]="disabled?true:undefined" 
-        [attr.readonly]="readonly?true:undefined"
-        [class.form-select-lg]="size === 'large'"
-        [class.form-select-sm]="size === 'small'"
-        [value]="value"
-        (blur)="touch();"             
-        [ngClass]="{'is-invalid': control?.touched && control?.invalid}"
-        (input)="update($event.target);"
-        >
-      <span *ngIf="!beforeText">{{ label }}</span>
-    </label>
+    <label *ngIf="label && !beforeText" [for]="id" class="form-label">{{ label }}</label>
+    <input 
+      class="form-check-input" 
+      type="checkbox" 
+      [id]="id" 
+      [attr.disabled]="disabled?true:undefined" 
+      [attr.readonly]="readonly?true:undefined"
+      [class.form-select-lg]="size === 'large'"
+      [class.form-select-sm]="size === 'small'"
+      [value]="value"
+      (blur)="touch()"             
+      [ngClass]="{'is-invalid': control?.touched && control?.invalid}"
+      (input)="update($event.target)">
+      <label *ngIf="label && beforeText" [for]="id" class="form-label">{{ label }}</label>
   </div>
   <div class="invalid-feedback">
     {{ errors | json }}

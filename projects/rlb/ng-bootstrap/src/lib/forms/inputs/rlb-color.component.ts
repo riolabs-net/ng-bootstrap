@@ -5,8 +5,11 @@ import { UniqueIdService } from "../../shared/unique-id.service";
 
 @Component({
   selector: 'rlb-color',
+  host: {
+    class: 'd-flex flex-grow-1 flex-shrink-1 flex-auto'
+  },
   template: `
-  <label [for]="id" class="form-label">{{label}}</label>
+  <label *ngIf="label" [for]="id" class="form-label">{{ label }}</label>
   <input #input
          [id]="id"
          class="form-control form-control-color" 
