@@ -13,6 +13,8 @@ import { UniqueIdService } from "../../shared/unique-id.service";
            class="form-control"
            [attr.disabled]="disabled?true:undefined" 
            [attr.readonly]="readonly?true:undefined"
+           [attr.multiple]="multiple?true:undefined"
+           [attr.accept]="accept?accept:undefined"
            [class.form-control-lg]="size === 'large'"
            [class.form-control-sm]="size === 'small'"
            (blur)="touch()"
@@ -28,6 +30,8 @@ export class RlbFileComponent extends RlbAbstractComponent<string> implements Co
   @Input() readonly = false;
   @Input() label: string = '';
   @Input() size: "small" | "large" | undefined = undefined
+  @Input() multiple!: boolean | undefined
+  @Input() accept!: string | undefined
 
   constructor(idService: UniqueIdService, @Self() @Optional() override control?: NgControl) {
     super(idService, control)
