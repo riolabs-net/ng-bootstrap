@@ -3,10 +3,7 @@
  */
 
 export * from './lib/RlbBootstrap.module';
-export * from './lib/data/datatable/rlb-dt-cell.component';
-export * from './lib/data/datatable/rlb-dt-header.component';
-export * from './lib/data/datatable/rlb-dt-row.component';
-export * from './lib/data/datatable/rlb-dt-table.component';
+export * from './lib/data/datatable';
 export * from './lib/forms/inputs';
 export * from './lib/forms/rlb-form-fields/rlb-form-fields.component';
 
