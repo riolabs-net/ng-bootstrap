@@ -11,6 +11,7 @@ export * from './lib/data/datatable/rlb-dt-table.component';
 export * from './lib/forms/inputs/rlb-checkbox.component';
 export * from './lib/forms/inputs/rlb-color.component';
 export * from './lib/forms/inputs/rlb-datalist.component';
+export * from './lib/forms/inputs/rlb-file.component';
 export * from './lib/forms/inputs/rlb-input.component';
 export * from './lib/forms/inputs/rlb-options.component';
 export * from './lib/forms/inputs/rlb-radio.component';

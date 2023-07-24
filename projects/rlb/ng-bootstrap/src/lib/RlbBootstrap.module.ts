@@ -20,6 +20,7 @@ import { RlbRangeComponent } from './forms/inputs/rlb-range.component';
 import { RlbSelectComponent } from './forms/inputs/rlb-select.component';
 import { RlbRadioComponent } from './forms/inputs/rlb-radio.component';
 import { RlbOptionComponent } from '../public-api';
+import { RlbFileComponent } from './forms/inputs/rlb-file.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RlbOptionComponent } from '../public-api';
     RlbSelectComponent,
     RlbRadioComponent,
     RlbOptionComponent,
+    RlbFileComponent,
     HelpText,
   ],
   imports: [
@@ -64,6 +66,7 @@ import { RlbOptionComponent } from '../public-api';
     RlbSelectComponent,
     RlbRadioComponent,
     RlbOptionComponent,
+    RlbFileComponent,
     HelpText
   ]
 })
