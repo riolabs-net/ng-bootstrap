@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { TABLE } from './data/datatable';
-import { RlbFormFieldsComponent } from './forms/rlb-form-fields/rlb-form-fields.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
-import { RouterModule } from '@angular/router';
-import { INPUTS } from '../lib/forms/inputs';
+
+import { TABLE } from './data/datatable';
+import { INPUTS } from './forms/inputs';
+import { COMPONENTS } from './components';
+import { RlbFormFieldsComponent } from './forms/rlb-form-fields/rlb-form-fields.component';
 
 @NgModule({
   declarations: [
     ...TABLE,
     ...INPUTS,
+    ...COMPONENTS,
     RlbFormFieldsComponent
   ],
   imports: [
@@ -25,6 +29,7 @@ import { INPUTS } from '../lib/forms/inputs';
   exports: [
     ...TABLE,
     ...INPUTS,
+    ...COMPONENTS,
     RlbFormFieldsComponent
   ]
 })

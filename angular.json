@@ -104,7 +104,7 @@
       "projectType": "library",
       "root": "projects/rlb/ng-bootstrap",
       "sourceRoot": "projects/rlb/ng-bootstrap/src",
-      "prefix": "lib",
+      "prefix": "rlb",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
