@@ -24,6 +24,9 @@ import { UniqueIdService } from "../../shared/unique-id.service";
         >
       <span *ngIf="!beforeText">{{ label }}</span>
     </label>
+  </div>
+  <div class="invalid-feedback">
+    {{ errors | json }}
   </div>`
 })
 export class RlbSwitchComponent extends RlbAbstractComponent<boolean> implements ControlValueAccessor {

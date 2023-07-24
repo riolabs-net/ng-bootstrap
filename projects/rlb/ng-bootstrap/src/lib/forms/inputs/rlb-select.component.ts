@@ -21,7 +21,10 @@ import { RlbOptionComponent } from './rlb-options.component';
       >
     <option *ngIf="placeholder" selected disabled>{{ placeholder }}</option>
     <ng-container #projectedDisplayColumns></ng-container>
-  </select>`
+  </select>
+  <div class="invalid-feedback">
+    {{ errors | json }}
+  </div>`
 })
 export class RlbSelectComponent extends RlbAbstractComponent<string> implements ControlValueAccessor {
   @Input() disabled = false;

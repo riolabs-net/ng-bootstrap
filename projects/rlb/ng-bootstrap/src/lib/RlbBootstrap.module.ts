@@ -18,6 +18,8 @@ import { RlbColorComponent } from './forms/inputs/rlb-color.component';
 import { RlbDatalistComponent } from './forms/inputs/rlb-datalist.component';
 import { RlbRangeComponent } from './forms/inputs/rlb-range.component';
 import { RlbSelectComponent } from './forms/inputs/rlb-select.component';
+import { RlbRadioComponent } from './forms/inputs/rlb-radio.component';
+import { RlbOptionComponent } from '../public-api';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { RlbSelectComponent } from './forms/inputs/rlb-select.component';
     RlbDatalistComponent,
     RlbRangeComponent,
     RlbSelectComponent,
-    HelpText
+    RlbRadioComponent,
+    RlbOptionComponent,
+    HelpText,
   ],
   imports: [
     CommonModule,
@@ -58,6 +62,8 @@ import { RlbSelectComponent } from './forms/inputs/rlb-select.component';
     RlbDatalistComponent,
     RlbRangeComponent,
     RlbSelectComponent,
+    RlbRadioComponent,
+    RlbOptionComponent,
     HelpText
   ]
 })

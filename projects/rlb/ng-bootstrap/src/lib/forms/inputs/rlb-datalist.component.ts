@@ -22,7 +22,10 @@ import { UniqueIdService } from "../../shared/unique-id.service";
          (input)="update($event.target);">
   <datalist [id]="'list-'+id">
     <ng-content></ng-content>
-  </datalist>`
+  </datalist>
+  <div class="invalid-feedback">
+    {{ errors | json }}
+  </div>`
 })
 export class RlbDatalistComponent extends RlbAbstractComponent<string> implements ControlValueAccessor {
   @Input() disabled = false;

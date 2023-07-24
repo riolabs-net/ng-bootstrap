@@ -18,7 +18,10 @@ import { UniqueIdService } from "../../shared/unique-id.service";
          [value]="value"
          (blur)="touch();"             
          [ngClass]="{'is-invalid': control?.touched && control?.invalid}"
-         (input)="update($event.target);">`
+         (input)="update($event.target);">
+  <div class="invalid-feedback">
+    {{ errors | json }}
+  </div>`
 })
 export class RlbColorComponent extends RlbAbstractComponent<string> implements ControlValueAccessor {
   @Input() disabled = false;

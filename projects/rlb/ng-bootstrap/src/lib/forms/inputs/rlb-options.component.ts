@@ -9,7 +9,7 @@ import { HostWrapper } from '../../shared/host-wrapper';
 export class RlbOptionComponent {
 
     @Input() disabled = false;
-    @Input() value = false;
+    @Input() value!: string;
 
     private wrappedInjector!: Injector;
 
