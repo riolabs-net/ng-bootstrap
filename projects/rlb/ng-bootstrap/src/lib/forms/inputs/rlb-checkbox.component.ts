@@ -1,4 +1,4 @@
-import { Component, Input, Optional, Self } from '@angular/core';
+import { Component, ElementRef, Input, Optional, Self, ViewChild, ViewRef } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { RlbAbstractComponent } from './rlb-abstract-field.component';
 import { UniqueIdService } from "../../shared/unique-id.service";
@@ -9,7 +9,7 @@ import { UniqueIdService } from "../../shared/unique-id.service";
   <div class="form-check">
     <label class="form-check-label" [for]="id">
       <span *ngIf="beforeText">{{ label }}</span>
-      <input 
+      <input #input
         class="form-check-input" 
         type="checkbox" 
         [id]="id" 
@@ -23,11 +23,13 @@ import { UniqueIdService } from "../../shared/unique-id.service";
     </label>
   </div>`
 })
-export class RlbCheckboxComponent extends RlbAbstractComponent<boolean> implements ControlValueAccessor {
+export class RlbCheckboxComponent extends RlbAbstractComponent<boolean | undefined> implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() label: string = '';
   @Input() beforeText: boolean = false
+  @Input() indeterminate: boolean = false
+  @ViewChild('input', { read: ElementRef }) input!: ElementRef<HTMLInputElement>;
 
   constructor(idService: UniqueIdService, @Self() @Optional() override control?: NgControl) {
     super(idService, control)
@@ -38,5 +40,19 @@ export class RlbCheckboxComponent extends RlbAbstractComponent<boolean> implemen
       const t = (ev as HTMLInputElement)
       this.setValue(t?.checked)
     }
+  }
+
+  override writeValue(val: boolean | undefined): void {
+    if (this.indeterminate && this.input) {
+      if (typeof val === 'undefined' || val === null) {
+        this.input.nativeElement.indeterminate = true
+      } else {
+        this.input.nativeElement.indeterminate = false
+      }
+    }
+    if(!this.indeterminate) {
+      val = val || false
+    }
+    super.writeValue(val)
   }
 }
