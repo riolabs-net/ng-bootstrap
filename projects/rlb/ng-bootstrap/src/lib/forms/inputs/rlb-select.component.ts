@@ -19,11 +19,9 @@ import { RlbOptionComponent } from './rlb-options.component';
       [class.form-select-lg]="size === 'large'"
       [class.form-select-sm]="size === 'small'"
       [attr.placeholder]="placeholder"
-      [attr.size]="display"
-      
-      >
+      [attr.size]="display">
     <option *ngIf="placeholder" selected disabled>{{ placeholder }}</option>
-    <ng-container #projectedDisplayColumns></ng-container>
+    <ng-container #projectedDisplayOptions></ng-container>
   </select>
   <div class="invalid-feedback">
     {{ errors | json }}
