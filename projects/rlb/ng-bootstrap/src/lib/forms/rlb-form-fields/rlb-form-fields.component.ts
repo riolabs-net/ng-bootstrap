@@ -7,7 +7,7 @@ import { FormFieldsDefinition, FormField, IForm } from './form-fields';
   templateUrl: './rlb-form-fields.component.html',
   styleUrls: ['./rlb-form-fields.component.scss']
 })
-export class RlbFormFieldsComponent implements IForm, OnChanges {
+export class FormFieldsComponent implements IForm, OnChanges {
   public filterForm!: FormGroup;
   @Input() public title!: string
   @Input() public subTitle!: string

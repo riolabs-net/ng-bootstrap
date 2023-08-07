@@ -1,6 +1,6 @@
 import { Component, Input, Optional, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { RlbAbstractComponent } from './rlb-abstract-field.component';
+import { AbstractComponent } from './rlb-abstract-field.component';
 import { UniqueIdService } from "../../shared/unique-id.service";
 
 @Component({
@@ -29,7 +29,7 @@ import { UniqueIdService } from "../../shared/unique-id.service";
     {{ errors | json }}
   </div>`
 })
-export class RlbSwitchComponent extends RlbAbstractComponent<boolean> implements ControlValueAccessor {
+export class SwitchComponent extends AbstractComponent<boolean> implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() label: string = '';

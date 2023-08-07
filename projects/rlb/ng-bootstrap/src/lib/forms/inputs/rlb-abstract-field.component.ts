@@ -3,7 +3,7 @@ import { ControlValueAccessor, NgControl, ValidationErrors } from "@angular/form
 import { UniqueIdService } from "../../shared/unique-id.service";
 
 @Injectable()
-export abstract class RlbAbstractComponent<T = any> implements ControlValueAccessor {
+export abstract class AbstractComponent<T = any> implements ControlValueAccessor {
   public abstract disabled: boolean;
   public abstract label: string;
   protected onTouched: Function = () => { };

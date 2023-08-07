@@ -13,33 +13,33 @@ export * from './rlb-switch.component';
 export * from './rlb-text-area.component';
 export * from './rlb-help-text.directive';
 
-import { RlbCheckboxComponent } from "./rlb-checkbox.component";
-import { RlbColorComponent } from "./rlb-color.component";
-import { RlbDatalistComponent } from "./rlb-datalist.component";
-import { RlbFileComponent } from "./rlb-file.component";
+import { CheckboxComponent } from "./rlb-checkbox.component";
+import { ColorComponent } from "./rlb-color.component";
+import { DatalistComponent } from "./rlb-datalist.component";
+import { FileComponent } from "./rlb-file.component";
 import { HelpText } from "./rlb-help-text.directive";
-import { RlbInputGroupComponent, RlbInputTextGroupComponent } from "./rlb-input-group.component";
-import { RlbInputComponent } from "./rlb-input.component";
-import { RlbOptionComponent } from "./rlb-options.component";
-import { RlbRadioComponent } from "./rlb-radio.component";
-import { RlbRangeComponent } from "./rlb-range.component";
-import { RlbSelectComponent } from "./rlb-select.component";
-import { RlbSwitchComponent } from "./rlb-switch.component";
-import { RlbTextAreaComponent } from "./rlb-text-area.component";
+import { InputGroupComponent, InputTextGroupComponent } from "./rlb-input-group.component";
+import { InputComponent } from "./rlb-input.component";
+import { OptionComponent } from "./rlb-options.component";
+import { RadioComponent } from "./rlb-radio.component";
+import { RangeComponent } from "./rlb-range.component";
+import { SelectComponent } from "./rlb-select.component";
+import { SwitchComponent } from "./rlb-switch.component";
+import { TextAreaComponent } from "./rlb-text-area.component";
 
 export const INPUTS = [
-  RlbCheckboxComponent,
-  RlbInputComponent,
-  RlbSwitchComponent,
-  RlbTextAreaComponent,
-  RlbColorComponent,
-  RlbDatalistComponent,
-  RlbRangeComponent,
-  RlbSelectComponent,
-  RlbRadioComponent,
-  RlbOptionComponent,
-  RlbFileComponent,
-  RlbInputGroupComponent,
-  RlbInputTextGroupComponent,
+  CheckboxComponent,
+  InputComponent,
+  SwitchComponent,
+  TextAreaComponent,
+  ColorComponent,
+  DatalistComponent,
+  RangeComponent,
+  SelectComponent,
+  RadioComponent,
+  OptionComponent,
+  FileComponent,
+  InputGroupComponent,
+  InputTextGroupComponent,
   HelpText,
 ];

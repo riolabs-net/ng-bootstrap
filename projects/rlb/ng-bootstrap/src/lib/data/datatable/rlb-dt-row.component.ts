@@ -4,4 +4,4 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   selector: 'tr[rlb-dt-row]',
   template: `<ng-content select="td[rlb-dt-cell]" />`
 })
-export class RlbDtRowComponent {}
+export class DtRowComponent {}

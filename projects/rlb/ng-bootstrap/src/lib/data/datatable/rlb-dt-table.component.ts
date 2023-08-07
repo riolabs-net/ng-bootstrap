@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ContentChildren, EventEmitter, Input, Output, QueryList, ViewChild, ViewContainerRef } from '@angular/core';
-import { RlbDtHeaderComponent } from './rlb-dt-header.component';
+import { DtHeaderComponent } from './rlb-dt-header.component';
 
 export interface TableDataQuery {
   pagination?: { size: number },
@@ -12,7 +12,7 @@ export interface TableDataQuery {
   templateUrl: './rlb-dt-table.component.html',
   styleUrls: ['./rlb-dt-table.component.scss'],
 })
-export class RlbDataTableComponent implements AfterViewInit {
+export class DataTableComponent implements AfterViewInit {
   @Input() filtrable!: boolean;
   @Input() creationStrategy: 'none' | 'modal' | 'page' = 'none'
   @Input() creationUrl!: any[] | string | null | undefined
@@ -21,7 +21,7 @@ export class RlbDataTableComponent implements AfterViewInit {
   
   private tableDataQuery: TableDataQuery = {};
 
-  @ContentChildren(RlbDtHeaderComponent) columns!: QueryList<RlbDtHeaderComponent>;
+  @ContentChildren(DtHeaderComponent) columns!: QueryList<DtHeaderComponent>;
   @ViewChild('projectedDisplayColumns', { read: ViewContainerRef }) _projectedDisplayColumns!: ViewContainerRef;
 
   ngAfterViewInit() {

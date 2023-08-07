@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, Optional, Self, ViewChild, ViewRef } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { RlbAbstractComponent } from './rlb-abstract-field.component';
+import { AbstractComponent } from './rlb-abstract-field.component';
 import { UniqueIdService } from "../../shared/unique-id.service";
 
 @Component({
@@ -24,7 +24,7 @@ import { UniqueIdService } from "../../shared/unique-id.service";
     <label *ngIf="label && beforeText" [for]="id" class="form-label">{{ label }}</label>
   </div>`
 })
-export class RlbCheckboxComponent extends RlbAbstractComponent<boolean | undefined> implements ControlValueAccessor {
+export class CheckboxComponent extends AbstractComponent<boolean | undefined> implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() label: string = '';

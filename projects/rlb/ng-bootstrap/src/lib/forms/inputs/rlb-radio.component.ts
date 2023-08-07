@@ -1,7 +1,7 @@
 import { Component, Input, ContentChildren, QueryList, ViewContainerRef, ViewChildren, ElementRef } from '@angular/core';
-import { RlbAbstractComponent } from './rlb-abstract-field.component';
+import { AbstractComponent } from './rlb-abstract-field.component';
 import { ControlValueAccessor } from '@angular/forms';
-import { RlbOptionComponent } from './rlb-options.component';
+import { OptionComponent } from './rlb-options.component';
 
 
 @Component({
@@ -34,12 +34,12 @@ import { RlbOptionComponent } from './rlb-options.component';
       {{ errors | json }}
     </div>`
 })
-export class RlbRadioComponent extends RlbAbstractComponent<string> implements ControlValueAccessor {
+export class RadioComponent extends AbstractComponent<string> implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() label: string = '';
 
-  @ContentChildren(RlbOptionComponent) options!: QueryList<RlbOptionComponent>;
+  @ContentChildren(OptionComponent) options!: QueryList<OptionComponent>;
   @ViewChildren('content', { read: ViewContainerRef }) contents!: QueryList<ViewContainerRef>;
 
   ngAfterViewInit() {

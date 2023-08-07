@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RlbBootstrapModule } from 'projects/rlb/ng-bootstrap/src/public-api';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { RlbBootstrapModule } from 'projects/rlb/ng-bootstrap/src/public-api';
   imports: [
     BrowserModule,
     RlbBootstrapModule,
+    FormsModule,
     NgbModule
   ],
   providers: [],

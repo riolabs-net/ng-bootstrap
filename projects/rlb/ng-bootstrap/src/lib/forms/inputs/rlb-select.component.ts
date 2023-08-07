@@ -1,8 +1,8 @@
 import { ContentChildren, Component, Injector, Input, Optional, Self, ViewContainerRef, ViewChild, QueryList } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { RlbAbstractComponent } from './rlb-abstract-field.component';
+import { AbstractComponent } from './rlb-abstract-field.component';
 import { UniqueIdService } from "../../shared/unique-id.service";
-import { RlbOptionComponent } from './rlb-options.component';
+import { OptionComponent } from './rlb-options.component';
 
 @Component({
   selector: 'rlb-select',
@@ -27,7 +27,7 @@ import { RlbOptionComponent } from './rlb-options.component';
     {{ errors | json }}
   </div>`
 })
-export class RlbSelectComponent extends RlbAbstractComponent<string> implements ControlValueAccessor {
+export class SelectComponent extends AbstractComponent<string> implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() label: string = '';
   @Input() placeholder!: string
@@ -45,7 +45,7 @@ export class RlbSelectComponent extends RlbAbstractComponent<string> implements 
     }
   }
 
-  @ContentChildren(RlbOptionComponent) options!: QueryList<RlbOptionComponent>;
+  @ContentChildren(OptionComponent) options!: QueryList<OptionComponent>;
   @ViewChild('projectedDisplayOptions', { read: ViewContainerRef }) _projectedDisplayOptions!: ViewContainerRef;
 
   ngAfterViewInit() {

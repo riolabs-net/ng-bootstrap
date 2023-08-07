@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, Optional, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { RlbAbstractComponent } from './rlb-abstract-field.component';
+import { AbstractComponent } from './rlb-abstract-field.component';
 import { UniqueIdService } from "../../shared/unique-id.service";
 
 @Component({
@@ -27,7 +27,7 @@ import { UniqueIdService } from "../../shared/unique-id.service";
     {{ errors | json }}
   </div>`
 })
-export class RlbRangeComponent extends RlbAbstractComponent<string> implements ControlValueAccessor {
+export class RangeComponent extends AbstractComponent<string> implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() label: string = '';

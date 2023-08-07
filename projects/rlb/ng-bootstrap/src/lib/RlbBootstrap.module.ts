@@ -9,14 +9,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TABLE } from './data/datatable';
 import { INPUTS } from './forms/inputs';
 import { COMPONENTS } from './components';
-import { RlbFormFieldsComponent } from './forms/rlb-form-fields/rlb-form-fields.component';
+import { FormFieldsComponent } from './forms/rlb-form-fields/rlb-form-fields.component';
 
 @NgModule({
   declarations: [
     ...TABLE,
     ...INPUTS,
     ...COMPONENTS,
-    RlbFormFieldsComponent
+    FormFieldsComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +30,7 @@ import { RlbFormFieldsComponent } from './forms/rlb-form-fields/rlb-form-fields.
     ...TABLE,
     ...INPUTS,
     ...COMPONENTS,
-    RlbFormFieldsComponent
+    FormFieldsComponent
   ]
 })
 export class RlbBootstrapModule { }

@@ -8,7 +8,7 @@ import { HostWrapper } from '../../shared/host-wrapper';
   selector: 'th[rlb-dt-header]',
   template: `<ng-content></ng-content>`
 })
-export class RlbDtHeaderComponent {
+export class DtHeaderComponent {
   private wrappedInjector!: Injector;
   @Input() field!: string
   @Input() type!: 'number' | 'string'

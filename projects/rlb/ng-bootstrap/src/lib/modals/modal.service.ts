@@ -3,7 +3,7 @@ import { Injectable, Type } from '@angular/core'
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap'
 import { from, map, Observable } from 'rxjs'
 import { DialogData, DialogResult } from './dialog-data'
-import { RlbModalRegistryOptions } from './rlb-modal-registry.options'
+import { ModalRegistryOptions } from './rlb-modal-registry.options'
 import { AbstractRegistryService } from '../shared/abstract.registry.service'
 
 
@@ -12,7 +12,7 @@ import { AbstractRegistryService } from '../shared/abstract.registry.service'
 })
 export class ModalService extends AbstractRegistryService<Type<any>> {
 
-  constructor(options: RlbModalRegistryOptions, private modalService: NgbModal, private mediaMatcher: MediaMatcher) {
+  constructor(options: ModalRegistryOptions, private modalService: NgbModal, private mediaMatcher: MediaMatcher) {
     super()
     if (options && options.modals && options.modals.length > 0) {
       for (const modal of options.modals) {

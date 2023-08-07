@@ -1,6 +1,6 @@
 import { Component, Input, Optional, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { RlbAbstractComponent } from './rlb-abstract-field.component';
+import { AbstractComponent } from './rlb-abstract-field.component';
 import { UniqueIdService } from "../../shared/unique-id.service";
 
 @Component({
@@ -12,7 +12,7 @@ import { UniqueIdService } from "../../shared/unique-id.service";
   },
   template: `<ng-content></ng-content>`
 })
-export class RlbInputGroupComponent {
+export class InputGroupComponent {
   @Input() size: "small" | "large" | undefined = undefined
 }
 
@@ -22,4 +22,4 @@ export class RlbInputGroupComponent {
   host: { class: 'input-group-text' },
   template: `<ng-content></ng-content>`
 })
-export class RlbInputTextGroupComponent { }
+export class InputTextGroupComponent { }

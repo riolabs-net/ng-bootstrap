@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   selector: 'td[rlb-dt-cell]',
   template: `<ng-content></ng-content>`
 })
-export class RlbDtCellComponent {
+export class DtCellComponent {
 
 }

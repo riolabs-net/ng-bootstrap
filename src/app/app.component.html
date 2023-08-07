@@ -1,3 +1,8 @@
 <div>
-    <rlb-input formControlName="name" type="text" label="input.name" placeholder="input.name" helpText="pippo" />
+    <rlb-radio [(ngModel)]="checked" label="efef">
+        <rlb-option value="1">Pippo</rlb-option>
+        <rlb-option value="2">Pluto</rlb-option>
+        <rlb-option value="3">Topolino</rlb-option>
+    </rlb-radio>
+    {{checked }}
 </div>

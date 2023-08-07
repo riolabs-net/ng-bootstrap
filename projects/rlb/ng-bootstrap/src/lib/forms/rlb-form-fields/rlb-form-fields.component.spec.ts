@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RlbFormFieldsComponent } from './rlb-form-fields.component';
+import { FormFieldsComponent } from './rlb-form-fields.component';
 
 
 
 describe('FieldsFormComponent', () => {
-  let component: RlbFormFieldsComponent;
-  let fixture: ComponentFixture<RlbFormFieldsComponent>;
+  let component: FormFieldsComponent;
+  let fixture: ComponentFixture<FormFieldsComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RlbFormFieldsComponent]
+      declarations: [FormFieldsComponent]
     });
-    fixture = TestBed.createComponent(RlbFormFieldsComponent);
+    fixture = TestBed.createComponent(FormFieldsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

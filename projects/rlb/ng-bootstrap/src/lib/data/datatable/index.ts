@@ -3,14 +3,14 @@ export * from './rlb-dt-header.component';
 export * from './rlb-dt-row.component';
 export * from './rlb-dt-table.component';
 
-import { RlbDtCellComponent } from "./rlb-dt-cell.component";
-import { RlbDtHeaderComponent } from "./rlb-dt-header.component";
-import { RlbDtRowComponent } from "./rlb-dt-row.component";
-import { RlbDataTableComponent } from "./rlb-dt-table.component";
+import { DtCellComponent } from "./rlb-dt-cell.component";
+import { DtHeaderComponent } from "./rlb-dt-header.component";
+import { DtRowComponent } from "./rlb-dt-row.component";
+import { DataTableComponent } from "./rlb-dt-table.component";
 
 export const TABLE = [
-  RlbDtCellComponent,
-  RlbDtHeaderComponent,
-  RlbDtRowComponent,
-  RlbDataTableComponent
+  DtCellComponent,
+  DtHeaderComponent,
+  DtRowComponent,
+  DataTableComponent
 ]

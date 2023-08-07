@@ -3,7 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { DialogData, DialogResult } from './dialog-data'
 
 @Injectable()
-export class RlbAbstractModalComponent<In = any, Out = any> {
+export class AbstractModalComponent<In = any, Out = any> {
 
   @Input() data!: DialogData<In>
 

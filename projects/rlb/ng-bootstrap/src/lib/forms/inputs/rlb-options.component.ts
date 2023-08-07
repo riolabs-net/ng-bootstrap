@@ -6,7 +6,7 @@ import { HostWrapper } from '../../shared/host-wrapper';
     selector: 'rlb-option',
     template: `<ng-content></ng-content>`
 })
-export class RlbOptionComponent {
+export class OptionComponent {
 
     @Input() disabled = false;
     @Input() value!: string;
