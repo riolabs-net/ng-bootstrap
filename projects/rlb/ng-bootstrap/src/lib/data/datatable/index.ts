@@ -1,16 +1,22 @@
-export * from './rlb-dt-cell.component';
-export * from './rlb-dt-header.component';
-export * from './rlb-dt-row.component';
-export * from './rlb-dt-table.component';
+export * from './dt-action.component';
+export * from './dt-actions.component';
+export * from './dt-cell.component';
+export * from './dt-header.component';
+export * from './dt-row.component';
+export * from './dt-table.component';
 
-import { DtCellComponent } from "./rlb-dt-cell.component";
-import { DtHeaderComponent } from "./rlb-dt-header.component";
-import { DtRowComponent } from "./rlb-dt-row.component";
-import { DataTableComponent } from "./rlb-dt-table.component";
+import { DataTableActionComponent } from './dt-action.component';
+import { DataTableActionsComponent } from './dt-actions.component';
+import { DataTableCellComponent } from './dt-cell.component';
+import { DataTableHeaderComponent } from './dt-header.component';
+import { DataTableRowComponent } from './dt-row.component';
+import { DataTableComponent } from './dt-table.component';
 
 export const TABLE = [
-  DtCellComponent,
-  DtHeaderComponent,
-  DtRowComponent,
+  DataTableActionComponent,
+  DataTableActionsComponent,
+  DataTableCellComponent,
+  DataTableHeaderComponent,
+  DataTableRowComponent,
   DataTableComponent
 ]

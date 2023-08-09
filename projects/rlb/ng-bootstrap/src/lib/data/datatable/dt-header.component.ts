@@ -1,14 +1,13 @@
 import { Component, Injector, Input, ViewContainerRef } from '@angular/core';
-import { WrappedComponent } from '../../shared/wrapped.component';
 import { HostWrapper } from '../../shared/host-wrapper';
-
+import { WrappedComponent } from '../../shared/wrapped.component';
 
 
 @Component({
   selector: 'th[rlb-dt-header]',
   template: `<ng-content></ng-content>`
 })
-export class DtHeaderComponent {
+export class DataTableHeaderComponent {
   private wrappedInjector!: Injector;
   @Input() field!: string
   @Input() type!: 'number' | 'string'
@@ -18,11 +17,10 @@ export class DtHeaderComponent {
   constructor(private vcr: ViewContainerRef) { }
 
   get _view() {
-    return this.wrappedInjector.get(WrappedComponent, this.vcr).componentView;
+    return this.wrappedInjector.get(WrappedComponent, this.vcr).columnView;
   }
 
   ngOnInit() {
     this.wrappedInjector = new HostWrapper(WrappedComponent, this.vcr);
   }
-
 }
