@@ -4,6 +4,7 @@ import { AccordionItemComponent } from './accordions/accordion-item.component';
 import { AccordionComponent } from './accordions/accordion.component';
 import { AlertComponent } from './alerts/alert.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { ButtonComponent } from './buttons/buttons.component';
 
 export * from './alerts/alert.component';
 export * from './breadcrumb/breadcrumb.component';
@@ -11,6 +12,7 @@ export * from './accordions/accordion.component';
 export * from './accordions/accordion-item.component';
 export * from './accordions/accordion-header.component';
 export * from './accordions/accordion-body.component';
+export * from './buttons/buttons.component';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -18,5 +20,6 @@ export const COMPONENTS = [
   AccordionComponent,
   AccordionItemComponent,
   AccordionHeaderComponent,
-  AccordionBodyComponent
+  AccordionBodyComponent,
+  ButtonComponent
 ]
