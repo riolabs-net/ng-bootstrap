@@ -13,7 +13,7 @@ export class UniqueIdService {
 
   public get id() {
     this._id++
-    return `-control-id-${this._id}`
+    return `-${this._id}`
   }
 
 }

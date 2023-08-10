@@ -10,7 +10,7 @@ export interface TableDataQuery {
 
 @Component({
   selector: 'rlb-dt-table',
-  templateUrl: './rlb-dt-table.component.html'
+  templateUrl: './dt-table.component.html'
 })
 export class DataTableComponent implements AfterViewInit {
   @Input() title!: string

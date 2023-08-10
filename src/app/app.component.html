@@ -1,8 +1,28 @@
-<div>
-    <rlb-radio [(ngModel)]="checked" label="efef">
-        <rlb-option value="1">Pippo</rlb-option>
-        <rlb-option value="2">Pluto</rlb-option>
-        <rlb-option value="3">Topolino</rlb-option>
-    </rlb-radio>
-    {{checked }}
+<div style="padding: 5px;">
+	<rlb-accordion>
+		<div rlb-accordion-item [expanded]="true">
+			<h2 rlb-accordion-header>
+				Titolo 1
+			</h2>
+			<div rlb-accordion-body>
+				body 1
+			</div>
+		</div>
+		<div rlb-accordion-item>
+			<h2 rlb-accordion-header>
+				Titolo 2
+			</h2>
+			<div rlb-accordion-body>
+				body 2
+			</div>
+		</div>
+		<div rlb-accordion-item>
+			<h2 rlb-accordion-header>
+				Titolo 3
+			</h2>
+			<div rlb-accordion-body>
+				body 3
+			</div>
+		</div>
+	</rlb-accordion>
 </div>
