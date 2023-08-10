@@ -1,3 +1,4 @@
+
 import { AccordionBodyComponent } from './accordions/accordion-body.component';
 import { AccordionHeaderComponent } from './accordions/accordion-header.component';
 import { AccordionItemComponent } from './accordions/accordion-item.component';
@@ -7,6 +8,17 @@ import { BadgeComponent } from './badges/badge.component';
 import { BadgeDirective } from './badges/badge.directive';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ButtonComponent } from './buttons/buttons.component';
+import { CardBodyComponent } from './cards/card-body.component';
+import { CardFooterComponent } from './cards/card-footer.component';
+import { CardGroupComponent } from './cards/card-group.component';
+import { CardHeaderComponent } from './cards/card-header.component';
+import { CardImageComponent } from './cards/card-image.component';
+import { CardLinkComponent } from './cards/card-link.component';
+import { CardSubtitleComponent } from './cards/card-subtitle.component';
+import { CardTextComponent } from './cards/card-text.component';
+import { CardTitleComponent } from './cards/card-title.component';
+import { CardComponent } from './cards/card.component';
+
 
 export * from './alerts/alert.component';
 export * from './breadcrumb/breadcrumb.component';
@@ -17,6 +29,16 @@ export * from './accordions/accordion-body.component';
 export * from './buttons/buttons.component';
 export * from './badges/badge.directive';
 export * from './badges/badge.component';
+export * from './cards/card-body.component';
+export * from './cards/card-footer.component';
+export * from './cards/card-group.component';
+export * from './cards/card-header.component';
+export * from './cards/card-image.component';
+export * from './cards/card-link.component';
+export * from './cards/card-subtitle.component';
+export * from './cards/card-text.component';
+export * from './cards/card-title.component';
+export * from './cards/card.component';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -27,5 +49,15 @@ export const COMPONENTS = [
   AccordionBodyComponent,
   ButtonComponent,
   BadgeDirective,
-  BadgeComponent
+  BadgeComponent,
+  CardBodyComponent,
+  CardFooterComponent,
+  CardGroupComponent,
+  CardHeaderComponent,
+  CardImageComponent,
+  CardLinkComponent,
+  CardSubtitleComponent,
+  CardTextComponent,
+  CardTitleComponent,
+  CardComponent
 ]
