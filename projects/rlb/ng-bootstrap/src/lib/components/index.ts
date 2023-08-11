@@ -21,6 +21,7 @@ import { CardTitleComponent } from './cards/card-title.component';
 import { CardComponent } from './cards/card.component';
 import { ProgressComponent } from './loaders/progress.component';
 import { SpinnerComponent } from './loaders/spinner.component';
+import { PlaceholderComponent } from './placeholder/placeholder.directive';
 import { PopoverDirective } from './tooltips/popover.directive';
 import { TooltipDirective } from './tooltips/tooltip.directive';
 
@@ -48,6 +49,7 @@ export * from './loaders/progress.component';
 export * from './loaders/spinner.component';
 export * from './tooltips/tooltip.directive';
 export * from './tooltips/popover.directive';
+export * from './placeholder/placeholder.directive';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -73,5 +75,6 @@ export const COMPONENTS = [
   SpinnerComponent,
   ProgressComponent,
   TooltipDirective,
-  PopoverDirective
+  PopoverDirective,
+  PlaceholderComponent
 ]
