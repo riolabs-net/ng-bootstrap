@@ -19,6 +19,8 @@ import { CardSubtitleComponent } from './cards/card-subtitle.component';
 import { CardTextComponent } from './cards/card-text.component';
 import { CardTitleComponent } from './cards/card-title.component';
 import { CardComponent } from './cards/card.component';
+import { ProgressComponent } from './loaders/progress.component';
+import { SpinnerComponent } from './loaders/spinner.component';
 
 
 export * from './alerts/alert.component';
@@ -41,6 +43,8 @@ export * from './cards/card-subtitle.component';
 export * from './cards/card-text.component';
 export * from './cards/card-title.component';
 export * from './cards/card.component';
+export * from './loaders/progress.component';
+export * from './loaders/spinner.component';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -62,5 +66,7 @@ export const COMPONENTS = [
   CardSubtitleComponent,
   CardTextComponent,
   CardTitleComponent,
-  CardComponent
+  CardComponent,
+  SpinnerComponent,
+  ProgressComponent
 ]

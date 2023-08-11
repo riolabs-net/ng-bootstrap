@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Color, Size } from '../../shared/colors';
 
 @Component({
   selector: 'button[rlb-button-close], a[rlb-button-close]',
@@ -10,6 +9,4 @@ import { Color, Size } from '../../shared/colors';
     'attr.aria-label': 'Close'
   }
 })
-export class ButtonCloseComponent {
-
-}
+export class ButtonCloseComponent { }
