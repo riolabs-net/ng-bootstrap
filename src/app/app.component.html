@@ -25,13 +25,15 @@
 			</div>
 		</div>
 	</rlb-accordion>
-	<button type="button" class="position-relative" [color]="'danger'" [outline]="true" size="lg" badge="pippo"
-		[badge-start]="100" [badge-top]="0" [badge-color]="'info'" [badge-pill]="true">Toggle</button>
+	<button rlb-button class="position-relative" [color]="'danger'" [outline]="true" size="lg" badge="pippo"
+		[badge-start]="100" [badge-top]="0" [badge-color]="'info'" [badge-pill]="true"
+		[tooltip]="'Ciao'" [tooltip-placement]="'right'" 
+		>Toggle</button>
 </div>
 
 <span rlb-badge [pill]="true">ppp</span>
 
-<rlb-card style="width: 300px;" [overlay]="true">
+<rlb-card style="width: 300px;" [overlay]="false">
 	<rlb-card-header>Header</rlb-card-header>
 	<img rlb-card-image src="https://via.placeholder.com/150" alt="Card image cap">
 	<rlb-card-body>
@@ -43,3 +45,11 @@
 	</rlb-card-body>
 	<rlb-card-footer>Footer</rlb-card-footer>
 </rlb-card>
+
+<rlb-progress [value]="22" [animated]="true" [height]="5"></rlb-progress>
+<rlb-progress [value]="44" [animated]="true" [height]="10" color="danger"></rlb-progress>
+<rlb-progress [value]="66" [animated]="true" [height]="15" color="success"></rlb-progress>
+<rlb-progress [value]="66" [animated]="true" [height]="15" color="success" [striped]="true"></rlb-progress>
+<rlb-progress [value]="66" [animated]="true" [height]="15" color="success" [showValue]="true">pippo</rlb-progress>
+
+<rlb-spinner [color]="'primary'" [size]="'lg'"></rlb-spinner>

@@ -17,8 +17,6 @@ export class BadgeDirective {
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
   ngAfterViewInit() {
-    console.log('badge directive');
-
     const badge = this.renderer.createElement('span');
 
     if (this.top || this.start || this.top === 0 || this.start === 0) {

@@ -12,7 +12,7 @@ import { Color } from '../../shared/colors';
     '[class.spinner-border-lg]': 'size === "lg" && style === "border"',
     '[class.spinner-grow-lg]': 'size === "lg" && style === "grow"',
     'role': 'status',
-    '[class]':"`text-${color}`",
+    '[class]':"'text-'+color",
   }
 })
 export class SpinnerComponent {

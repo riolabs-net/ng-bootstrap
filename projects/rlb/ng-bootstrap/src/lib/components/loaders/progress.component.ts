@@ -9,11 +9,13 @@ import { Color } from '../../shared/colors';
       [class.progress-bar-animated]="animated"
       [class.progress-bar-striped]="striped"
       [style.width.%]="getPercentValue()">
-      <span *ngIf="showValue">
-        {{ getPercentValue() | percent }}
+      <span *ngIf="showValue;else e">
+        {{ getPercentValue()  }}
       </span>
-    </div>
-    <ng-content></ng-content>`,
+      <ng-template #e>
+        <ng-content></ng-content>
+      </ng-template>
+    </div>`,
   host: {
     'class': 'progress',
     'attr.role': 'progressbar',
@@ -32,10 +34,11 @@ export class ProgressComponent {
   @Input({ required: true }) value = 0;
   @Input() height!: number;
   @Input() animated: boolean = false;
+  @Input() striped: boolean = false;
   @Input() ariaLabel!: string;
   @Input() showValue: boolean = false;
   @Input() color: Color = 'primary';
-  @Input() textColor: Color = 'primary';
+  @Input() textColor!: Color
 
   getPercentValue() {
     return (this.value - this.min) / (this.max - this.min) * 100
