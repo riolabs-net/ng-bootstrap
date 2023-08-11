@@ -7,6 +7,7 @@ import { AlertComponent } from './alerts/alert.component';
 import { BadgeComponent } from './badges/badge.component';
 import { BadgeDirective } from './badges/badge.directive';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { ButtonCloseComponent } from './buttons/buttons-close.component';
 import { ButtonComponent } from './buttons/buttons.component';
 import { CardBodyComponent } from './cards/card-body.component';
 import { CardFooterComponent } from './cards/card-footer.component';
@@ -27,6 +28,7 @@ export * from './accordions/accordion-item.component';
 export * from './accordions/accordion-header.component';
 export * from './accordions/accordion-body.component';
 export * from './buttons/buttons.component';
+export * from './buttons/buttons-close.component';
 export * from './badges/badge.directive';
 export * from './badges/badge.component';
 export * from './cards/card-body.component';
@@ -48,6 +50,7 @@ export const COMPONENTS = [
   AccordionHeaderComponent,
   AccordionBodyComponent,
   ButtonComponent,
+  ButtonCloseComponent,
   BadgeDirective,
   BadgeComponent,
   CardBodyComponent,

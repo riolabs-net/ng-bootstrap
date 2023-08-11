@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Color, Size } from '../../shared/colors';
 
 @Component({
-  selector: 'button[type="button"], a.btn,button.btn',
+  selector: 'button[rlb-button], a[rlb-button]',
   template: `<ng-content></ng-content>`,
   host: {
     '[class]': 'mainClass',
-    '[disabled]': 'disabled'
+    '[attr.disabled]': "disabled?true:undefined"
   }
 })
 export class ButtonComponent {
