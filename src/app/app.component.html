@@ -1,4 +1,4 @@
-<div style="padding: 5px;">
+<!-- <div style="padding: 5px;">
 	<rlb-accordion>
 		<div rlb-accordion-item [expanded]="true">
 			<h2 rlb-accordion-header>
@@ -26,9 +26,8 @@
 		</div>
 	</rlb-accordion>
 	<button rlb-button class="position-relative" [color]="'danger'" [outline]="true" size="lg" badge="pippo"
-		[badge-start]="100" [badge-top]="0" [badge-color]="'info'" [badge-pill]="true"
-		[tooltip]="'Ciao'" [tooltip-placement]="'right'" 
-		>Toggle</button>
+		[badge-start]="100" [badge-top]="0" [badge-color]="'info'" [badge-pill]="true" [tooltip]="'Ciao'"
+		[tooltip-placement]="'right'">Toggle</button>
 </div>
 
 <span rlb-badge [pill]="true">ppp</span>
@@ -52,4 +51,16 @@
 <rlb-progress [value]="66" [animated]="true" [height]="15" color="success" [striped]="true"></rlb-progress>
 <rlb-progress [value]="66" [animated]="true" [height]="15" color="success" [showValue]="true">pippo</rlb-progress>
 
-<rlb-spinner [color]="'primary'" [size]="'lg'"></rlb-spinner>
+<rlb-spinner [color]="'primary'" [size]="'lg'"></rlb-spinner> -->
+
+<button rlb-button rlb-collapse='pippo' type="button">Ciao</button>
+<rlb-collapse id="pippo">
+	<rlb-card style="width: 300px;" [overlay]="false">
+		<rlb-card-body>
+			<h5 rlb-card-title>Card title</h5>
+			<p rlb-card-text>
+				Some quick example text to build on the card title and make up the bulk of the card's content.
+			</p>
+		</rlb-card-body>
+	</rlb-card>
+</rlb-collapse>

@@ -2,7 +2,7 @@ import { Directive, ElementRef, Renderer2, Input } from "@angular/core";
 import { Color } from '../../shared/colors';
 
 @Directive({
-  selector: 'rlb-placeholder',
+  selector: '[rlb-placeholder]',
 })
 export class PlaceholderComponent {
   @Input('placeholder-color') color!: Color;

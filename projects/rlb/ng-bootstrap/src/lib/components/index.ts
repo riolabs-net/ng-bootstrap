@@ -19,6 +19,8 @@ import { CardSubtitleComponent } from './cards/card-subtitle.component';
 import { CardTextComponent } from './cards/card-text.component';
 import { CardTitleComponent } from './cards/card-title.component';
 import { CardComponent } from './cards/card.component';
+import { CollapseComponent } from './collapse/collapse.component';
+import { CollapseDirective } from './collapse/collapse.directive';
 import { ProgressComponent } from './loaders/progress.component';
 import { SpinnerComponent } from './loaders/spinner.component';
 import { PlaceholderComponent } from './placeholder/placeholder.directive';
@@ -50,6 +52,8 @@ export * from './loaders/spinner.component';
 export * from './tooltips/tooltip.directive';
 export * from './tooltips/popover.directive';
 export * from './placeholder/placeholder.directive';
+export * from './collapse/collapse.component';
+export * from './collapse/collapse.directive';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -76,5 +80,7 @@ export const COMPONENTS = [
   ProgressComponent,
   TooltipDirective,
   PopoverDirective,
-  PlaceholderComponent
+  PlaceholderComponent,
+  CollapseComponent,
+  CollapseDirective
 ]
