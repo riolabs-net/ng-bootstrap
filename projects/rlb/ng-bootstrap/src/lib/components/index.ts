@@ -29,6 +29,10 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { DropdownDirective } from './dropdown/dropdown.directive';
 import { ProgressComponent } from './loaders/progress.component';
 import { SpinnerComponent } from './loaders/spinner.component';
+import { NavbarBrandDirective } from './navbar/navbar-brand.directive';
+import { NavbarContainerComponent } from './navbar/navbar-container.component';
+import { NavbarMenuItemComponent } from './navbar/navbar-menu-item.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { PlaceholderComponent } from './placeholder/placeholder.directive';
 import { PopoverDirective } from './tooltips/popover.directive';
 import { TooltipDirective } from './tooltips/tooltip.directive';
@@ -66,6 +70,10 @@ export * from './dropdown/dropdown.component';
 export * from './dropdown/dropdown-container.component';
 export * from './dropdown/dropdown-menu-item.component';
 export * from './dropdown/dropdown.directive';
+export * from './navbar/navbar.component';
+export * from './navbar/navbar-container.component';
+export * from './navbar/navbar-menu-item.component';
+export * from './navbar/navbar-brand.directive';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -100,5 +108,9 @@ export const COMPONENTS = [
   DropdownComponent,
   DropdownContainerComponent,
   DropdownMenuItemComponent,
-  DropdownDirective
+  DropdownDirective,
+  NavbarBrandDirective,
+  NavbarComponent,
+  NavbarContainerComponent,
+  NavbarMenuItemComponent
 ]
