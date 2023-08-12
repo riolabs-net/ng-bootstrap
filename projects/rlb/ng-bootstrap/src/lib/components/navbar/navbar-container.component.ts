@@ -1,8 +1,15 @@
-import { Component, ElementRef, Renderer2, Input } from "@angular/core";
+import { Component, ElementRef, Input } from "@angular/core";
 
 @Component({
   selector: 'ul[rlb-nav-container], form[rlb-nav-container]',
-  template: '<ng-content select="li[rlb-nav-item]" />',
+  template: `
+    <ng-container *ngIf="isList; else e">
+      <ng-content select="li[rlb-nav-item]" />
+    </ng-container>
+    <ng-template #e>
+      <ng-content />
+    </ng-template> 
+    `,
   host: {
     '[attr.role]': 'role',
     '[class.navbar-nav]': 'isList',

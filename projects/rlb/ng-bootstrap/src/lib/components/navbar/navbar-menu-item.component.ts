@@ -3,31 +3,34 @@ import { Component, ElementRef, Renderer2, Input, AfterViewInit } from "@angular
 @Component({
   selector: 'li[rlb-nav-item], span[rlb-nav-item]',
   template: `
-    <a *ngIf="!isContainer && !isSpan" 
-      class="nav-link active" 
+    <a *ngIf="!isContainer && !isSpan; else e" 
+      class="nav-link" 
       [attr.aria-current]="active?'page':undefined"
       [attr.aria-disabled]="disabled?'true':undefined"
       [class.disabled]="disabled"
+      [class.active]="active"
       href="#">
-        <ng-content></ng-content>
+      <ng-container *ngTemplateOutlet="content"></ng-container>
     </a>
-    <ng-content *ngIf="isSpan || isContainer" />`,
+    <ng-template #e>
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </ng-template>
+    <ng-template #content><ng-content /></ng-template>
+    `,
   host: {
     'class': 'nav-item',
     '[class.navbar-text]': 'isSpan',
   }
 })
-export class NavbarMenuItemComponent implements AfterViewInit {
+export class NavbarMenuItemComponent {
 
   @Input() active: boolean = false;
   @Input() disabled: boolean = false;
   @Input() isContainer: boolean = false;
   @Input() isSpan: boolean = false;
-  constructor(private elementRef: ElementRef) { }
-
-  ngAfterViewInit() {
-    if (this.elementRef.nativeElement.nodeName.toLowerCase() === 'span') {
-
+  constructor(elementRef: ElementRef) {
+    if (elementRef.nativeElement.nodeName.toLowerCase() === 'span') {
+      this.isSpan = true;
     }
   }
 }
