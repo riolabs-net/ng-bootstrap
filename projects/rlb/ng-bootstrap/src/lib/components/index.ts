@@ -7,6 +7,8 @@ import { AlertComponent } from './alerts/alert.component';
 import { BadgeComponent } from './badges/badge.component';
 import { BadgeDirective } from './badges/badge.directive';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { ButtonGroupComponent } from './buttons/boutton-group.component';
+import { ButtonToolbarComponent } from './buttons/boutton-toolbar.component';
 import { ButtonCloseComponent } from './buttons/buttons-close.component';
 import { ButtonComponent } from './buttons/buttons.component';
 import { CardBodyComponent } from './cards/card-body.component';
@@ -21,6 +23,10 @@ import { CardTitleComponent } from './cards/card-title.component';
 import { CardComponent } from './cards/card.component';
 import { CollapseComponent } from './collapse/collapse.component';
 import { CollapseDirective } from './collapse/collapse.directive';
+import { DropdownContainerComponent } from './dropdown/dropdown-container.component';
+import { DropdownMenuItemComponent } from './dropdown/dropdown-menu-item.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { DropdownDirective } from './dropdown/dropdown.directive';
 import { ProgressComponent } from './loaders/progress.component';
 import { SpinnerComponent } from './loaders/spinner.component';
 import { PlaceholderComponent } from './placeholder/placeholder.directive';
@@ -35,6 +41,8 @@ export * from './accordions/accordion-header.component';
 export * from './accordions/accordion-body.component';
 export * from './buttons/buttons.component';
 export * from './buttons/buttons-close.component';
+export * from './buttons/boutton-group.component';
+export * from './buttons/boutton-toolbar.component';
 export * from './badges/badge.directive';
 export * from './badges/badge.component';
 export * from './cards/card-body.component';
@@ -54,6 +62,10 @@ export * from './tooltips/popover.directive';
 export * from './placeholder/placeholder.directive';
 export * from './collapse/collapse.component';
 export * from './collapse/collapse.directive';
+export * from './dropdown/dropdown.component';
+export * from './dropdown/dropdown-container.component';
+export * from './dropdown/dropdown-menu-item.component';
+export * from './dropdown/dropdown.directive';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -64,6 +76,8 @@ export const COMPONENTS = [
   AccordionBodyComponent,
   ButtonComponent,
   ButtonCloseComponent,
+  ButtonGroupComponent,
+  ButtonToolbarComponent,
   BadgeDirective,
   BadgeComponent,
   CardBodyComponent,
@@ -82,5 +96,9 @@ export const COMPONENTS = [
   PopoverDirective,
   PlaceholderComponent,
   CollapseComponent,
-  CollapseDirective
+  CollapseDirective,
+  DropdownComponent,
+  DropdownContainerComponent,
+  DropdownMenuItemComponent,
+  DropdownDirective
 ]
