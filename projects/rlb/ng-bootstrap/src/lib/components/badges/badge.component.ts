@@ -2,7 +2,7 @@ import { Component, ElementRef, Renderer2, Input, AfterViewInit } from "@angular
 import { Color } from "../../shared/colors";
 
 @Component({
-  selector: "span [rlb-badge]",
+  selector: "span[rlb-badge]",
   template: "<ng-content></ng-content>",
   host: {
     '[class]': 'style',
