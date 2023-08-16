@@ -1,11 +1,11 @@
-import { Directive, ElementRef, Renderer2, Input } from "@angular/core";
+import { Directive, ElementRef, Renderer2, Input, AfterViewInit } from "@angular/core";
 import { Popover } from 'bootstrap'
 
 @Directive({
   selector: "[popover]",
 })
 
-export class PopoverDirective {
+export class PopoverDirective implements AfterViewInit {
   static bsInit = false;
 
   @Input({ alias: 'popover', required: true }) popover!: string | undefined;

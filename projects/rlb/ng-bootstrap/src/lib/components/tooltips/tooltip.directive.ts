@@ -1,11 +1,11 @@
-import { Directive, ElementRef, Renderer2, Input } from "@angular/core";
+import { Directive, ElementRef, Renderer2, Input, AfterViewInit } from "@angular/core";
 import { Tooltip } from 'bootstrap'
 
 @Directive({
   selector: "[tooltip]"
 })
 
-export class TooltipDirective {
+export class TooltipDirective implements AfterViewInit {
   static bsInit = false;
 
   @Input({ alias: 'tooltip', required: true }) tooltip!: string | undefined;
