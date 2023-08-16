@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, ElementRef } from '@angular/core';
+import { Collapse } from 'bootstrap';
+import { ToggleAbstractComponent } from '../abstract/toggle-abstract.component';
 
 @Component({
   selector: 'rlb-collapse',
@@ -9,31 +11,19 @@ import { Component, EventEmitter, Input, OnInit, Output, OnDestroy, AfterViewIni
     '[class.collapse-horizontal]': 'orientation === "horizontal"',
   }
 })
-export class CollapseComponent implements OnInit, OnDestroy {
+export class CollapseComponent extends ToggleAbstractComponent<Collapse> implements OnInit, OnDestroy {
 
-  @Input({ alias: 'id', required: true }) id!: string;
+  @Input({ alias: `id`, required: true }) id!: string;
   @Input() orientation: 'horizontal' | 'vertical' = 'vertical';
-  @Input() open: boolean = false;
-  @Output() openChange = new EventEmitter<boolean>();
 
-  private _open_f = (e: Event) => {
-    this.open = true;
-    this.openChange.emit(true);
-  }
-  private _close_f = (e: Event) => {
-    this.open = false;
-    this.openChange.emit(false)
-  };
-
-  ngOnInit(): void {
-    const element = document.getElementById(this.id)
-    element?.addEventListener('hidden.bs.collapse', (this._close_f))
-    element?.addEventListener('shown.bs.collapse', this._open_f)
+  constructor(elementRef: ElementRef<HTMLElement>) {
+    super(elementRef)
   }
 
-  ngOnDestroy(): void {
-    const element = document.getElementById(this.id)
-    element?.removeEventListener('hidden.bs.collapse', this._close_f)
-    element?.removeEventListener('shown.bs.collapse', this._open_f)
+  override getOrCreateInstance(element: HTMLElement): Collapse {
+    return Collapse.getOrCreateInstance(element)
+  }
+  override get eventPrefix(): string {
+    return 'bs.collapse'
   }
 }

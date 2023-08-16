@@ -11,6 +11,7 @@ import { ButtonGroupComponent } from './buttons/boutton-group.component';
 import { ButtonToolbarComponent } from './buttons/boutton-toolbar.component';
 import { ButtonCloseComponent } from './buttons/buttons-close.component';
 import { ButtonComponent } from './buttons/buttons.component';
+import { ToggleDirective } from './buttons/toggle.directive';
 import { CardBodyComponent } from './cards/card-body.component';
 import { CardFooterComponent } from './cards/card-footer.component';
 import { CardGroupComponent } from './cards/card-group.component';
@@ -22,7 +23,6 @@ import { CardTextComponent } from './cards/card-text.component';
 import { CardTitleComponent } from './cards/card-title.component';
 import { CardComponent } from './cards/card.component';
 import { CollapseComponent } from './collapse/collapse.component';
-import { CollapseDirective } from './collapse/collapse.directive';
 import { DropdownContainerComponent } from './dropdown/dropdown-container.component';
 import { DropdownMenuItemComponent } from './dropdown/dropdown-menu-item.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
@@ -65,7 +65,6 @@ export * from './tooltips/tooltip.directive';
 export * from './tooltips/popover.directive';
 export * from './placeholder/placeholder.directive';
 export * from './collapse/collapse.component';
-export * from './collapse/collapse.directive';
 export * from './dropdown/dropdown.component';
 export * from './dropdown/dropdown-container.component';
 export * from './dropdown/dropdown-menu-item.component';
@@ -74,6 +73,7 @@ export * from './navbar/navbar.component';
 export * from './navbar/navbar-container.component';
 export * from './navbar/navbar-menu-item.component';
 export * from './navbar/navbar-brand.directive';
+export * from './buttons/toggle.directive'; 
 
 export const COMPONENTS = [
   AlertComponent,
@@ -104,7 +104,6 @@ export const COMPONENTS = [
   PopoverDirective,
   PlaceholderComponent,
   CollapseComponent,
-  CollapseDirective,
   DropdownComponent,
   DropdownContainerComponent,
   DropdownMenuItemComponent,
@@ -112,5 +111,6 @@ export const COMPONENTS = [
   NavbarBrandDirective,
   NavbarComponent,
   NavbarContainerComponent,
-  NavbarMenuItemComponent
+  NavbarMenuItemComponent,
+  ToggleDirective
 ]

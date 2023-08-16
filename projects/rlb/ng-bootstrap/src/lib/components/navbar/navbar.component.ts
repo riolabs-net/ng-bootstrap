@@ -5,16 +5,16 @@ import { UniqueIdService } from '../../shared/unique-id.service';
 @Component({
   selector: 'rlb-navbar',
   template: `
-    <nav class="navbar navbar-expand-lg bg-{{color}} {{placement}} {{_navExpand}}" [attr.data-bs-theme]="dark">
+    <nav class="navbar bg-{{color}} {{placement}} {{_navExpand}}" [attr.data-bs-theme]="dark">
       <div class="container-fluid">
         <ng-content select="[rlb-nav-brand]"/>
-        <button class="navbar-toggler" 
-                type="button" 
-                data-bs-toggle="collapse" 
-                [attr.data-bs-target]="'#'+navId" 
-                [attr.aria-controls]="navId" 
-                aria-expanded="false" 
-                aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          rlb-button
+          toggle="collapse"
+          [toggle-target]="navId"
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" [id]="navId">
