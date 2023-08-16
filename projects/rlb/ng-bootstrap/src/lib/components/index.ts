@@ -33,6 +33,10 @@ import { NavbarBrandDirective } from './navbar/navbar-brand.directive';
 import { NavbarContainerComponent } from './navbar/navbar-container.component';
 import { NavbarMenuItemComponent } from './navbar/navbar-menu-item.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { OffcanvasBodyComponent } from './offcanvas/offcanvas-body.component';
+import { OffcanvasHeaderComponent } from './offcanvas/offcanvas-header.component';
+import { OffcanvasTitleComponent } from './offcanvas/offcanvas-title.component';
+import { OffcanvasComponent } from './offcanvas/offcanvas.component';
 import { PlaceholderComponent } from './placeholder/placeholder.directive';
 import { PopoverDirective } from './tooltips/popover.directive';
 import { TooltipDirective } from './tooltips/tooltip.directive';
@@ -73,6 +77,10 @@ export * from './navbar/navbar.component';
 export * from './navbar/navbar-container.component';
 export * from './navbar/navbar-menu-item.component';
 export * from './navbar/navbar-brand.directive';
+export * from './offcanvas/offcanvas.component';
+export * from './offcanvas/offcanvas-body.component';
+export * from './offcanvas/offcanvas-header.component';
+export * from './offcanvas/offcanvas-title.component';
 export * from './buttons/toggle.directive'; 
 
 export const COMPONENTS = [
@@ -112,5 +120,9 @@ export const COMPONENTS = [
   NavbarComponent,
   NavbarContainerComponent,
   NavbarMenuItemComponent,
+  OffcanvasComponent,
+  OffcanvasHeaderComponent,
+  OffcanvasTitleComponent,
+  OffcanvasBodyComponent,
   ToggleDirective
 ]

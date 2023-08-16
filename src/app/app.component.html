@@ -1,5 +1,6 @@
-<rlb-navbar color="light">
+<rlb-navbar color="light" expand="lg">
 	<a rlb-nav-brand href="#">Navbar</a>
+
 	<ul rlb-nav-container class="me-auto">
 		<li rlb-nav-item>Home</li>
 		<li rlb-nav-item>Features</li>
@@ -14,7 +15,27 @@
 		Un testo
 	</span>
 </rlb-navbar>
+<!-- <button rlb-button toggle="offcanvas" toggle-target="off-1">Button</button>
+<aside class="bd-sidebar">
+	<rlb-offcanvas id="off-1" class="show">
+		<rlb-offcanvas-header>
+			<h5 rlb-offcanvas-title>Offcanvas</h5>
+		</rlb-offcanvas-header>
+		<rlb-offcanvas-body>
+			pippo
+		</rlb-offcanvas-body>
+	</rlb-offcanvas>
+</aside> -->
 
+<div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+  </div>
+</div>
 <!-- <div style="padding: 5px;">
 	<rlb-accordion>
 		<div rlb-accordion-item [expanded]="true">
