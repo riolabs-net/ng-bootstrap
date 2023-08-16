@@ -18,6 +18,7 @@ export abstract class ToggleAbstractComponent<T extends _bs_component> implement
   private _status!: VisibilityEvent
   get status() { return this._status }
   @Input() set status(v: VisibilityEvent) {
+    console.log(v);
     if (v === `show` || v == `shown`) {
       this.open()
       this._status = `shown`
@@ -64,7 +65,6 @@ export abstract class ToggleAbstractComponent<T extends _bs_component> implement
   }
 
   private _openChange_f = (e: Event) => {
-    console.log(e.type);
     switch (e.type) {
       case `hide.bs.offcanvas`: this.statusChange.emit(`hide`); break;
       case `hidden.bs.offcanvas`: this.statusChange.emit(`hidden`); break;

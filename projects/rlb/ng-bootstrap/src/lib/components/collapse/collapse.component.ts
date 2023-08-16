@@ -7,7 +7,6 @@ import { ToggleAbstractComponent } from '../abstract/toggle-abstract.component';
   template: `<ng-content></ng-content>`,
   host: {
     'class': 'collapse',
-    '[class.show]': 'open',
     '[class.collapse-horizontal]': 'orientation === "horizontal"',
   }
 })
@@ -21,8 +20,9 @@ export class CollapseComponent extends ToggleAbstractComponent<Collapse> impleme
   }
 
   override getOrCreateInstance(element: HTMLElement): Collapse {
-    return Collapse.getOrCreateInstance(element)
+    return Collapse.getOrCreateInstance(element, { toggle: false })
   }
+  
   override get eventPrefix(): string {
     return 'bs.collapse'
   }
