@@ -29,10 +29,11 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { DropdownDirective } from './dropdown/dropdown.directive';
 import { ProgressComponent } from './loaders/progress.component';
 import { SpinnerComponent } from './loaders/spinner.component';
-import { NavbarBrandDirective } from './navbar/navbar-brand.directive';
-import { NavbarContainerComponent } from './navbar/navbar-container.component';
-import { NavbarMenuItemComponent } from './navbar/navbar-menu-item.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavComponent } from './navbar/nav/nav.component';
+import { NavbarBrandDirective } from './navbar/navbar/navbar-brand.directive';
+import { NavbarContainerComponent } from './navbar/navbar/navbar-container.component';
+import { NavbarMenuItemComponent } from './navbar/navbar/navbar-menu-item.component';
+import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { OffcanvasBodyComponent } from './offcanvas/offcanvas-body.component';
 import { OffcanvasHeaderComponent } from './offcanvas/offcanvas-header.component';
 import { OffcanvasTitleComponent } from './offcanvas/offcanvas-title.component';
@@ -77,10 +78,10 @@ export * from './dropdown/dropdown.component';
 export * from './dropdown/dropdown-container.component';
 export * from './dropdown/dropdown-menu-item.component';
 export * from './dropdown/dropdown.directive';
-export * from './navbar/navbar.component';
-export * from './navbar/navbar-container.component';
-export * from './navbar/navbar-menu-item.component';
-export * from './navbar/navbar-brand.directive';
+export * from './navbar/navbar/navbar.component';
+export * from './navbar/navbar/navbar-container.component';
+export * from './navbar/navbar/navbar-menu-item.component';
+export * from './navbar/navbar/navbar-brand.directive';
 export * from './offcanvas/offcanvas.component';
 export * from './offcanvas/offcanvas-body.component';
 export * from './offcanvas/offcanvas-header.component';
@@ -89,6 +90,7 @@ export * from './buttons/toggle.directive';
 export * from './sidebar/sidebar.component';
 export * from './sidebar/sidebar-body.component';
 export * from './sidebar/sidebar-header.component';
+export * from './navbar/nav/nav.component';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -135,5 +137,6 @@ export const COMPONENTS = [
   SidebarComponent,
   SidebarHeaderComponent,
   SidebarBodyComponent,
-  SidebarTitleComponent
+  SidebarTitleComponent,
+  NavComponent
 ]
