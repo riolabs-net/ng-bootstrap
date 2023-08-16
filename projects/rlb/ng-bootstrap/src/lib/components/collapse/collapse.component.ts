@@ -4,11 +4,11 @@ import { ToggleAbstractComponent } from '../abstract/toggle-abstract.component';
 
 @Component({
   selector: 'rlb-collapse',
-  template: `<ng-content></ng-content>`,
-  host: {
-    'class': 'collapse',
-    '[class.collapse-horizontal]': 'orientation === "horizontal"',
-  }
+  template: `
+  <div class="collapse" [id]="id" [class.collapse-horizontal]="orientation === 'horizontal'">
+    <ng-content></ng-content>
+  </div>`,
+  host: { '[attr.id]': 'undefined' }
 })
 export class CollapseComponent extends ToggleAbstractComponent<Collapse> implements OnInit, OnDestroy {
 
@@ -22,7 +22,7 @@ export class CollapseComponent extends ToggleAbstractComponent<Collapse> impleme
   override getOrCreateInstance(element: HTMLElement): Collapse {
     return Collapse.getOrCreateInstance(element, { toggle: false })
   }
-  
+
   override get eventPrefix(): string {
     return 'bs.collapse'
   }
