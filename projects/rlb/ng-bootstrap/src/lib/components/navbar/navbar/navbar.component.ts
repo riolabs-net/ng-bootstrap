@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Color } from '../../shared/colors';
-import { UniqueIdService } from '../../shared/unique-id.service';
+import { Color } from '../../../shared/colors';
+import { UniqueIdService } from '../../../shared/unique-id.service';
+
 
 @Component({
   selector: 'rlb-navbar',
