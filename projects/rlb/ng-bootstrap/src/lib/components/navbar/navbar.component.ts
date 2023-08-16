@@ -7,7 +7,7 @@ import { UniqueIdService } from '../../shared/unique-id.service';
   template: `
     <nav class="navbar bg-{{color}} {{placement}} {{_navExpand}}" [attr.data-bs-theme]="dark">
       <div class="container-fluid">
-        <ng-content select="[rlb-nav-brand]"/>
+        <ng-content select="[rlb-navbar-brand], [rlb-button][toggle]"/>
         <button
           class="navbar-toggler"
           type="button"
@@ -18,7 +18,7 @@ import { UniqueIdService } from '../../shared/unique-id.service';
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" [id]="navId">
-          <ng-content select="[rlb-nav-container], span[rlb-nav-item]"/>
+          <ng-content select="[rlb-navbar-container], span[rlb-navbar-item]"/>
         </div>
       </div>
     </nav>`

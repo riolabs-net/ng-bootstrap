@@ -1,10 +1,10 @@
 import { Component, ElementRef, Input } from "@angular/core";
 
 @Component({
-  selector: 'ul[rlb-nav-container], form[rlb-nav-container]',
+  selector: 'ul[rlb-navbar-container], form[rlb-navbar-container]',
   template: `
     <ng-container *ngIf="isList; else e">
-      <ng-content select="li[rlb-nav-item]" />
+      <ng-content select="li[rlb-navbar-item]" />
     </ng-container>
     <ng-template #e>
       <ng-content />

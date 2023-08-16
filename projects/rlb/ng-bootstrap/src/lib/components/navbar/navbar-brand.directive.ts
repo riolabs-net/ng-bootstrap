@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Renderer2 } from "@angular/core";
 
 @Directive({
-  selector: '[rlb-nav-brand]',
+  selector: '[rlb-navbar-brand]',
 })
 export class NavbarBrandDirective {
 

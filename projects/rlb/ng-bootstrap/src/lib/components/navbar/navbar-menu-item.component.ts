@@ -1,7 +1,7 @@
 import { Component, ElementRef, Renderer2, Input, AfterViewInit } from "@angular/core";
 
 @Component({
-  selector: 'li[rlb-nav-item], span[rlb-nav-item]',
+  selector: 'li[rlb-navbar-item], span[rlb-navbar-item]',
   template: `
     <a *ngIf="!isContainer && !isSpan; else e" 
       class="nav-link" 
