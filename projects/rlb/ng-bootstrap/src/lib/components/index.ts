@@ -1,4 +1,3 @@
-
 import { AccordionBodyComponent } from './accordions/accordion-body.component';
 import { AccordionHeaderComponent } from './accordions/accordion-header.component';
 import { AccordionItemComponent } from './accordions/accordion-item.component';
@@ -41,8 +40,8 @@ import { OffcanvasTitleComponent } from './offcanvas/offcanvas-title.component';
 import { OffcanvasComponent } from './offcanvas/offcanvas.component';
 import { PlaceholderComponent } from './placeholder/placeholder.directive';
 import { SidebarBodyComponent } from './sidebar/sidebar-body.component';
+import { SidebarFooterComponent } from './sidebar/sidebar-footer.component';
 import { SidebarHeaderComponent } from './sidebar/sidebar-header.component';
-import { SidebarTitleComponent } from './sidebar/sidebar-title.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PopoverDirective } from './tooltips/popover.directive';
 import { TooltipDirective } from './tooltips/tooltip.directive';
@@ -91,6 +90,7 @@ export * from './buttons/toggle.directive';
 export * from './sidebar/sidebar.component';
 export * from './sidebar/sidebar-body.component';
 export * from './sidebar/sidebar-header.component';
+export * from './sidebar/sidebar-footer.component';
 export * from './navbar/nav/nav.component';
 export * from './navbar/nav/nav-item.component';
 
@@ -139,7 +139,7 @@ export const COMPONENTS = [
   SidebarComponent,
   SidebarHeaderComponent,
   SidebarBodyComponent,
-  SidebarTitleComponent,
+  SidebarFooterComponent,
   NavComponent,
-  NavItemComponent
+  NavItemComponent,
 ]
