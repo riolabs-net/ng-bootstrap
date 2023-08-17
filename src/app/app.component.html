@@ -1,41 +1,145 @@
 <rlb-navbar color="light" expand="lg">
-	<a rlb-nav-brand href="#">Navbar</a>
-
-	<ul rlb-nav-container class="me-auto">
-		<li rlb-nav-item>Home</li>
-		<li rlb-nav-item>Features</li>
-		<li rlb-nav-item>Pricing</li>
-		<li rlb-nav-item>About</li>
+	<a rlb-button href="#" toggle="collapse" toggle-target="sidebar" [outline]="true">
+		<span class="navbar-toggler-icon"></span>
+	</a>
+	<a rlb-navbar-brand href="#">Navbar</a>
+	<ul rlb-navbar-container class="me-auto">
+		<li rlb-navbar-item>Home</li>
+		<li rlb-navbar-item>Features</li>
+		<li rlb-navbar-item>Pricing</li>
+		<li rlb-navbar-item>About</li>
 	</ul>
-	<form rlb-nav-container>
+	<form rlb-navbar-container>
 		<rlb-input />
 		<button rlb-button [outline]="true" color="primary" [size]="'sm'">Search</button>
 	</form>
-	<span rlb-nav-item>
+	<span rlb-navbar-item>
 		Un testo
 	</span>
 </rlb-navbar>
-<!-- <button rlb-button toggle="offcanvas" toggle-target="off-1">Button</button>
-<aside class="bd-sidebar">
-	<rlb-offcanvas id="off-1" class="show">
-		<rlb-offcanvas-header>
-			<h5 rlb-offcanvas-title>Offcanvas</h5>
-		</rlb-offcanvas-header>
-		<rlb-offcanvas-body>
-			pippo
-		</rlb-offcanvas-body>
-	</rlb-offcanvas>
-</aside> -->
 
-<div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
-  </div>
+<div class="container-fluid">
+	<div class="row flex-nowrap">
+		<div class="col-md-3 col-xl-2 px-sm-2 px-0 bg-dark border-end">
+			<ul rlb-nav class="px-3 pt-2" [pills]="true" [vertical]="true">
+				<rlb-nav-item rlb-nav-item icon="fs-4 bi-house"> Home </rlb-nav-item>
+				<rlb-nav-item icon="fs-4 bi-house">
+					<span rlb-nav-title>Dashboard</span>
+					<rlb-nav-item rlb-nav-item icon="fs-4 bi-house"> Sun 2 </rlb-nav-item>
+					<rlb-nav-item rlb-nav-item icon="fs-4 bi-house"> Sub 1 </rlb-nav-item>
+					<rlb-nav-item icon="fs-4 bi-house">
+						<span rlb-nav-title>Dashboard</span>
+						<rlb-nav-item rlb-nav-item icon="fs-4 bi-house"> Sun 2 </rlb-nav-item>
+						<rlb-nav-item rlb-nav-item icon="fs-4 bi-house"> Sub 1 </rlb-nav-item>
+					</rlb-nav-item>
+				</rlb-nav-item>
+			</ul>
+			<hr class="w-100 text-white" />
+			<div class="dropdown pb-4">
+				<a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
+					data-bs-toggle="dropdown" aria-expanded="false">
+					<img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+					<span class="d-none d-sm-inline mx-1">loser</span>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+					<li><a class="dropdown-item" href="#">New project...</a></li>
+					<li><a class="dropdown-item" href="#">Settings</a></li>
+					<li><a class="dropdown-item" href="#">Profile</a></li>
+					<li>
+						<hr class="dropdown-divider">
+					</li>
+					<li><a class="dropdown-item" href="#">Sign out</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col py-3">
+			<h3>Left Sidebar with Submenus</h3>
+			<p class="lead">
+				An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a
+				single
+				menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width
+				on smaller screens.</p>
+			<ul class="list-unstyled">
+				<li>
+					<h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile
+				</li>
+			</ul>
+		</div>
+	</div>
 </div>
+
+
+
+<!-- <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+	<li class="nav-item">
+		<a href="#" class="nav-link align-middle px-0">
+			<i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+		</a>
+	</li>
+	<li>
+		<a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+			<i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+		<ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+			<li class="w-100">
+				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+			</li>
+			<li>
+				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#" class="nav-link px-0 align-middle">
+			<i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
+	</li>
+	<li>
+		<a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+			<i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
+		<ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+			<li class="w-100">
+				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
+			</li>
+			<li>
+				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+			<i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
+		<ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+			<li class="w-100">
+				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+			</li>
+			<li>
+				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+			</li>
+			<li>
+				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+			</li>
+			<li>
+				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#" class="nav-link px-0 align-middle">
+			<i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+	</li>
+</ul> -->
+
+
+
+
+<!-- <button rlb-button toggle="offcanvas" toggle-target="off-1">Button</button>
+<rlb-offcanvas id="off-1">
+	<rlb-offcanvas-header>
+		<h5 rlb-offcanvas-title>Offcanvas</h5>
+	</rlb-offcanvas-header>
+	<rlb-offcanvas-body>
+		pippo
+	</rlb-offcanvas-body>
+</rlb-offcanvas> -->
 <!-- <div style="padding: 5px;">
 	<rlb-accordion>
 		<div rlb-accordion-item [expanded]="true">
@@ -91,7 +195,7 @@
 
 <rlb-spinner [color]="'primary'" [size]="'lg'"></rlb-spinner> -->
 
-<button rlb-button rlb-collapse='pippo' type="button">Ciao</button>
+<button rlb-button toggle="collapse" toggle-target="pippo">Ciao</button>
 <rlb-collapse id="pippo">
 	<rlb-card style="width: 300px;" [overlay]="false">
 		<rlb-card-body>

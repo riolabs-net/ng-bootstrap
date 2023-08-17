@@ -29,6 +29,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { DropdownDirective } from './dropdown/dropdown.directive';
 import { ProgressComponent } from './loaders/progress.component';
 import { SpinnerComponent } from './loaders/spinner.component';
+import { NavItemComponent } from './navbar/nav/nav-item.component';
 import { NavComponent } from './navbar/nav/nav.component';
 import { NavbarBrandDirective } from './navbar/navbar/navbar-brand.directive';
 import { NavbarContainerComponent } from './navbar/navbar/navbar-container.component';
@@ -91,6 +92,7 @@ export * from './sidebar/sidebar.component';
 export * from './sidebar/sidebar-body.component';
 export * from './sidebar/sidebar-header.component';
 export * from './navbar/nav/nav.component';
+export * from './navbar/nav/nav-item.component';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -138,5 +140,6 @@ export const COMPONENTS = [
   SidebarHeaderComponent,
   SidebarBodyComponent,
   SidebarTitleComponent,
-  NavComponent
+  NavComponent,
+  NavItemComponent
 ]

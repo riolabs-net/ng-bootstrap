@@ -2,9 +2,9 @@ import { Component, ElementRef, Input } from "@angular/core";
 
 @Component({
   selector: 'ul[rlb-nav]',
-  template: `<ng-content select="li" />`,
+  template: `<ng-content select="rlb-nav-item" />`,
   host: {
-    'class': 'nav',
+    'class': 'nav w-100',
     '[class.nav-tabs]': 'isTab',
     '[class.justify-content-center]': 'horizontalAlignment === "center"',
     '[class.justify-content-end]': 'horizontalAlignment === "end"',
