@@ -6,7 +6,8 @@ import { Directive, ElementRef, Renderer2, Input, AfterViewInit } from "@angular
     a[rlb-button-close][toggle],
     button[rlb-button][toggle],
     button[rlb-button-close][toggle],
-    rlb-button-toolbar[toogle]`,
+    rlb-button-toolbar[toogle],
+    a[toggle]`,
 })
 export class ToggleDirective implements AfterViewInit {
   @Input('toggle') toggle!: 'offcanvas' | 'collapse' | 'dropdown' | 'tab' | 'buttons-toolbar' | 'buttons-group'
