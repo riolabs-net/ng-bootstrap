@@ -14,16 +14,27 @@ export class ButtonComponent {
   @Input() size: Size = 'md';
   @Input() disabled: boolean = false;
   @Input() outline: boolean = false;
+  @Input() isLink: boolean = false;
 
   get mainClass() {
-    let style = 'btn';
-    if (this.outline) {
-      style += ` btn-outline-${this.color}`;
+    let style = '';
+    if (!this.isLink) {
+      style = 'btn';
+      if (this.color) {
+        if (this.outline) {
+          style += ` btn-outline-${this.color}`;
+        } else {
+          style += ` btn-${this.color}`;
+        }
+      }
+      if (this.size !== 'md') {
+        style += ` btn-${this.size}`;
+      }
     } else {
-      style += ` btn-${this.color}`;
-    }
-    if (this.size !== 'md') {
-      style += ` btn-${this.size}`;
+      style = 'btn btn-link';
+      if (this.color) {
+        style += ` link-${this.color}`;
+      }
     }
     return style;
   }
