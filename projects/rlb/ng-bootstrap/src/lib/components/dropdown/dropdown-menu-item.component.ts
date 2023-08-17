@@ -8,10 +8,13 @@ import { Component, Input } from "@angular/core";
       [class.disabled]="disabled" 
       [attr.aria-current]="active"
       [attr.aria-disabled]="disabled">
-      <ng-content/>
+      <ng-container *ngTemplateOutlet="content"></ng-container>
     </a>
-    <h6 *ngIf="header" class="dropdown-header"><ng-content /></h6>
-    <hr *ngIf="divider" class="dropdown-divider">`,
+    <h6 *ngIf="header" class="dropdown-header">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </h6>
+    <hr *ngIf="divider" class="dropdown-divider">
+    <ng-template #content><ng-content /></ng-template>`
 })
 export class DropdownMenuItemComponent {
   @Input() active: boolean = false;
