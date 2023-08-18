@@ -43,6 +43,10 @@ import { SidebarBodyComponent } from './sidebar/sidebar-body.component';
 import { SidebarFooterComponent } from './sidebar/sidebar-footer.component';
 import { SidebarHeaderComponent } from './sidebar/sidebar-header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { TabContentComponent } from './tabs/tab-content.component';
+import { TabPaneComponent } from './tabs/tab-pane.component';
+import { TabComponent } from './tabs/tab.component';
+import { TabsComponent } from './tabs/tabs.component';
 import { PopoverDirective } from './tooltips/popover.directive';
 import { TooltipDirective } from './tooltips/tooltip.directive';
 
@@ -86,13 +90,17 @@ export * from './offcanvas/offcanvas.component';
 export * from './offcanvas/offcanvas-body.component';
 export * from './offcanvas/offcanvas-header.component';
 export * from './offcanvas/offcanvas-title.component';
-export * from './buttons/toggle.directive'; 
+export * from './buttons/toggle.directive';
 export * from './sidebar/sidebar.component';
 export * from './sidebar/sidebar-body.component';
 export * from './sidebar/sidebar-header.component';
 export * from './sidebar/sidebar-footer.component';
 export * from './navbar/nav/nav.component';
 export * from './navbar/nav/nav-item.component';
+export * from './tabs/tabs.component';
+export * from './tabs/tab.component';
+export * from './tabs/tab-content.component';
+export * from './tabs/tab-pane.component';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -142,4 +150,8 @@ export const COMPONENTS = [
   SidebarFooterComponent,
   NavComponent,
   NavItemComponent,
+  TabsComponent,
+  TabComponent,
+  TabContentComponent,
+  TabPaneComponent
 ]

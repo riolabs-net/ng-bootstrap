@@ -20,7 +20,7 @@
 <div class="d-flex flex-row w-100">
 	<rlb-sidebar id="sidebar" width="300px">
 		<rlb-sidebar-body>
-			<ul rlb-nav class="px-3 pt-2" [pills]="true" [vertical]="true">
+			<rlb-nav class="px-3 pt-2" [vertical]="true">
 				<rlb-nav-item icon="fs-4 bi-house"> Home </rlb-nav-item>
 				<rlb-nav-item icon="fs-4 bi-house">
 					<span rlb-nav-title>Dashboard</span>
@@ -32,7 +32,7 @@
 						<rlb-nav-item icon="fs-4 bi-house"> Sub 1 </rlb-nav-item>
 					</rlb-nav-item>
 				</rlb-nav-item>
-			</ul>
+			</rlb-nav>
 		</rlb-sidebar-body>
 		<rlb-sidebar-footer>
 			<rlb-dropdown direction="up">
@@ -50,8 +50,19 @@
 		</rlb-sidebar-footer>
 	</rlb-sidebar>
 	<div class="flex-grow-1 ps-2">
-		<button rlb-button toggle="collapse" toggle-target="pippo">Collapse</button>
-		<rlb-collapse id="pippo">
+		<rlb-tabs>
+			<rlb-tab target="pippo">Pippo</rlb-tab>
+			<rlb-tab target="pluto">Pluto</rlb-tab>
+			<rlb-tab target="paperino">Paperino</rlb-tab>
+		</rlb-tabs>
+		<rlb-tab-content>
+			<rlb-tab-pane id="pippo">Pippo</rlb-tab-pane>
+			<rlb-tab-pane id="pluto">Pluto</rlb-tab-pane>
+			<rlb-tab-pane id="paperino">Paperino</rlb-tab-pane>
+		</rlb-tab-content>
+		
+		<button rlb-button toggle="collapse" toggle-target="collapse-id">Collapse</button>
+		<rlb-collapse id="collapse-id">
 			<rlb-card style="width: 300px;" [overlay]="false">
 				<rlb-card-body>
 					<h5 rlb-card-title>Card title</h5>
