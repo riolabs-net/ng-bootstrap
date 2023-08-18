@@ -25,7 +25,7 @@ import { ToggleAbstractComponent } from "../abstract/toggle-abstract.component";
   }
 })
 export class OffcanvasComponent extends ToggleAbstractComponent<Offcanvas> implements OnInit, OnDestroy {
-  
+
   @Input({ alias: `id`, required: true }) id!: string;
   @Input('body-scroll') bodyScroll: boolean = false;
   @Input('scroll-backup') scrollBackup: boolean = false;

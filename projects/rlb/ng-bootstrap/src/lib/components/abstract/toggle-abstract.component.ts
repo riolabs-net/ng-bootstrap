@@ -18,7 +18,6 @@ export abstract class ToggleAbstractComponent<T extends _bs_component> implement
   private _status!: VisibilityEvent
   get status() { return this._status }
   @Input() set status(v: VisibilityEvent) {
-    console.log(v);
     if (v === `show` || v == `shown`) {
       this.open()
       this._status = `shown`

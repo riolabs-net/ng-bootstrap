@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'rlb-sidebar-footer',
-  template: `<ng-content></ng-content>`
+  host: { 'class': 'pb-3' },
+  template: `<hr class="text-white" /><ng-content></ng-content>`
 })
 export class SidebarFooterComponent { }

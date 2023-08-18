@@ -1,5 +1,5 @@
 <rlb-navbar color="light" expand="lg">
-	<a rlb-button href="#" toggle="collapse" toggle-target="sidebar" [outline]="true">
+	<a class="d-block d-sm-none" rlb-button href="#" toggle="collapse" toggle-target="sidebar" [outline]="true">
 		<span class="navbar-toggler-icon"></span>
 	</a>
 	<a rlb-navbar-brand href="#">Navbar</a>
@@ -17,118 +17,52 @@
 		Un testo
 	</span>
 </rlb-navbar>
-<div class="container-fluid">
-	<div class="row flex-nowrap">
-		<rlb-sidebar class="col-md-3 col-xl-2">
-			<rlb-sidebar-body>
-				<ul rlb-nav class="px-3 pt-2" [pills]="true" [vertical]="true">
-					<rlb-nav-item rlb-nav-item icon="fs-4 bi-house"> Home </rlb-nav-item>
+<div class="d-flex flex-row w-100">
+	<rlb-sidebar id="sidebar" width="300px">
+		<rlb-sidebar-body>
+			<ul rlb-nav class="px-3 pt-2" [pills]="true" [vertical]="true">
+				<rlb-nav-item icon="fs-4 bi-house"> Home </rlb-nav-item>
+				<rlb-nav-item icon="fs-4 bi-house">
+					<span rlb-nav-title>Dashboard</span>
+					<rlb-nav-item icon="fs-4 bi-house"> Sun 2 </rlb-nav-item>
+					<rlb-nav-item icon="fs-4 bi-house"> Sub 1 </rlb-nav-item>
 					<rlb-nav-item icon="fs-4 bi-house">
 						<span rlb-nav-title>Dashboard</span>
-						<rlb-nav-item rlb-nav-item icon="fs-4 bi-house"> Sun 2 </rlb-nav-item>
-						<rlb-nav-item rlb-nav-item icon="fs-4 bi-house"> Sub 1 </rlb-nav-item>
-						<rlb-nav-item icon="fs-4 bi-house">
-							<span rlb-nav-title>Dashboard</span>
-							<rlb-nav-item rlb-nav-item icon="fs-4 bi-house"> Sun 2 </rlb-nav-item>
-							<rlb-nav-item rlb-nav-item icon="fs-4 bi-house"> Sub 1 </rlb-nav-item>
-						</rlb-nav-item>
+						<rlb-nav-item icon="fs-4 bi-house"> Sun 2 </rlb-nav-item>
+						<rlb-nav-item icon="fs-4 bi-house"> Sub 1 </rlb-nav-item>
 					</rlb-nav-item>
-				</ul>
-			</rlb-sidebar-body>
-			<rlb-sidebar-footer>
-				<rlb-dropdown direction="up" class="mb-4 d-flex">
-					<a rlb-dropdown class="text-white text-decoration-none">
-						<img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-						<span class="d-none d-sm-inline mx-1">Joan Simpson</span>
-					</a>
-					<ul rlb-dropdown-menu>
-						<li rlb-dropdown-item>New project...</li>
-						<li rlb-dropdown-item>Settings</li>
-						<li rlb-dropdown-item [divider]="true"></li>
-						<li rlb-dropdown-item>Settings</li>
-					</ul>
-				</rlb-dropdown>
-			</rlb-sidebar-footer>
-		</rlb-sidebar>
-
-
-		<div class="col py-3">
-			<h3>Left Sidebar with Submenus</h3>
-			<p class="lead">
-				An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a
-				single
-				menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width
-				on smaller screens.</p>
-			<ul class="list-unstyled">
-				<li>
-					<h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile
-				</li>
+				</rlb-nav-item>
 			</ul>
-		</div>
+		</rlb-sidebar-body>
+		<rlb-sidebar-footer>
+			<rlb-dropdown direction="up">
+				<a rlb-dropdown class="text-white text-decoration-none">
+					<img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+					<span class="d-none d-sm-inline mx-1">Joan Simpson</span>
+				</a>
+				<ul rlb-dropdown-menu>
+					<li rlb-dropdown-item>New project...</li>
+					<li rlb-dropdown-item>Settings</li>
+					<li rlb-dropdown-item [divider]="true"></li>
+					<li rlb-dropdown-item>Settings</li>
+				</ul>
+			</rlb-dropdown>
+		</rlb-sidebar-footer>
+	</rlb-sidebar>
+	<div class="flex-grow-1 ps-2">
+		<button rlb-button toggle="collapse" toggle-target="pippo">Collapse</button>
+		<rlb-collapse id="pippo">
+			<rlb-card style="width: 300px;" [overlay]="false">
+				<rlb-card-body>
+					<h5 rlb-card-title>Card title</h5>
+					<p rlb-card-text>
+						Some quick example text to build on the card title and make up the bulk of the card's content.
+					</p>
+				</rlb-card-body>
+			</rlb-card>
+		</rlb-collapse>
 	</div>
 </div>
-
-
-
-<!-- <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-	<li class="nav-item">
-		<a href="#" class="nav-link align-middle px-0">
-			<i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-		</a>
-	</li>
-	<li>
-		<a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-			<i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
-		<ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-			<li class="w-100">
-				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
-			</li>
-			<li>
-				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-			</li>
-		</ul>
-	</li>
-	<li>
-		<a href="#" class="nav-link px-0 align-middle">
-			<i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-	</li>
-	<li>
-		<a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-			<i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-		<ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-			<li class="w-100">
-				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-			</li>
-			<li>
-				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-			</li>
-		</ul>
-	</li>
-	<li>
-		<a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-			<i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-		<ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-			<li class="w-100">
-				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-			</li>
-			<li>
-				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-			</li>
-			<li>
-				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-			</li>
-			<li>
-				<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-			</li>
-		</ul>
-	</li>
-	<li>
-		<a href="#" class="nav-link px-0 align-middle">
-			<i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
-	</li>
-</ul> -->
-
-
 
 
 <!-- <button rlb-button toggle="offcanvas" toggle-target="off-1">Button</button>
@@ -194,15 +128,3 @@
 <rlb-progress [value]="66" [animated]="true" [height]="15" color="success" [showValue]="true">pippo</rlb-progress>
 
 <rlb-spinner [color]="'primary'" [size]="'lg'"></rlb-spinner> -->
-
-<button rlb-button toggle="collapse" toggle-target="pippo">Ciao</button>
-<rlb-collapse id="pippo">
-	<rlb-card style="width: 300px;" [overlay]="false">
-		<rlb-card-body>
-			<h5 rlb-card-title>Card title</h5>
-			<p rlb-card-text>
-				Some quick example text to build on the card title and make up the bulk of the card's content.
-			</p>
-		</rlb-card-body>
-	</rlb-card>
-</rlb-collapse>
