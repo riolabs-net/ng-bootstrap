@@ -2,15 +2,12 @@ import { Directive, ElementRef, Renderer2, Input, AfterViewInit } from "@angular
 
 @Directive({
   selector: `
-    a[rlb-button][toggle], 
-    a[rlb-button-close][toggle],
-    button[rlb-button][toggle],
-    button[rlb-button-close][toggle],
-    rlb-button-toolbar[toogle],
-    a[toggle]`,
+    button[toggle],
+    a[toggle],
+    rlb-button-toolbar[toogle]`,
 })
 export class ToggleDirective implements AfterViewInit {
-  @Input('toggle') toggle!: 'offcanvas' | 'collapse' | 'dropdown' | 'tab' | 'buttons-toolbar' | 'buttons-group'
+  @Input('toggle') toggle!: 'offcanvas' | 'collapse' | 'tab' | 'pill' | 'dropdown' | 'buttons-group'
   @Input({ alias: 'toggle-target', required: true }) target!: string;
   @Input() collapsed: boolean = false;
 
