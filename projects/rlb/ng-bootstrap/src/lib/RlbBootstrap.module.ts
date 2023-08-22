@@ -10,13 +10,15 @@ import { TABLE } from './data/datatable';
 import { INPUTS } from './forms/inputs';
 import { COMPONENTS } from './components';
 import { FormFieldsComponent } from './forms/rlb-form-fields/rlb-form-fields.component';
+import { ComponentHostDirective } from './shared/component-builder/component-host.directive';
 
 @NgModule({
   declarations: [
     ...TABLE,
     ...INPUTS,
     ...COMPONENTS,
-    FormFieldsComponent
+    FormFieldsComponent,
+    ComponentHostDirective
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { FormFieldsComponent } from './forms/rlb-form-fields/rlb-form-fields.com
     ...TABLE,
     ...INPUTS,
     ...COMPONENTS,
+    ComponentHostDirective,
     FormFieldsComponent
   ]
 })

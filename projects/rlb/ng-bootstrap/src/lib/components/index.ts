@@ -22,6 +22,7 @@ import { CardTextComponent } from './cards/card-text.component';
 import { CardTitleComponent } from './cards/card-title.component';
 import { CardComponent } from './cards/card.component';
 import { CollapseComponent } from './collapse/collapse.component';
+import { DialogContainerComponent } from './modals/dialog-container.component';
 import { DropdownContainerComponent } from './dropdown/dropdown-container.component';
 import { DropdownMenuItemComponent } from './dropdown/dropdown-menu-item.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
@@ -101,6 +102,9 @@ export * from './tabs/tabs.component';
 export * from './tabs/tab.component';
 export * from './tabs/tab-content.component';
 export * from './tabs/tab-pane.component';
+export * from './modals/dialog-container.component';
+export * from './modals/dialog.directive';
+
 
 export const COMPONENTS = [
   AlertComponent,
@@ -153,5 +157,6 @@ export const COMPONENTS = [
   TabsComponent,
   TabComponent,
   TabContentComponent,
-  TabPaneComponent
+  TabPaneComponent,
+  DialogContainerComponent
 ]
