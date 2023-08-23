@@ -1,7 +1,7 @@
-import { Directive, ElementRef, Renderer2, Input, OnDestroy, Host, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import { Directive, ElementRef, Renderer2, Input, OnDestroy, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { Modal } from 'bootstrap'
-import { UniqueIdService } from '../../shared/unique-id.service';
 import { InnerModalService } from './inner-modal.service';
+import { ModalCloseReason } from '../../shared/colors';
 
 @Directive({
   selector: '[rlb-dialog]',
@@ -16,17 +16,15 @@ export class DialogDirective implements OnDestroy, AfterViewInit {
   private modalElement!: HTMLElement;
   private dialogElement!: HTMLElement;
   private contentElement!: HTMLElement;
-  private _closeButton!: HTMLButtonElement | null;
-  private _okButton!: HTMLButtonElement | null;
-  private _cancelButton!: HTMLButtonElement | null;
+  private _reasonButtons!: NodeListOf<HTMLButtonElement> | null;
+  private _modalReason!: ModalCloseReason;
 
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
     private innerModalService: InnerModalService,
-  ) {
+  ) { }
 
-  }
   ngAfterViewInit(): void {
     const cont = this.el.nativeElement.parentNode;
     this.modalElement = this.renderer.createElement('div');
@@ -37,7 +35,7 @@ export class DialogDirective implements OnDestroy, AfterViewInit {
     this.renderer.appendChild(this.dialogElement, this.contentElement);
 
     this.renderer.addClass(this.modalElement, 'modal');
-    this.renderer.setAttribute(this.modalElement, 'id', `modal${this.id}`);
+    this.renderer.setAttribute(this.modalElement, 'id', `${this.id}`);
     this.renderer.setAttribute(this.modalElement, 'tabindex', '-1');
     this.renderer.addClass(this.dialogElement, 'modal-dialog');
     this.renderer.addClass(this.contentElement, 'modal-content');
@@ -54,50 +52,34 @@ export class DialogDirective implements OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy(): void {
-    this.modalElement.addEventListener(`hide.bs.modal`, this._openChange_f)
-    this.modalElement.addEventListener(`hidden.bs.modal`, this._openChange_f)
-    this.modalElement.addEventListener(`hidePrevented.bs.modal`, this._openChange_f)
-    this.modalElement.addEventListener(`show.bs.modal`, this._openChange_f)
-    this.modalElement.addEventListener(`shown.bs.modal`, this._openChange_f)
+    this.modalElement.removeEventListener(`hide.bs.modal`, this._openChange_f)
+    this.modalElement.removeEventListener(`hidden.bs.modal`, this._openChange_f)
+    this.modalElement.removeEventListener(`hidePrevented.bs.modal`, this._openChange_f)
+    this.modalElement.removeEventListener(`show.bs.modal`, this._openChange_f)
+    this.modalElement.removeEventListener(`shown.bs.modal`, this._openChange_f)
+    // this._reasonButtons?.forEach((btn) => {
+    //   btn.removeEventListener('click', null);
+    // });
     this.bsModal?.dispose();
+    this.modalElement.remove();
   }
 
   private _openChange_f = (e: Event) => {
-    switch (e.type) {
-      case `hide.bs.offcanvas`: this.innerModalService.closeDialog(`hide`); break;
-      case `hidden.bs.offcanvas`: this.innerModalService.closeDialog(`hidden`); break;
-      case `hidePrevented.bs.offcanvas`: this.innerModalService.closeDialog(`hidePrevented`); break;
-      case `show.bs.offcanvas`: this.innerModalService.closeDialog(`show`); break;
-      case `shown.bs.offcanvas`: this.innerModalService.closeDialog(`shown`); break;
-    }
+    this.innerModalService.eventDialog(e.type.replace('.bs.modal', ''), this._modalReason, this.id);
   }
 
   initButtons(): void {
-    this._closeButton = this.contentElement.querySelector('button.btn-close');
-    this._cancelButton = this.contentElement.querySelector('button.btn');
-
-    if (this._closeButton) {
-      this._closeButton.addEventListener('click', () => {
-        console.log('reason:close');
-        this.bsModal?.hide();
+    this._reasonButtons = this.contentElement.querySelectorAll('[data-dialog-reason]');
+    if (this._reasonButtons && this._reasonButtons.length > 0) {
+      this._reasonButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          this._modalReason = btn.getAttribute('data-dialog-reason') as ModalCloseReason;
+          if (this._modalReason === 'cancel' || this._modalReason === 'close') {
+            this.bsModal?.hide();
+          }
+        });
       });
     }
-    if (this._cancelButton) {
-      this._cancelButton.addEventListener('click', () => {
-        console.log('reason:cancel');
-        console.log(this);
-        this.modalElement.remove()
-        this.bsModal?.hide();
-      });
-    }
-  }
-
-  open(): void {
-    this.bsModal?.show();
-  }
-
-  toggle(): void {
-    this.bsModal?.toggle();
   }
 }
 
