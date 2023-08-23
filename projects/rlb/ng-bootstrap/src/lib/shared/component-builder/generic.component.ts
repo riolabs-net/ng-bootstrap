@@ -4,5 +4,5 @@ import { ComponentInfo } from "./component.info";
 export class GenericComponent implements ComponentInfo {
   constructor(public component: Type<any>) { }
   public name!: string;
-  public data: any;
+  public data!: any;
 }
