@@ -7,19 +7,15 @@ import { DialogData } from './data/dialog-data';
 
 @Component({
   selector: 'rlb-dialog-container',
-  template: `<ng-template component></ng-template>`,
+  template: `<ng-template component-host></ng-template>`,
 })
-export class DialogContainerComponent extends BuilderComponent<InnerModalService> implements OnInit {
+export class DialogContainerComponent extends BuilderComponent<InnerModalService> {
   @ViewChild(ComponentHostDirective, { static: true }) component!: ComponentHostDirective;
-  @Input() data!: any;
 
   constructor(private modalService: InnerModalService) {
     super(modalService);
-  }
-
-  ngOnInit(): void {
-    this.modalService.dialogCreate = (name: string, data: DialogData<any>) => {
-      return this.buildComponent({ name, data });
+    this.modalService.dialogCreate = (name: string, id: string, data: DialogData<any>) => {
+      return this.buildComponent({ name, data }, { inputs: { id } });
     };
   }
 }
