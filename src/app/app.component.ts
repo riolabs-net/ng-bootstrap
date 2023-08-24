@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { InnerModalService } from 'projects/rlb/ng-bootstrap/src/lib/components/modals/inner-modal.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-bootstrap';
-  checked?: string = '2';
+
+  constructor(private inner: InnerModalService) { }
+
+  dialog(): void {
+    this.inner.openModal('demo-component', {
+      title: 'Demo',
+      content: 'This is a demo component',
+      ok: 'OK',
+      type: 'info'
+    }).subscribe((o) => {
+      console.log('closed sub', o);
+    });
+  }
 }

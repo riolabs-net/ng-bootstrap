@@ -5,15 +5,19 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RlbBootstrapModule } from 'projects/rlb/ng-bootstrap/src/public-api';
 import { FormsModule } from '@angular/forms';
+import { DemoComponent } from './demo/demo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RlbBootstrapModule,
+    RlbBootstrapModule.forRoot({
+      modals: [DemoComponent]
+    }),
     FormsModule,
     NgbModule
   ],
