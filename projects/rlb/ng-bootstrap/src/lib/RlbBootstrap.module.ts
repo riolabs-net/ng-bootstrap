@@ -11,14 +11,17 @@ import { INPUTS } from './forms/inputs';
 import { COMPONENTS } from './components';
 import { FormFieldsComponent } from './forms/rlb-form-fields/rlb-form-fields.component';
 import { ComponentHostDirective } from './shared/component-builder/component-host.directive';
+import { ModalRegistryOptions } from './components/modals/rlb-modal-registry.options';
+import { DemoComponent } from 'src/app/demo/demo.component';
+import { COMPONENT_BUILDER } from './shared/component-builder';
 
 @NgModule({
   declarations: [
     ...TABLE,
     ...INPUTS,
     ...COMPONENTS,
+    ...COMPONENT_BUILDER,
     FormFieldsComponent,
-    ComponentHostDirective
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,7 @@ import { ComponentHostDirective } from './shared/component-builder/component-hos
     ...TABLE,
     ...INPUTS,
     ...COMPONENTS,
-    ComponentHostDirective,
+    ...COMPONENT_BUILDER,
     FormFieldsComponent
   ]
 })

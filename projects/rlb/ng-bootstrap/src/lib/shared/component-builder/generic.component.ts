@@ -1,5 +1,5 @@
 import { Type } from "@angular/core";
-import { ComponentInfo } from "./component.info";
+import { ComponentInfo } from "./data/component-info";
 
 export class GenericComponent implements ComponentInfo {
   constructor(public component: Type<any>) { }
