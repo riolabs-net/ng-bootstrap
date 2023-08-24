@@ -16,6 +16,8 @@ import { COMPONENT_BUILDER } from './shared/component-builder';
 import { FOR_ROOT_OPTIONS_TOKEN, RlbBootstrapOptions } from './rlb-bootstrap';
 import { modalRegistryProvider } from './components/modals/providers/modal-registry.provider';
 import { ModalRegistry } from './components/modals/options/modal-registry';
+import { ToastRegistryOptions } from './components/toast/options/toast-registry.options';
+import { toastRegistryProvider } from './components/toast/providers/modal-registry.provider';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,12 @@ export class RlbBootstrapModule {
           useFactory: modalRegistryProvider(),
           deps: [FOR_ROOT_OPTIONS_TOKEN],
           multi: true,
+        },
+        {
+          provide: ToastRegistryOptions,
+          useFactory: toastRegistryProvider(),
+          deps: [FOR_ROOT_OPTIONS_TOKEN],
+          multi: true
         }
       ]
     });
@@ -73,6 +81,12 @@ export class RlbBootstrapModule {
           useFactory: modalRegistryProvider(options),
           deps: [FOR_ROOT_OPTIONS_TOKEN],
           multi: true,
+        },
+        {
+          provide: ToastRegistryOptions,
+          useFactory: toastRegistryProvider(),
+          deps: [FOR_ROOT_OPTIONS_TOKEN],
+          multi: true
         }
       ]
     });
