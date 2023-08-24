@@ -1,6 +1,6 @@
 import { ModalCloseReason } from "../../../shared/colors";
 
-export interface DialogResult<T = void> {
+export interface ModalResult<T = void> {
   reason: ModalCloseReason
   result: T | null,
 }

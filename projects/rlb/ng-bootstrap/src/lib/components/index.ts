@@ -22,13 +22,13 @@ import { CardTextComponent } from './cards/card-text.component';
 import { CardTitleComponent } from './cards/card-title.component';
 import { CardComponent } from './cards/card.component';
 import { CollapseComponent } from './collapse/collapse.component';
-import { DialogContainerComponent } from './modals/dialog-container.component';
 import { DropdownContainerComponent } from './dropdown/dropdown-container.component';
 import { DropdownMenuItemComponent } from './dropdown/dropdown-menu-item.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { DropdownDirective } from './dropdown/dropdown.directive';
 import { ProgressComponent } from './loaders/progress.component';
 import { SpinnerComponent } from './loaders/spinner.component';
+import { MODALS } from './modals';
 import { NavItemComponent } from './navbar/nav/nav-item.component';
 import { NavComponent } from './navbar/nav/nav.component';
 import { NavbarBrandDirective } from './navbar/navbar/navbar-brand.directive';
@@ -102,9 +102,7 @@ export * from './tabs/tabs.component';
 export * from './tabs/tab.component';
 export * from './tabs/tab-content.component';
 export * from './tabs/tab-pane.component';
-export * from './modals/dialog-container.component';
-export * from './modals/dialog.directive';
-
+export * from './modals';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -158,5 +156,5 @@ export const COMPONENTS = [
   TabComponent,
   TabContentComponent,
   TabPaneComponent,
-  DialogContainerComponent
+  ...[MODALS]
 ]

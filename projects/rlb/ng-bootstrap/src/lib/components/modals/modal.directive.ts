@@ -2,14 +2,16 @@ import { Directive, ElementRef, Renderer2, Input, OnDestroy, AfterViewInit, Outp
 import { Modal } from 'bootstrap'
 import { InnerModalService } from './inner-modal.service';
 import { ModalCloseReason } from '../../shared/colors';
+import { IModal } from './data/modal';
 
 @Directive({
   selector: '[rlb-dialog]',
   standalone: true
 })
-export class DialogDirective implements OnDestroy, AfterViewInit {
+export class ModalDirective implements OnDestroy, AfterViewInit {
 
-  @Input() id!: string;
+  @Input('id') id!: string;
+  @Input('data-instance') instance!: IModal
   @Output() openChange: EventEmitter<void> = new EventEmitter<void>();
 
   private bsModal!: Modal;
@@ -49,6 +51,7 @@ export class DialogDirective implements OnDestroy, AfterViewInit {
     this.bsModal = Modal.getOrCreateInstance(this.modalElement, { backdrop: 'static', keyboard: false, focus: true });
     this.initButtons();
     this.bsModal.show();
+    console.log('ModalDirective', this.id, this.instance);
   }
 
   ngOnDestroy(): void {
@@ -65,7 +68,7 @@ export class DialogDirective implements OnDestroy, AfterViewInit {
   }
 
   private _openChange_f = (e: Event) => {
-    this.innerModalService.eventDialog(e.type.replace('.bs.modal', ''), this._modalReason, this.id);
+    this.innerModalService.eventModal(e.type.replace('.bs.modal', ''), this._modalReason, this.id, this.instance?.result);
   }
 
   initButtons(): void {
@@ -76,6 +79,12 @@ export class DialogDirective implements OnDestroy, AfterViewInit {
           this._modalReason = btn.getAttribute('data-dialog-reason') as ModalCloseReason;
           if (this._modalReason === 'cancel' || this._modalReason === 'close') {
             this.bsModal?.hide();
+          }
+          if (this._modalReason === 'ok') {
+            console.log('ok', this.instance.valid);
+            if (this.instance.valid) {
+              this.bsModal?.hide();
+            }
           }
         });
       });

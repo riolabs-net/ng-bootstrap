@@ -2,7 +2,7 @@
  * Public API Surface of ng-bootstrap
  */
 
-export * from './lib/RlbBootstrap.module';
+export * from './lib/rlb-bootstrap.module';
 export * from './lib/components';
 export * from './lib/data/datatable';
 export * from './lib/forms/inputs';
