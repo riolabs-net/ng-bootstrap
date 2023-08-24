@@ -1,4 +1,4 @@
-import { Component, Input, AfterContentChecked, ContentChild } from '@angular/core';
+import { Component, Input, ContentChild, DoCheck } from '@angular/core';
 import { Color, TextAlignment } from '../../shared/colors';
 import { CardBodyComponent } from './card-body.component';
 import { CardImageComponent } from './card-image.component';
@@ -32,7 +32,7 @@ import { CardImageComponent } from './card-image.component';
     '[class.border-dark]': 'border === "dark"'
   }
 })
-export class CardComponent implements AfterContentChecked {
+export class CardComponent implements DoCheck {
   @Input() align: TextAlignment = 'left';
   @Input() overlay!: boolean;
   @Input() background!: Color;
@@ -41,7 +41,7 @@ export class CardComponent implements AfterContentChecked {
   @ContentChild(CardBodyComponent) public body!: CardBodyComponent
   @ContentChild(CardImageComponent) public image!: CardImageComponent
 
-  ngAfterContentChecked(): void {
+  ngDoCheck(): void {
     if (this.body) {
       this.body.overlay = this.overlay;
     }

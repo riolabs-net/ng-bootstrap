@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterViewChecked, AfterViewInit, Component, ContentChild, ContentChildren, Input, QueryList } from '@angular/core';
+import { Component, ContentChild, DoCheck, Input } from '@angular/core';
 import { AccordionHeaderComponent } from './accordion-header.component';
 import { AccordionBodyComponent } from './accordion-body.component';
 import { UniqueIdService } from '../../shared/unique-id.service';
@@ -10,7 +10,7 @@ import { UniqueIdService } from '../../shared/unique-id.service';
     class: 'accordion-item'
   },
 })
-export class AccordionItemComponent implements AfterContentChecked {
+export class AccordionItemComponent implements DoCheck {
   public parentId!: string
   @Input() public name!: string
   public alwaysOpen: boolean = false
@@ -21,7 +21,7 @@ export class AccordionItemComponent implements AfterContentChecked {
 
   constructor(private idService: UniqueIdService) { }
 
-  ngAfterContentChecked(): void {
+  ngDoCheck(): void {
     if (this.parentId) {
       if (!this.name) {
         this.name = `${this.parentId}-item${this.idService.id}`;
@@ -30,7 +30,7 @@ export class AccordionItemComponent implements AfterContentChecked {
       if (this.header) {
         this.header.parentId = this.parentId
         this.header.itemId = this.name
-        this.header.expanded = this.expanded  
+        this.header.expanded = this.expanded
       }
 
       if (this.body) {

@@ -1,4 +1,4 @@
-import { Component, Input, AfterContentChecked, HostBinding, ContentChildren, QueryList, AfterViewChecked } from '@angular/core';
+import { Component, Input, ContentChildren, QueryList, DoCheck } from '@angular/core';
 import { UniqueIdService } from '../../shared/unique-id.service';
 import { AccordionItemComponent } from './accordion-item.component';
 
@@ -10,15 +10,15 @@ import { AccordionItemComponent } from './accordion-item.component';
     '[id]': 'id',
   },
 })
-export class AccordionComponent implements AfterContentChecked {
+export class AccordionComponent implements DoCheck {
   @Input() flush: boolean = false;
   @Input() alwaysOpen: boolean = false;
   @Input() id!: string;
- // @HostBinding('class.accordion-flush') get accordionFlush() { return this.flush; }
+  // @HostBinding('class.accordion-flush') get accordionFlush() { return this.flush; }
   @ContentChildren(AccordionItemComponent) public items!: QueryList<AccordionItemComponent>;
   constructor(private idService: UniqueIdService) { }
 
-  ngAfterContentChecked(): void {
+  ngDoCheck(): void {
     if (!this.id) {
       this.id = `accordion${this.idService.id}`;
     }

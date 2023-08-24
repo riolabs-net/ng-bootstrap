@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, Input, AfterViewInit } from "@angular/core";
+import { Directive, ElementRef, Renderer2, Input, AfterViewInit, DoCheck } from "@angular/core";
 
 @Directive({
   selector: `
@@ -6,14 +6,14 @@ import { Directive, ElementRef, Renderer2, Input, AfterViewInit } from "@angular
     a[toggle],
     rlb-button-toolbar[toogle]`,
 })
-export class ToggleDirective implements AfterViewInit {
+export class ToggleDirective implements DoCheck {
   @Input('toggle') toggle!: 'offcanvas' | 'collapse' | 'tab' | 'pill' | 'dropdown' | 'buttons-group'
   @Input({ alias: 'toggle-target', required: true }) target!: string;
   @Input() collapsed: boolean = false;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
-  ngAfterViewInit() {
+  ngDoCheck() {
     this.renderer.setAttribute(this.elementRef.nativeElement, 'data-bs-toggle', this.toggle);
     if (this.elementRef.nativeElement.nodeName.toLowerCase() === 'a') {
       this.renderer.setAttribute(this.elementRef.nativeElement, 'href', `#${this.target}`);

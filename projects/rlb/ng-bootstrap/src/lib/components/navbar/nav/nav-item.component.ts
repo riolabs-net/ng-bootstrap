@@ -1,6 +1,5 @@
-import { Component, Input, ViewContainerRef, OnInit, ViewChild, TemplateRef, QueryList, ContentChildren, AfterViewInit, AfterContentChecked, ChangeDetectorRef, ChangeDetectionStrategy, AfterViewChecked, DoCheck } from '@angular/core'
+import { Component, Input, ViewContainerRef, OnInit, ViewChild, TemplateRef, QueryList, ContentChildren, DoCheck } from '@angular/core'
 import { UniqueIdService } from '../../../shared/unique-id.service';
-
 
 @Component({
   selector: 'rlb-nav-item',

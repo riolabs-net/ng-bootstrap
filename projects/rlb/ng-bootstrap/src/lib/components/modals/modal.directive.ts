@@ -51,7 +51,6 @@ export class ModalDirective implements OnDestroy, AfterViewInit {
     this.bsModal = Modal.getOrCreateInstance(this.modalElement, { backdrop: 'static', keyboard: false, focus: true });
     this.initButtons();
     this.bsModal.show();
-    console.log('ModalDirective', this.id, this.instance);
   }
 
   ngOnDestroy(): void {
@@ -81,7 +80,6 @@ export class ModalDirective implements OnDestroy, AfterViewInit {
             this.bsModal?.hide();
           }
           if (this._modalReason === 'ok') {
-            console.log('ok', this.instance.valid);
             if (this.instance.valid) {
               this.bsModal?.hide();
             }
