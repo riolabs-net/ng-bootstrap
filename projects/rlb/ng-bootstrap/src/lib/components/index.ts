@@ -48,6 +48,7 @@ import { TabContentComponent } from './tabs/tab-content.component';
 import { TabPaneComponent } from './tabs/tab-pane.component';
 import { TabComponent } from './tabs/tab.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { TOASTS } from './toast';
 import { PopoverDirective } from './tooltips/popover.directive';
 import { TooltipDirective } from './tooltips/tooltip.directive';
 
@@ -103,6 +104,7 @@ export * from './tabs/tab.component';
 export * from './tabs/tab-content.component';
 export * from './tabs/tab-pane.component';
 export * from './modals';
+export * from './toast';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -156,5 +158,6 @@ export const COMPONENTS = [
   TabComponent,
   TabContentComponent,
   TabPaneComponent,
-  ...[MODALS]
+  ...[MODALS],
+  ...[TOASTS]
 ]

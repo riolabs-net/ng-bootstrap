@@ -9,6 +9,6 @@ export * from './options/toast-registry.options'
 // export * from './toast.directive'
 export * from './toast.service'
 
-export const MODALS = [
+export const TOASTS = [
   ToastContainerComponent
 ]

@@ -7,7 +7,7 @@ import { ToastResult } from './data/toast-resutl'
 @Injectable({
   providedIn: 'root',
 })
-export class ModalService {
+export class ToastService {
   constructor(private modalService: InnerToastService) { }
 
   public openToast<Input = any, Output = any>(name: string, data: ToastData<Input>): Observable<ToastResult<Output> | null> {
