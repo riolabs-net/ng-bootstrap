@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, Input, OnDestroy, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import { Directive, ElementRef, Renderer2, Input, OnDestroy, AfterViewInit } from '@angular/core';
 import { Modal } from 'bootstrap'
 import { InnerModalService } from './inner-modal.service';
 import { ModalCloseReason } from '../../shared/colors';
@@ -12,7 +12,6 @@ export class ModalDirective implements OnDestroy, AfterViewInit {
 
   @Input('id') id!: string;
   @Input('data-instance') instance!: IModal
-  @Output() openChange: EventEmitter<void> = new EventEmitter<void>();
 
   private bsModal!: Modal;
   private modalElement!: HTMLElement;
