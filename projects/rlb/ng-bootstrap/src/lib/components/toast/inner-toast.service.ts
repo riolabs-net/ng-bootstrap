@@ -1,5 +1,4 @@
-import { Breakpoints, MediaMatcher } from '@angular/cdk/layout'
-import { ComponentRef, ElementRef, EventEmitter, Injectable, Type } from '@angular/core'
+import { ComponentRef, Injectable, Type } from '@angular/core'
 import { Observable, filter, map, Subject } from 'rxjs'
 import { ToastData } from './data/toast-data'
 import { AbstractRegistryService } from '../../shared/abstract.registry.service'
@@ -8,17 +7,36 @@ import { GenericComponent } from '../../shared/component-builder/generic.compone
 import { UniqueIdService } from '../../shared/unique-id.service'
 import { ModalCloseReason } from '../../shared/colors'
 import { ToastResult } from './data/toast-resutl'
+import { BuilderComponent } from '../../shared/component-builder'
 
 @Injectable({
   providedIn: 'root',
 })
 export class InnerToastService extends AbstractRegistryService<Type<any>> {
 
-  public toastCreate!: (name: string, id: string, data: ToastData<any>) => ComponentRef<GenericComponent> | null
   public modalClose: Subject<ToastResult<any> & { id: string }> = new Subject<ToastResult<any> & { id: string }>()
-  private allModals: { id: string, dialog: ComponentRef<GenericComponent> }[] = []
+  private allModals: { id: string, toast: ComponentRef<GenericComponent> }[] = []
+  private builders: BuilderComponent<InnerToastService>[] = []
 
-  constructor(options: ToastRegistryOptions, private mediaMatcher: MediaMatcher, private uniqueIdService: UniqueIdService) {
+  registerBuilder(builder: BuilderComponent<InnerToastService>) {
+    this.builders.push(builder)
+  }
+
+  removeBuilder(builderId: string) {
+    this.builders = this.builders.filter((b) => b.builderId !== builderId)
+  }
+
+  getBuilder(builderId: string): BuilderComponent<InnerToastService> {
+    if (!builderId) throw new Error('builderId is required')
+    const count = this.builders.filter(b => b.builderId === builderId).length
+    if (count === 0)
+      throw new Error(`builderId not found: ${builderId}`)
+    if (count > 1)
+      console.warn(`Toast builderId is not unique: ${builderId}. Will use the first one.`)
+    return this.builders.find((b) => b.builderId === builderId) as BuilderComponent<InnerToastService>
+  }
+
+  constructor(options: ToastRegistryOptions, private uniqueIdService: UniqueIdService) {
     super()
     if (Array.isArray(options)) {
       const modals = (options as ToastRegistryOptions[]).reverse().map(o => o.toasts).flat()
@@ -34,14 +52,20 @@ export class InnerToastService extends AbstractRegistryService<Type<any>> {
     }
   }
 
-  public openToast<Input = any, Output = any>(name: string, data: ToastData<Input>): Observable<ToastResult<Output> | null> {
-    const dialogId = `rlb-dialog${this.uniqueIdService.id}`
-    const dialog = this.toastCreate(name, dialogId, data)
-    this.allModals.push({ id: dialogId, dialog: dialog! })
+  public openToast<Input = any, Output = any>(builderId: string, componentName: string, data: ToastData<Input>): Observable<ToastResult<Output> | null> {
+    const toastId = `rlb-toast${this.uniqueIdService.id}`
+    const toast = this.getBuilder(builderId).buildComponent({
+      name: componentName,
+      data
+    }, {
+      inputs: { id: toastId },
+      setInstance: true
+    })
+    this.allModals.push({ id: toastId, toast: toast! })
     return this.modalClose
       .asObservable()
       .pipe(
-        filter(o => o?.id === dialogId),
+        filter(o => o?.id === toastId),
         map(({ reason, result }) => {
           return { reason, result }
         })
@@ -50,9 +74,9 @@ export class InnerToastService extends AbstractRegistryService<Type<any>> {
 
   public eventToast(event: string, reason: ModalCloseReason, id: string, result: any): void {
     if (event === 'hidden') {
-      const dialog = this.allModals.find((d) => d.id === id)
-      if (dialog) {
-        dialog.dialog.destroy()
+      const toast = this.allModals.find((d) => d.id === id)
+      if (toast) {
+        toast.toast.destroy()
         this.allModals = this.allModals.filter((d) => d.id !== id)
       }
       this.modalClose.next({ reason, result, id })

@@ -10,7 +10,7 @@ import { ToastResult } from './data/toast-resutl'
 export class ToastService {
   constructor(private modalService: InnerToastService) { }
 
-  public openToast<Input = any, Output = any>(name: string, data: ToastData<Input>): Observable<ToastResult<Output> | null> {
-    return this.modalService.openToast<Input, Output>(name, data)
+  public openToast<Input = any, Output = any>(containerId: string, name: string, data: ToastData<Input>): Observable<ToastResult<Output> | null> {
+    return this.modalService.openToast<Input, Output>(containerId, name, data)
   }
 }
