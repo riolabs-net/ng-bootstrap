@@ -1,11 +1,11 @@
-import { Directive, ElementRef, Renderer2, Input, DoCheck } from "@angular/core";
+import { Directive, ElementRef, Renderer2, Input, DoCheck, AfterViewInit } from "@angular/core";
 import { Popover } from 'bootstrap'
 
 @Directive({
   selector: "[popover]",
 })
 
-export class PopoverDirective implements DoCheck {
+export class PopoverDirective implements DoCheck, AfterViewInit {
   static bsInit = false;
 
   @Input({ alias: 'popover', required: true }) popover!: string | undefined;
@@ -29,6 +29,9 @@ export class PopoverDirective implements DoCheck {
     if (this.popover) {
       this.renderer.setAttribute(this.elementRef.nativeElement, 'data-bs-content', this.popover);
     }
+  }
+
+  ngAfterViewInit() {
     new Popover(this.elementRef.nativeElement)
   }
 }

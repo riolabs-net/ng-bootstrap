@@ -1,11 +1,11 @@
-import { Directive, ElementRef, Renderer2, Input, DoCheck } from "@angular/core";
+import { Directive, ElementRef, Renderer2, Input, DoCheck, AfterViewInit } from "@angular/core";
 import { Tooltip } from 'bootstrap'
 
 @Directive({
   selector: "[tooltip]"
 })
 
-export class TooltipDirective implements DoCheck {
+export class TooltipDirective implements DoCheck, AfterViewInit {
   static bsInit = false;
 
   @Input({ alias: 'tooltip', required: true }) tooltip!: string | undefined;
@@ -25,6 +25,9 @@ export class TooltipDirective implements DoCheck {
     if (this.tooltip) {
       this.renderer.setAttribute(this.elementRef.nativeElement, 'data-bs-title', this.tooltip);
     }
+  }
+
+  ngAfterViewInit() {
     new Tooltip(this.elementRef.nativeElement)
   }
 }

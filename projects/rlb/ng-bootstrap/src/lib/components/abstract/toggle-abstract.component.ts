@@ -12,10 +12,12 @@ abstract class _bs_component {
 @Injectable()
 export abstract class ToggleAbstractComponent<T extends _bs_component> implements OnInit, OnDestroy {
 
+  private _status!: VisibilityEvent
   protected _component!: T | undefined;
+  abstract get eventPrefix(): string;
 
   @Output() statusChange = new EventEmitter<VisibilityEvent>();
-  private _status!: VisibilityEvent
+
   get status() { return this._status }
   @Input() set status(v: VisibilityEvent) {
     if (v === `show` || v == `shown`) {
@@ -29,9 +31,8 @@ export abstract class ToggleAbstractComponent<T extends _bs_component> implement
   }
 
   constructor(private elementRef: ElementRef<HTMLElement>) { }
-  abstract getOrCreateInstance(element: HTMLElement): T;
-  abstract get eventPrefix(): string;
 
+  abstract getOrCreateInstance(element: HTMLElement): T;
 
   ngOnInit(): void {
     this.elementRef.nativeElement?.addEventListener(`hide.${this.eventPrefix}`, this._openChange_f)

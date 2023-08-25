@@ -8,6 +8,7 @@ import { ComponentCreationOptions } from './data/component-creation-options';
 @Injectable()
 export abstract class BuilderComponent<T extends AbstractRegistryService<Function>> {
 	abstract component: ComponentHostDirective;
+	abstract builderId: string;
 
 	constructor(protected registryService: T) { }
 

@@ -14,9 +14,9 @@ import { ModalResult } from './data/modal-resutl'
 })
 export class InnerModalService extends AbstractRegistryService<Type<any>> {
 
-  public dialogCreate!: (name: string, id: string, data: ModalData<any>) => ComponentRef<GenericComponent> | null
+  public modalCreate!: (name: string, id: string, data: ModalData<any>) => ComponentRef<GenericComponent> | null
   public modalClose: Subject<ModalResult<any> & { id: string }> = new Subject<ModalResult<any> & { id: string }>()
-  private allModals: { id: string, dialog: ComponentRef<GenericComponent> }[] = []
+  private allModals: { id: string, modal: ComponentRef<GenericComponent> }[] = []
 
   constructor(options: ModalRegistryOptions, private mediaMatcher: MediaMatcher, private uniqueIdService: UniqueIdService) {
     super()
@@ -35,13 +35,13 @@ export class InnerModalService extends AbstractRegistryService<Type<any>> {
   }
 
   public openModal<Input = any, Output = any>(name: string, data: ModalData<Input>): Observable<ModalResult<Output> | null> {
-    const dialogId = `rlb-dialog${this.uniqueIdService.id}`
-    const dialog = this.dialogCreate(name, dialogId, data)
-    this.allModals.push({ id: dialogId, dialog: dialog! })
+    const modalId = `rlb-modal${this.uniqueIdService.id}`
+    const modal = this.modalCreate(name, modalId, data)
+    this.allModals.push({ id: modalId, modal: modal! })
     return this.modalClose
       .asObservable()
       .pipe(
-        filter(o => o?.id === dialogId),
+        filter(o => o?.id === modalId),
         map(({ reason, result }) => {
           return { reason, result }
         })
@@ -50,9 +50,9 @@ export class InnerModalService extends AbstractRegistryService<Type<any>> {
 
   public eventModal(event: string, reason: ModalCloseReason, id: string, result: any): void {
     if (event === 'hidden') {
-      const dialog = this.allModals.find((d) => d.id === id)
-      if (dialog) {
-        dialog.dialog.destroy()
+      const modal = this.allModals.find((d) => d.id === id)
+      if (modal) {
+        modal.modal.destroy()
         this.allModals = this.allModals.filter((d) => d.id !== id)
       }
       this.modalClose.next({ reason, result, id })
