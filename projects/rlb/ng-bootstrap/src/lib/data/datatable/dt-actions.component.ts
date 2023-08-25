@@ -1,4 +1,4 @@
-import { Component, ContentChildren, Injector, Input, QueryList, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChildren, DoCheck, Injector, Input, QueryList, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { DataTableActionComponent } from './dt-action.component';
 import { HostWrapper } from '../../shared/host-wrapper';
 import { WrappedComponent } from '../../shared/wrapped.component';
@@ -15,7 +15,7 @@ import { WrappedComponent } from '../../shared/wrapped.component';
       </ul>
     </div>`
 })
-export class DataTableActionsComponent {
+export class DataTableActionsComponent implements DoCheck {
 
   @ContentChildren(DataTableActionComponent) actions!: QueryList<DataTableActionComponent>;
   @ViewChild('projectedActions', { read: ViewContainerRef }) _projectedActions!: ViewContainerRef;
@@ -31,7 +31,7 @@ export class DataTableActionsComponent {
     return !this.actions.toArray().some(o => !o.disabled)
   }
 
-  ngAfterViewInit() {
+  ngDoCheck() {
     for (let i = this._projectedActions.length; i > 0; i--) {
       this._projectedActions.detach();
     }

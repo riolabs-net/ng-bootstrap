@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ContentChildren, EventEmitter, Input, Output, QueryList, ViewChild, ViewContainerRef } from '@angular/core';
+import { DoCheck, Component, ContentChildren, EventEmitter, Input, Output, QueryList, ViewChild, ViewContainerRef } from '@angular/core';
 import { DataTableHeaderComponent } from './dt-header.component';
 import { DataTableRowComponent } from './dt-row.component';
 
@@ -12,7 +12,7 @@ export interface TableDataQuery {
   selector: 'rlb-dt-table',
   templateUrl: './dt-table.component.html'
 })
-export class DataTableComponent implements AfterViewInit {
+export class DataTableComponent implements DoCheck {
   @Input() title!: string
   @Input() creationStrategy: 'none' | 'modal' | 'page' = 'none'
   @Input() creationUrl!: any[] | string | null | undefined
@@ -32,7 +32,7 @@ export class DataTableComponent implements AfterViewInit {
     return this.rows?.toArray()?.some(o => o.hasActions) || this.showActions !== 'row'
   }
 
-  ngAfterViewInit() {
+  ngDoCheck() {
     for (let i = this._projectedDisplayColumns.length; i > 0; i--) {
       this._projectedDisplayColumns.detach();
     }

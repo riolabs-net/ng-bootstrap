@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EmbeddedViewRef, OnDestroy, TemplateRef, ViewChild } from '@angular/core';
+import { DoCheck, Component, EmbeddedViewRef, OnDestroy, TemplateRef, ViewChild } from '@angular/core';
 import { DynamicWrapper } from './dynamic-wrapper';
 
 @Component({
@@ -9,13 +9,13 @@ import { DynamicWrapper } from './dynamic-wrapper';
     </ng-template>
   `,
 })
-export class WrappedComponent implements DynamicWrapper, AfterViewInit, OnDestroy {
+export class WrappedComponent implements DynamicWrapper, DoCheck, OnDestroy {
   _dynamic = false;
 
   @ViewChild('portal') templateRef!: TemplateRef<void>;
   componentView!: EmbeddedViewRef<void>; // the component projected view (in memory)
 
-  ngAfterViewInit() {
+  ngDoCheck() {
     // Create the inner components in memory, not the DOM.
     this.componentView = this.templateRef.createEmbeddedView();
   }

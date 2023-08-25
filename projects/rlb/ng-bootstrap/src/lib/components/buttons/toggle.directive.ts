@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, Input, AfterViewInit, DoCheck } from "@angular/core";
+import { Directive, ElementRef, Renderer2, Input, DoCheck } from "@angular/core";
 
 @Directive({
   selector: `

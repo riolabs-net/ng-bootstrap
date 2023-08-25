@@ -1,4 +1,4 @@
-import { ContentChildren, Component, Injector, Input, Optional, Self, ViewContainerRef, ViewChild, QueryList } from '@angular/core';
+import { ContentChildren, Component, Injector, Input, Optional, Self, ViewContainerRef, ViewChild, QueryList, DoCheck } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { AbstractComponent } from './rlb-abstract-field.component';
 import { UniqueIdService } from "../../shared/unique-id.service";
@@ -27,7 +27,7 @@ import { OptionComponent } from './rlb-options.component';
     {{ errors | json }}
   </div>`
 })
-export class SelectComponent extends AbstractComponent<string> implements ControlValueAccessor {
+export class SelectComponent extends AbstractComponent<string> implements DoCheck, ControlValueAccessor {
   @Input() disabled = false;
   @Input() label: string = '';
   @Input() placeholder!: string
@@ -48,7 +48,7 @@ export class SelectComponent extends AbstractComponent<string> implements Contro
   @ContentChildren(OptionComponent) options!: QueryList<OptionComponent>;
   @ViewChild('projectedDisplayOptions', { read: ViewContainerRef }) _projectedDisplayOptions!: ViewContainerRef;
 
-  ngAfterViewInit() {
+  ngDoCheck() {
     for (let i = this._projectedDisplayOptions.length; i > 0; i--) {
       this._projectedDisplayOptions.detach();
     }

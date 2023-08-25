@@ -1,4 +1,4 @@
-import { Component, ContentChildren, QueryList, AfterViewInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ContentChildren, QueryList, DoCheck, ViewChild, ViewContainerRef } from '@angular/core';
 import { DataTableActionsComponent } from './dt-actions.component';
 
 @Component({
@@ -9,7 +9,7 @@ import { DataTableActionsComponent } from './dt-actions.component';
       <ng-container #projectedActions></ng-container>
     </td>`
 })
-export class DataTableRowComponent implements AfterViewInit {
+export class DataTableRowComponent implements DoCheck {
 
   @ViewChild('projectedActions', { read: ViewContainerRef }) _projectedActions!: ViewContainerRef;
   @ContentChildren(DataTableActionsComponent) public actionsBlock!: QueryList<DataTableActionsComponent>;
@@ -18,7 +18,7 @@ export class DataTableRowComponent implements AfterViewInit {
     return !!this.actionsBlock && !!this.actionsBlock.first
   }
 
-  ngAfterViewInit() {
+  ngDoCheck() {
     if (this.hasActions) {
       for (let i = this._projectedActions.length; i > 0; i--) {
         this._projectedActions.detach();

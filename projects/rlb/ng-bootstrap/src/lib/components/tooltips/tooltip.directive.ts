@@ -1,11 +1,11 @@
-import { Directive, ElementRef, Renderer2, Input, AfterViewInit } from "@angular/core";
+import { Directive, ElementRef, Renderer2, Input, DoCheck } from "@angular/core";
 import { Tooltip } from 'bootstrap'
 
 @Directive({
   selector: "[tooltip]"
 })
 
-export class TooltipDirective implements AfterViewInit {
+export class TooltipDirective implements DoCheck {
   static bsInit = false;
 
   @Input({ alias: 'tooltip', required: true }) tooltip!: string | undefined;
@@ -14,7 +14,7 @@ export class TooltipDirective implements AfterViewInit {
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
-  ngAfterViewInit() {
+  ngDoCheck() {
     this.renderer.setAttribute(this.elementRef.nativeElement, 'data-bs-toggle', 'tooltip');
     if (this.placement) {
       this.renderer.setAttribute(this.elementRef.nativeElement, 'data-bs-placement', this.placement);

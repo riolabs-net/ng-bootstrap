@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, Input, AfterViewInit } from "@angular/core";
+import { Component, ElementRef, Renderer2, Input, DoCheck } from "@angular/core";
 import { Color } from "../../shared/colors";
 
 @Component({
@@ -8,7 +8,7 @@ import { Color } from "../../shared/colors";
     '[class]': 'style',
   }
 })
-export class BadgeComponent implements AfterViewInit {
+export class BadgeComponent implements DoCheck {
 
   @Input('pill') pill!: boolean;
   @Input('color') color: Color = 'primary'
@@ -27,7 +27,7 @@ export class BadgeComponent implements AfterViewInit {
     return style;
   }
 
-  ngAfterViewInit() {
+  ngDoCheck() {
     if (this.hiddenText) {
       const text = this.renderer.createElement('span');
       this.renderer.addClass(text, 'visually-hidden');

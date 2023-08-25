@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
 import { Offcanvas } from 'bootstrap'
 import { VisibilityEvent } from "../../shared/colors";
 import { ToggleAbstractComponent } from "../abstract/toggle-abstract.component";

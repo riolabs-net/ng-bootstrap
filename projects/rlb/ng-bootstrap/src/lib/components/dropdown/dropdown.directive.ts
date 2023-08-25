@@ -1,16 +1,16 @@
-import { Directive, ElementRef, Renderer2, Input } from "@angular/core";
+import { Directive, ElementRef, Renderer2, Input, DoCheck } from "@angular/core";
 
 @Directive({
   selector: 'a[rlb-dropdown], button[rlb-dropdown], span[rlb-badge]',
 })
-export class DropdownDirective {
+export class DropdownDirective implements DoCheck {
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
   @Input() offset!: string;
   @Input() autoClose!: 'default' | 'inside' | 'outside' | 'maual';
 
-  ngAfterViewInit() {
+  ngDoCheck() {
     this.renderer.addClass(this.elementRef.nativeElement, 'dropdown-toggle');
     this.renderer.setAttribute(this.elementRef.nativeElement, 'aria-expanded', 'false');
     this.renderer.setAttribute(this.elementRef.nativeElement, 'data-bs-toggle', 'dropdown');

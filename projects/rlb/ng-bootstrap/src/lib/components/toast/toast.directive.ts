@@ -1,19 +1,19 @@
 import { Directive, ElementRef, Renderer2, Input, OnDestroy, DoCheck } from '@angular/core';
-import { Modal } from 'bootstrap'
-import { InnerModalService } from './inner-modal.service';
+import { Toast } from 'bootstrap'
+import { InnerToastService } from './inner-toast.service';
 import { ModalCloseReason } from '../../shared/colors';
-import { IModal } from './data/modal';
+import { IToast } from './data/toast';
 
 @Directive({
-  selector: '[rlb-dialog]',
+  selector: '[rlb-toast]',
   standalone: true
 })
-export class ModalDirective implements OnDestroy, DoCheck {
+export class ToastDirective implements OnDestroy, DoCheck {
 
   @Input('id') id!: string;
-  @Input('data-instance') instance!: IModal
+  @Input('data-instance') instance!: IToast
 
-  private bsModal!: Modal;
+  private bsToast!: Toast;
   private modalElement!: HTMLElement;
   private dialogElement!: HTMLElement;
   private contentElement!: HTMLElement;
@@ -23,7 +23,7 @@ export class ModalDirective implements OnDestroy, DoCheck {
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
-    private innerModalService: InnerModalService,
+    private innerToastService: InnerToastService,
   ) { }
 
   ngDoCheck(): void {
@@ -47,9 +47,9 @@ export class ModalDirective implements OnDestroy, DoCheck {
     this.modalElement.addEventListener(`show.bs.modal`, this._openChange_f)
     this.modalElement.addEventListener(`shown.bs.modal`, this._openChange_f)
 
-    this.bsModal = Modal.getOrCreateInstance(this.modalElement, { backdrop: 'static', keyboard: false, focus: true });
+    this.bsToast = Toast.getOrCreateInstance(this.modalElement, { animation: true, autohide: false, delay: 0 });
     this.initButtons();
-    this.bsModal.show();
+    this.bsToast.show();
   }
 
   ngOnDestroy(): void {
@@ -61,12 +61,12 @@ export class ModalDirective implements OnDestroy, DoCheck {
     // this._reasonButtons?.forEach((btn) => {
     //   btn.removeEventListener('click', null);
     // });
-    this.bsModal?.dispose();
+    this.bsToast?.dispose();
     this.modalElement.remove();
   }
 
   private _openChange_f = (e: Event) => {
-    this.innerModalService.eventModal(e.type.replace('.bs.modal', ''), this._modalReason, this.id, this.instance?.result);
+    this.innerToastService.eventToast(e.type.replace('.bs.modal', ''), this._modalReason, this.id, this.instance?.result);
   }
 
   initButtons(): void {
@@ -76,11 +76,11 @@ export class ModalDirective implements OnDestroy, DoCheck {
         btn.addEventListener('click', () => {
           this._modalReason = btn.getAttribute('data-dialog-reason') as ModalCloseReason;
           if (this._modalReason === 'cancel' || this._modalReason === 'close') {
-            this.bsModal?.hide();
+            this.bsToast?.hide();
           }
           if (this._modalReason === 'ok') {
             if (this.instance.valid) {
-              this.bsModal?.hide();
+              this.bsToast?.hide();
             }
           }
         });

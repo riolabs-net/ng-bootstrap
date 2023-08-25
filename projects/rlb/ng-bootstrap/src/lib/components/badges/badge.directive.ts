@@ -1,11 +1,11 @@
-import { Directive, ElementRef, Renderer2, Input } from "@angular/core";
+import { Directive, ElementRef, Renderer2, Input, DoCheck } from "@angular/core";
 import { Color } from "../../shared/colors";
 
 @Directive({
   selector: "[badge]"
 })
 
-export class BadgeDirective {
+export class BadgeDirective implements DoCheck {
 
   @Input('badge') badge!: string | undefined;
   @Input('badge-pill') pill!: boolean;
@@ -16,7 +16,7 @@ export class BadgeDirective {
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
-  ngAfterViewInit() {
+  ngDoCheck() {
     const badge = this.renderer.createElement('span');
 
     if (this.top || this.start || this.top === 0 || this.start === 0) {
