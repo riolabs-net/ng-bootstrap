@@ -1,5 +1,5 @@
-<rlb-dialog-container />
-
+<rlb-modal-container id="modal-c-1" />
+<rlb-toast-container class="position-fixed bottom-0 end-0 p-3" id="toast-c-1" />
 
 
 <rlb-navbar color="light" expand="lg">
@@ -66,7 +66,8 @@
 		</rlb-tab-content>
 
 		<button rlb-button toggle="collapse" toggle-target="collapse-id" class="me-2">Collapse</button>
-		<button rlb-button (click)="dialog()" class="me-2">Open Modal</button>
+		<button rlb-button (click)="modal()" class="me-2">Open Modal</button>
+		<button rlb-button (click)="toast()" class="me-2">Open Toast</button>
 		<button rlb-button toggle="offcanvas" toggle-target="off-1" class="me-2">Offcanvas</button>
 		<rlb-collapse id="collapse-id">
 			<rlb-card style="width: 300px;" [overlay]="false">
@@ -154,7 +155,7 @@
 		</div>
 
 		<div class="p-3">
-			<rlb-spinner [color]="'primary'" [size]="'lg'"></rlb-spinner> 
+			<rlb-spinner [color]="'primary'" [size]="'lg'"></rlb-spinner>
 		</div>
 
 		<div class="p-3">

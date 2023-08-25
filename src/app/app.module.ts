@@ -6,17 +6,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RlbBootstrapModule } from 'projects/rlb/ng-bootstrap/src/public-api';
 import { FormsModule } from '@angular/forms';
 import { DemoComponent } from './demo/demo.component';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemoComponent
+    DemoComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RlbBootstrapModule.forRoot({
-      modals: [DemoComponent]
+      modals: [DemoComponent],
+      toasts: [ToastComponent]
     }),
     FormsModule,
     NgbModule
