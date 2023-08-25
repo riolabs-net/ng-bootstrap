@@ -8,7 +8,7 @@ import { ModalDirective } from 'projects/rlb/ng-bootstrap/src/public-api';
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.scss'],
-  hostDirectives: [{ directive: ModalDirective, inputs: ['id', 'data-instance'] }],
+  hostDirectives: [{ directive: ModalDirective, inputs: ['id', 'data-instance', 'data-options'] }],
 
 })
 export class DemoComponent implements IModal<any, any> {

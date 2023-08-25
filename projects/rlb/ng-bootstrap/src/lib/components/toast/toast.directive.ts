@@ -3,6 +3,7 @@ import { Toast } from 'bootstrap'
 import { InnerToastService } from './inner-toast.service';
 import { ToastCloseReason } from '../../shared/colors';
 import { IToast } from './data/toast';
+import { ToastOptions } from './data/toast-options';
 
 @Directive({
   selector: '[rlb-toast]',
@@ -12,6 +13,7 @@ export class ToastDirective implements OnDestroy, AfterViewInit {
 
   @Input('id') id!: string;
   @Input('data-instance') instance!: IToast
+  @Input('data-options') options!: ToastOptions
 
   private bsToast!: Toast;
   private contentElement!: HTMLElement;

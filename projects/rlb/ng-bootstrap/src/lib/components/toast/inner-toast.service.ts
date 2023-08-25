@@ -8,6 +8,8 @@ import { UniqueIdService } from '../../shared/unique-id.service'
 import { ModalCloseReason } from '../../shared/colors'
 import { ToastResult } from './data/toast-resutl'
 import { BuilderComponent } from '../../shared/component-builder'
+import { ModalOptions } from '../modals'
+import { ToastOptions } from './data/toast-options'
 
 @Injectable({
   providedIn: 'root',
@@ -52,15 +54,15 @@ export class InnerToastService extends AbstractRegistryService<Type<any>> {
     }
   }
 
-  public openToast<Input = any, Output = any>(builderId: string, componentName: string, data: ToastData<Input>): Observable<ToastResult<Output> | null> {
+  public openToast<Input = any, Output = any>(builderId: string, componentName: string, data: ToastData<Input>, options?: ToastOptions): Observable<ToastResult<Output> | null> {
     const toastId = `rlb-toast${this.uniqueIdService.id}`
-    const toast = this.getBuilder(builderId).buildComponent({
+    const toast = this.getBuilder(builderId).buildComponent<ToastData<Input>, ToastOptions>({
       name: componentName,
       data
     }, {
       inputs: { id: toastId },
       setInstance: true
-    })
+    }, options)
     this.allModals.push({ id: toastId, toast: toast! })
     return this.modalClose
       .asObservable()

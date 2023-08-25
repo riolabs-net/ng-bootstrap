@@ -8,15 +8,35 @@ import { GenericComponent } from '../../shared/component-builder/generic.compone
 import { UniqueIdService } from '../../shared/unique-id.service'
 import { ModalCloseReason } from '../../shared/colors'
 import { ModalResult } from './data/modal-resutl'
+import { ModalOptions } from './data/modal-options'
+import { BuilderComponent } from '../../shared/component-builder'
 
 @Injectable({
   providedIn: 'root',
 })
 export class InnerModalService extends AbstractRegistryService<Type<any>> {
 
-  public modalCreate!: (name: string, id: string, data: ModalData<any>) => ComponentRef<GenericComponent> | null
   public modalClose: Subject<ModalResult<any> & { id: string }> = new Subject<ModalResult<any> & { id: string }>()
   private allModals: { id: string, modal: ComponentRef<GenericComponent> }[] = []
+  private builders: BuilderComponent<InnerModalService>[] = []
+
+  registerBuilder(builder: BuilderComponent<InnerModalService>) {
+    if (this.builders.length > 0) {
+      throw new Error('Only one modal builder is supported. Please remove the others.')
+    }
+    this.builders.push(builder)
+  }
+
+  removeBuilder(builderId: string) {
+    this.builders = this.builders.filter(_ => false)
+  }
+
+  getBuilder(): BuilderComponent<InnerModalService> {
+    if (this.builders.length === 0) {
+      throw new Error('No modal builder is registered.')
+    }
+    return this.builders[0]
+  }
 
   constructor(options: ModalRegistryOptions, private mediaMatcher: MediaMatcher, private uniqueIdService: UniqueIdService) {
     super()
@@ -34,9 +54,18 @@ export class InnerModalService extends AbstractRegistryService<Type<any>> {
     }
   }
 
-  public openModal<Input = any, Output = any>(name: string, data: ModalData<Input>): Observable<ModalResult<Output> | null> {
+  public openModal<Input = any, Output = any>(
+    name: string,
+    data: ModalData<Input>,
+    options?: ModalOptions): Observable<ModalResult<Output> | null> {
     const modalId = `rlb-modal${this.uniqueIdService.id}`
-    const modal = this.modalCreate(name, modalId, data)
+    const modal = this.getBuilder().buildComponent<ModalData<Input>, ModalOptions>({
+      name,
+      data
+    }, {
+      inputs: { id: modalId },
+      setInstance: true
+    }, options)
     this.allModals.push({ id: modalId, modal: modal! })
     return this.modalClose
       .asObservable()

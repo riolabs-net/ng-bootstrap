@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core'
 import { InnerToastService } from './inner-toast.service'
 import { ToastData } from './data/toast-data'
 import { ToastResult } from './data/toast-resutl'
+import { ToastOptions } from './data/toast-options'
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,11 @@ import { ToastResult } from './data/toast-resutl'
 export class ToastService {
   constructor(private modalService: InnerToastService) { }
 
-  public openToast<Input = any, Output = any>(containerId: string, name: string, data: ToastData<Input>): Observable<ToastResult<Output> | null> {
-    return this.modalService.openToast<Input, Output>(containerId, name, data)
+  public openToast<Input = any, Output = any>(
+    containerId: string,
+    name: string,
+    data: ToastData<Input>,
+    options?: ToastOptions): Observable<ToastResult<Output> | null> {
+    return this.modalService.openToast<Input, Output>(containerId, name, data, options)
   }
 }

@@ -3,6 +3,7 @@ import { Modal } from 'bootstrap'
 import { InnerModalService } from './inner-modal.service';
 import { ModalCloseReason } from '../../shared/colors';
 import { IModal } from './data/modal';
+import { ModalOptions } from './data/modal-options';
 
 @Directive({
   selector: '[rlb-modal]',
@@ -12,6 +13,7 @@ export class ModalDirective implements OnDestroy, AfterViewInit {
 
   @Input('id') id!: string;
   @Input('data-instance') instance!: IModal
+  @Input('data-options') options!: ModalOptions
 
   private bsModal!: Modal;
   private modalElement!: HTMLElement;
