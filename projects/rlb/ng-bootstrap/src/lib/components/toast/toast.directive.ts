@@ -34,6 +34,14 @@ export class ToastDirective implements OnDestroy, AfterViewInit {
     this.renderer.setAttribute(this.contentElement, 'role', 'alert');
     this.renderer.setAttribute(this.contentElement, 'aria-live', 'assertive');
     this.renderer.setAttribute(this.contentElement, 'aria-atomic', 'true');
+    if (this.options?.color) {
+      this.renderer.addClass(this.contentElement, `text-bg-${this.options.color}`);
+    }
+    if (this.options?.classes) {
+      for (const c of this.options.classes) {
+        this.renderer.addClass(this.contentElement, c.trim());
+      }
+    }
     while (this.el.nativeElement.children.length > 0) {
       this.renderer.appendChild(this.contentElement, this.el.nativeElement.children[0]);
     }
@@ -43,9 +51,12 @@ export class ToastDirective implements OnDestroy, AfterViewInit {
     this.contentElement.addEventListener(`hidden.bs.toast`, this._openChange_f)
     this.contentElement.addEventListener(`show.bs.toast`, this._openChange_f)
     this.contentElement.addEventListener(`shown.bs.toast`, this._openChange_f)
-
     this.initButtons();
-    this.bsToast = Toast.getOrCreateInstance(this.contentElement, { animation: true, autohide: false, delay: 0 });
+    this.bsToast = Toast.getOrCreateInstance(this.contentElement, {
+      animation: this.options?.animation || true,
+      autohide: this.options?.autohide || true,
+      delay: this.options?.delay || 5000,
+    });
     this.bsToast.show();
   }
 

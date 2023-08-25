@@ -37,17 +37,46 @@ export class ModalDirective implements OnDestroy, AfterViewInit {
     this.renderer.appendChild(this.modalElement, this.dialogElement);
     this.renderer.appendChild(this.dialogElement, this.contentElement);
     this.renderer.addClass(this.modalElement, 'modal');
+    this.renderer.addClass(this.modalElement, 'fade');
     this.renderer.setAttribute(this.modalElement, 'id', `${this.id}`);
     this.renderer.setAttribute(this.modalElement, 'tabindex', '-1');
     this.renderer.addClass(this.dialogElement, 'modal-dialog');
     this.renderer.addClass(this.contentElement, 'modal-content');
+    if (this.options?.backdrop) {
+      this.renderer.setAttribute(this.modalElement, 'data-bs-backdrop', `${this.options.backdrop}`);
+    }
+    if (this.options?.keyboard) {
+      this.renderer.setAttribute(this.modalElement, 'data-bs-keyboard', `${this.options.keyboard}`);
+    }
+    if (this.options?.animation === false) {
+      this.renderer.removeClass(this.modalElement, 'fade');
+    }
+    if (this.options?.scrollable) {
+      this.renderer.addClass(this.dialogElement, 'modal-dialog-scrollable');
+    }
+    if (this.options?.verticalcentered) {
+      this.renderer.addClass(this.dialogElement, 'modal-dialog-centered');
+    }
+    if (this.options?.size) {
+      this.renderer.addClass(this.dialogElement, `modal-${this.options.size}`);
+    }
+    if (this.options?.fullscreen === true) {
+      this.renderer.addClass(this.dialogElement, `modal-fullscreen`);
+    }
+    if (typeof this.options?.fullscreen === 'string' && this.options?.fullscreen) {
+      this.renderer.addClass(this.dialogElement, `modal-fullscreen-${this.options.fullscreen}`);
+    }
     this.modalElement.addEventListener(`hide.bs.modal`, this._openChange_f)
     this.modalElement.addEventListener(`hidden.bs.modal`, this._openChange_f)
     this.modalElement.addEventListener(`hidePrevented.bs.modal`, this._openChange_f)
     this.modalElement.addEventListener(`show.bs.modal`, this._openChange_f)
     this.modalElement.addEventListener(`shown.bs.modal`, this._openChange_f)
     this.initButtons();
-    this.bsModal = Modal.getOrCreateInstance(this.modalElement, { backdrop: 'static', keyboard: false, focus: true });
+    this.bsModal = Modal.getOrCreateInstance(this.modalElement, {
+      backdrop: this.options?.backdrop || true,
+      keyboard: this.options?.keyboard || true,
+      focus: this.options?.focus || true,
+    });
     this.bsModal.show();
   }
 
