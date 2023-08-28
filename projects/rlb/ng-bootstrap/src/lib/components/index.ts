@@ -41,7 +41,8 @@ import { OffcanvasTitleComponent } from './offcanvas/offcanvas-title.component';
 import { OffcanvasComponent } from './offcanvas/offcanvas.component';
 import { PaginationItemComponent } from './pagination/pagination-item.component';
 import { PaginationComponent } from './pagination/pagination.component';
-import { PlaceholderComponent } from './placeholder/placeholder.directive';
+import { PlaceholderDirective } from './placeholder/placeholder.directive';
+import { ScrollspyDirective } from './scrollspy/scrollspy.directive';
 import { SidebarBodyComponent } from './sidebar/sidebar-body.component';
 import { SidebarFooterComponent } from './sidebar/sidebar-footer.component';
 import { SidebarHeaderComponent } from './sidebar/sidebar-header.component';
@@ -109,6 +110,7 @@ export * from './modals';
 export * from './toast';
 export * from './pagination/pagination-item.component';
 export * from './pagination/pagination.component';
+export * from './scrollspy/scrollspy.directive';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -137,7 +139,7 @@ export const COMPONENTS = [
   ProgressComponent,
   TooltipDirective,
   PopoverDirective,
-  PlaceholderComponent,
+  PlaceholderDirective,
   CollapseComponent,
   DropdownComponent,
   DropdownContainerComponent,
@@ -164,6 +166,7 @@ export const COMPONENTS = [
   TabPaneComponent,
   PaginationItemComponent,
   PaginationComponent,
+  ScrollspyDirective,
   ...[MODALS],
   ...[TOASTS]
 ]

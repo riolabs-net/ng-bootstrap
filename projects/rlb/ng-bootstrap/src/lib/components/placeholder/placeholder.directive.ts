@@ -4,7 +4,7 @@ import { Color } from '../../shared/colors';
 @Directive({
   selector: '[rlb-placeholder]',
 })
-export class PlaceholderComponent implements DoCheck {
+export class PlaceholderDirective implements DoCheck {
   @Input('placeholder-color') color!: Color;
   @Input('placeholder-size') size: 'xs' | 'sm' | 'md' | 'lg' = 'md';
   @Input('placeholder-animation') animation: 'glow' | 'fade' | 'none' = 'none';
