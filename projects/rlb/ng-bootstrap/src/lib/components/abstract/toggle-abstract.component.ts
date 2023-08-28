@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter, Input, OnInit, Output, OnDestroy, ElementRef } from '@angular/core';
-import { VisibilityEvent } from '../../shared/colors';
+import { VisibilityEvent } from '../../shared/types';
 
 abstract class _bs_component {
   abstract dispose(): void;

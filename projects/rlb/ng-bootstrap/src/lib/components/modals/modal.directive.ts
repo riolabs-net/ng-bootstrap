@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Renderer2, Input, OnDestroy, DoCheck, AfterViewInit } from '@angular/core';
 import { Modal } from 'bootstrap'
 import { InnerModalService } from './inner-modal.service';
-import { ModalCloseReason } from '../../shared/colors';
+import { ModalCloseReason } from '../../shared/types';
 import { IModal } from './data/modal';
 import { ModalOptions } from './data/modal-options';
 

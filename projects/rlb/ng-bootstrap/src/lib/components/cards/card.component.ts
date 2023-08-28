@@ -1,5 +1,5 @@
 import { Component, Input, ContentChild, DoCheck } from '@angular/core';
-import { Color, TextAlignment } from '../../shared/colors';
+import { Color, TextAlignment } from '../../shared/types';
 import { CardBodyComponent } from './card-body.component';
 import { CardImageComponent } from './card-image.component';
 

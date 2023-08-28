@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Color } from '../../shared/colors';
+import { Color } from '../../shared/types';
 
 @Component({
   selector: 'rlb-progress',

@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Renderer2, Input, OnDestroy, DoCheck, AfterViewInit } from '@angular/core';
 import { Toast } from 'bootstrap'
 import { InnerToastService } from './inner-toast.service';
-import { ToastCloseReason } from '../../shared/colors';
+import { ToastCloseReason } from '../../shared/types';
 import { IToast } from './data/toast';
 import { ToastOptions } from './data/toast-options';
 

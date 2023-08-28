@@ -1,4 +1,4 @@
-import { ModalType } from "../../../shared/colors";
+import { ModalType } from "../../../shared/types";
 
 export interface ModalData<T = any> {
   title: string,

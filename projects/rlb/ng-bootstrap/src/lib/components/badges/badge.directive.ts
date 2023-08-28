@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Renderer2, Input, DoCheck } from "@angular/core";
-import { Color } from "../../shared/colors";
+import { Color } from "../../shared/types";
 
 @Directive({
   selector: "[badge]"

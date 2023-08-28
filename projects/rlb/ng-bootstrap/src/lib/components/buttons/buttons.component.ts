@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Color, Size } from '../../shared/colors';
+import { Color, Size } from '../../shared/types';
 
 @Component({
   selector: 'button[rlb-button], a[rlb-button]',

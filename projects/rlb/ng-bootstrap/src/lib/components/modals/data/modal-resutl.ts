@@ -1,4 +1,4 @@
-import { ModalCloseReason } from "../../../shared/colors";
+import { ModalCloseReason } from "../../../shared/types";
 
 export interface ModalResult<T = void> {
   reason: ModalCloseReason

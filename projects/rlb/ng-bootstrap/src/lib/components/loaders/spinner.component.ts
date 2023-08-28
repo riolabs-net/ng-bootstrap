@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Color } from '../../shared/colors';
+import { Color } from '../../shared/types';
 
 @Component({
   selector: 'rlb-spinner',

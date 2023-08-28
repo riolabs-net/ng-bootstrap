@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
 import { Offcanvas } from 'bootstrap'
-import { VisibilityEvent } from "../../shared/colors";
+import { VisibilityEvent } from "../../shared/types";
 import { ToggleAbstractComponent } from "../abstract/toggle-abstract.component";
 
 @Component({
