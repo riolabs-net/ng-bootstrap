@@ -10,9 +10,9 @@ import { Color } from "../../shared/types";
 })
 export class BadgeComponent implements DoCheck {
 
-  @Input('pill') pill!: boolean;
-  @Input('color') color: Color = 'primary'
-  @Input('hidden-text') hiddenText!: string;
+  @Input('pill') pill!: boolean | undefined;
+  @Input('color') color: Color | undefined = 'primary'
+  @Input('hidden-text') hiddenText!: string | undefined;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 

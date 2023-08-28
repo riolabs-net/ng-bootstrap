@@ -17,6 +17,6 @@ export interface BreadcrumbItem { label: string; link?: string; }
   </nav>`
 })
 export class BreadcrumbComponent {
-  @Input() divider: string = '>';
-  @Input() items: BreadcrumbItem[] = [];
+  @Input() divider?: string = '>';
+  @Input() items?: BreadcrumbItem[] = [];
 }
