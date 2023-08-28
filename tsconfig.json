@@ -5,6 +5,9 @@
     "paths": {
       "@rlb/ng-bootstrap": [
         "dist/rlb/ng-bootstrap"
+      ],
+      "@rlb/ng-c-bootstrap": [
+        "dist/rlb/ng-c-bootstrap"
       ]
     },
     "baseUrl": "./",
