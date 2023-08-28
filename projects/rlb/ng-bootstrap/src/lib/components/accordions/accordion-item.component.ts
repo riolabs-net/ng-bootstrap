@@ -13,7 +13,7 @@ import { UniqueIdService } from '../../shared/unique-id.service';
 export class AccordionItemComponent implements DoCheck {
   public parentId!: string
   @Input() public name!: string
-  public alwaysOpen: boolean = false
+  public alwaysOpen?: boolean = false
   @Input() public expanded: boolean = false
 
   @ContentChild(AccordionHeaderComponent) public header!: AccordionHeaderComponent

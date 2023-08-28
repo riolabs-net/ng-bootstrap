@@ -7,14 +7,14 @@ import { AccordionItemComponent } from './accordion-item.component';
   template: `<ng-content></ng-content>`,
   host: {
     class: 'accordion',
+    '[class.accordion-flush]': 'flush',
     '[id]': 'id',
   },
 })
 export class AccordionComponent implements DoCheck {
-  @Input() flush: boolean = false;
-  @Input() alwaysOpen: boolean = false;
+  @Input() flush?: boolean = false;
+  @Input() alwaysOpen?: boolean = false;
   @Input() id!: string;
-  // @HostBinding('class.accordion-flush') get accordionFlush() { return this.flush; }
   @ContentChildren(AccordionItemComponent) public items!: QueryList<AccordionItemComponent>;
   constructor(private idService: UniqueIdService) { }
 

@@ -1,9 +1,12 @@
+import { AccordionComponent } from "./accordions/accordion.component";
 import { AlertComponent } from "./alerts/alert.component";
 import { BadgeComponent } from "./badges/badge.component";
 import { BreadcrumbComponent } from "./breadcrumb/breadcrumb.component";
 import { ProgressComponent } from "./progress/progress.component";
 import { SpinnerComponent } from "./spinners/spinner.component";
 
+export * from './accordions/accordion.data';
+export * from './accordions/accordion.component';
 export * from './alerts/alert.data';
 export * from './alerts/alert.component';
 export * from './badges/badge.data';
@@ -17,6 +20,7 @@ export * from './spinners/spinner.data';
 export * from './spinners/spinner.component';
 
 export const COMPONENTS = [
+  AccordionComponent,
   AlertComponent,
   BadgeComponent,
   BreadcrumbComponent,
