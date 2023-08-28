@@ -1,30 +1,30 @@
-export * from './rlb-checkbox.component';
-export * from './rlb-color.component';
-export * from './rlb-datalist.component';
-export * from './rlb-file.component';
-export * from './rlb-input-group.component';
-export * from './rlb-input.component';
-export * from './rlb-options.component';
-export * from './rlb-radio.component';
-export * from './rlb-range.component';
-export * from './rlb-select.component';
-export * from './rlb-switch.component';
-export * from './rlb-text-area.component';
-export * from './rlb-help-text.directive';
+export * from './checkbox.component';
+export * from './color.component';
+export * from './datalist.component';
+export * from './file.component';
+export * from './input-group.component';
+export * from './input.component';
+export * from './options.component';
+export * from './radio.component';
+export * from './range.component';
+export * from './select.component';
+export * from './switch.component';
+export * from './text-area.component';
+export * from './help-text.directive';
 
-import { CheckboxComponent } from "./rlb-checkbox.component";
-import { ColorComponent } from "./rlb-color.component";
-import { DatalistComponent } from "./rlb-datalist.component";
-import { FileComponent } from "./rlb-file.component";
-import { HelpText } from "./rlb-help-text.directive";
-import { InputGroupComponent, InputTextGroupComponent } from "./rlb-input-group.component";
-import { InputComponent } from "./rlb-input.component";
-import { OptionComponent } from "./rlb-options.component";
-import { RadioComponent } from "./rlb-radio.component";
-import { RangeComponent } from "./rlb-range.component";
-import { SelectComponent } from "./rlb-select.component";
-import { SwitchComponent } from "./rlb-switch.component";
-import { TextAreaComponent } from "./rlb-text-area.component";
+import { CheckboxComponent } from "./checkbox.component";
+import { ColorComponent } from "./color.component";
+import { DatalistComponent } from "./datalist.component";
+import { FileComponent } from "./file.component";
+import { HelpText } from "./help-text.directive";
+import { InputGroupComponent, InputTextGroupComponent } from "./input-group.component";
+import { InputComponent } from "./input.component";
+import { OptionComponent } from "./options.component";
+import { RadioComponent } from "./radio.component";
+import { RangeComponent } from "./range.component";
+import { SelectComponent } from "./select.component";
+import { SwitchComponent } from "./switch.component";
+import { TextAreaComponent } from "./text-area.component";
 
 export const INPUTS = [
   CheckboxComponent,

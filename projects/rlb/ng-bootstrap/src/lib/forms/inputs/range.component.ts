@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input, Optional, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { AbstractComponent } from './rlb-abstract-field.component';
+import { AbstractComponent } from './abstract-field.component';
 import { UniqueIdService } from "../../shared/unique-id.service";
 
 @Component({
-  selector: 'rlb-datalist',
+  selector: 'rlb-range',
   host: {
     class: 'd-flex flex-grow-1 flex-shrink-1 flex-auto'
   },
@@ -12,30 +12,28 @@ import { UniqueIdService } from "../../shared/unique-id.service";
   <label *ngIf="label" [for]="id" class="form-label">{{ label }}</label>
   <input #input
          [id]="id"
-         class="form-control" 
+         class="form-range" 
+         type="range" 
          [attr.disabled]="disabled?true:undefined"
          [attr.readonly]="readonly?true:undefined"
-         [attr.placeholder]="placeholder"
-         [attr.list]="'list-'+id"
-         [class.form-control-lg]="size === 'large'"
-         [class.form-control-sm]="size === 'small'"
+         [attr.min]="min"
+         [attr.max]="max"
+         [attr.step]="step"
          [value]="value"
          (blur)="touch();"
          [ngClass]="{'is-invalid': control?.touched && control?.invalid}"
          (input)="update($event.target);">
-  <datalist [id]="'list-'+id">
-    <ng-content></ng-content>
-  </datalist>
   <div class="invalid-feedback">
     {{ errors | json }}
   </div>`
 })
-export class DatalistComponent extends AbstractComponent<string> implements ControlValueAccessor {
+export class RangeComponent extends AbstractComponent<string> implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() label: string = '';
-  @Input() placeholder!: string
-  @Input() size: "small" | "large" | undefined = undefined
+  @Input() min?: number | undefined = undefined
+  @Input() max?: number | undefined = undefined
+  @Input() step?: number | undefined = undefined
 
   constructor(idService: UniqueIdService, @Self() @Optional() override control?: NgControl) {
     super(idService, control)

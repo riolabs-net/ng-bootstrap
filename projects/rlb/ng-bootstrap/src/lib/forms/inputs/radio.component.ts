@@ -1,7 +1,7 @@
 import { Component, Input, ContentChildren, QueryList, ViewContainerRef, ViewChildren, ElementRef, DoCheck } from '@angular/core';
-import { AbstractComponent } from './rlb-abstract-field.component';
+import { AbstractComponent } from './abstract-field.component';
 import { ControlValueAccessor } from '@angular/forms';
-import { OptionComponent } from './rlb-options.component';
+import { OptionComponent } from './options.component';
 
 
 @Component({

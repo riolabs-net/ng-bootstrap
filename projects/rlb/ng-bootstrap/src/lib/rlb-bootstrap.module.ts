@@ -11,7 +11,6 @@ import { INPUTS } from './forms/inputs';
 import { COMPONENTS } from './components';
 import { FormFieldsComponent } from './forms/rlb-form-fields/rlb-form-fields.component';
 import { ModalRegistryOptions } from './components/modals/options/modal-registry.options';
-import { DemoComponent } from 'src/app/demo/demo.component';
 import { COMPONENT_BUILDER } from './shared/component-builder';
 import { FOR_ROOT_OPTIONS_TOKEN, RlbBootstrapOptions } from './rlb-bootstrap';
 import { modalRegistryProvider } from './components/modals/providers/modal-registry.provider';
@@ -39,7 +38,6 @@ import { toastRegistryProvider } from './components/toast/providers/modal-regist
     ...TABLE,
     ...INPUTS,
     ...COMPONENTS,
-    ...COMPONENT_BUILDER,
     FormFieldsComponent
   ]
 })

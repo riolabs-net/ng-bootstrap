@@ -1,8 +1,8 @@
 import { ContentChildren, Component, Injector, Input, Optional, Self, ViewContainerRef, ViewChild, QueryList, DoCheck } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { AbstractComponent } from './rlb-abstract-field.component';
+import { AbstractComponent } from './abstract-field.component';
 import { UniqueIdService } from "../../shared/unique-id.service";
-import { OptionComponent } from './rlb-options.component';
+import { OptionComponent } from './options.component';
 
 @Component({
   selector: 'rlb-select',

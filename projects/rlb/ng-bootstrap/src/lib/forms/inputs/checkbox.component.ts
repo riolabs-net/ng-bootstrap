@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, Optional, Self, ViewChild, ViewRef } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { AbstractComponent } from './rlb-abstract-field.component';
+import { AbstractComponent } from './abstract-field.component';
 import { UniqueIdService } from "../../shared/unique-id.service";
 
 @Component({
