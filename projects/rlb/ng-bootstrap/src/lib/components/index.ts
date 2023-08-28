@@ -21,6 +21,9 @@ import { CardSubtitleComponent } from './cards/card-subtitle.component';
 import { CardTextComponent } from './cards/card-text.component';
 import { CardTitleComponent } from './cards/card-title.component';
 import { CardComponent } from './cards/card.component';
+import { CarouselCaptionComponent } from './carousel/carousel-caption.component';
+import { CarouselSlideComponent } from './carousel/carousel-slide.component';
+import { CarouselComponent } from './carousel/carousel.component';
 import { CollapseComponent } from './collapse/collapse.component';
 import { DropdownContainerComponent } from './dropdown/dropdown-container.component';
 import { DropdownMenuItemComponent } from './dropdown/dropdown-menu-item.component';
@@ -111,6 +114,9 @@ export * from './toast';
 export * from './pagination/pagination-item.component';
 export * from './pagination/pagination.component';
 export * from './scrollspy/scrollspy.directive';
+export * from './carousel/carousel.component';
+export * from './carousel/carousel-slide.component';
+export * from './carousel/carousel-caption.component';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -167,6 +173,9 @@ export const COMPONENTS = [
   PaginationItemComponent,
   PaginationComponent,
   ScrollspyDirective,
+  CarouselComponent,
+  CarouselCaptionComponent,
+  CarouselSlideComponent,
   ...[MODALS],
   ...[TOASTS]
 ]
