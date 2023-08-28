@@ -2,6 +2,7 @@ import { AccordionComponent } from "./accordions/accordion.component";
 import { AlertComponent } from "./alerts/alert.component";
 import { BadgeComponent } from "./badges/badge.component";
 import { BreadcrumbComponent } from "./breadcrumb/breadcrumb.component";
+import { CarouselComponent } from "./carousel/carousel.component";
 import { ProgressComponent } from "./progress/progress.component";
 import { SpinnerComponent } from "./spinners/spinner.component";
 
@@ -24,6 +25,8 @@ export const COMPONENTS = [
   AlertComponent,
   BadgeComponent,
   BreadcrumbComponent,
+
+  CarouselComponent,
 
   ProgressComponent,
   SpinnerComponent
