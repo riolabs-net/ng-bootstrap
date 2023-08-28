@@ -39,6 +39,8 @@ import { OffcanvasBodyComponent } from './offcanvas/offcanvas-body.component';
 import { OffcanvasHeaderComponent } from './offcanvas/offcanvas-header.component';
 import { OffcanvasTitleComponent } from './offcanvas/offcanvas-title.component';
 import { OffcanvasComponent } from './offcanvas/offcanvas.component';
+import { PaginationItemComponent } from './pagination/pagination-item.component';
+import { PaginationComponent } from './pagination/pagination.component';
 import { PlaceholderComponent } from './placeholder/placeholder.directive';
 import { SidebarBodyComponent } from './sidebar/sidebar-body.component';
 import { SidebarFooterComponent } from './sidebar/sidebar-footer.component';
@@ -105,6 +107,8 @@ export * from './tabs/tab-content.component';
 export * from './tabs/tab-pane.component';
 export * from './modals';
 export * from './toast';
+export * from './pagination/pagination-item.component';
+export * from './pagination/pagination.component';
 
 export const COMPONENTS = [
   AlertComponent,
@@ -158,6 +162,8 @@ export const COMPONENTS = [
   TabComponent,
   TabContentComponent,
   TabPaneComponent,
+  PaginationItemComponent,
+  PaginationComponent,
   ...[MODALS],
   ...[TOASTS]
 ]
