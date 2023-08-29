@@ -3,18 +3,18 @@
 		<span class="navbar-toggler-icon"></span>
 	</a>
 	<a rlb-navbar-brand href="#">Navbar</a>
-	<ul rlb-navbar-container class="me-auto">
-		<li rlb-navbar-item>Home</li>
-		<li rlb-navbar-item>Getting started</li>
-		<li rlb-navbar-item>Components</li>
-	</ul>
-	<!-- <form rlb-navbar-container>
+	<rlb-navbar-items class="me-auto">
+		<a rlb-navbar-item [routerLink]="['/']" routerLinkActive="active">Home</a>
+		<a rlb-navbar-item [routerLink]="['/getting-started']" routerLinkActive="active">Getting started</a>
+		<a rlb-navbar-item [routerLink]="['/components']" routerLinkActive="active">Components</a>
+	</rlb-navbar-items>
+	<!-- <rlb-navbar-form>
 		<rlb-input />
 		<button rlb-button [outline]="true" color="primary" [size]="'sm'">Search</button>
-	</form>
-	<span rlb-navbar-item>
+	</rlb-navbar-form>
+	<rlb-navbar-text>
 		Un testo
-	</span> -->
+	</rlb-navbar-text> -->
 </rlb-navbar>
 <div class="d-flex flex-row w-100">
 	<rlb-sidebar id="sidebar" width="300px">
