@@ -7,12 +7,23 @@ import { RlbBootstrapModule } from 'projects/rlb/ng-bootstrap/src/public-api';
 import { FormsModule } from '@angular/forms';
 import { DemoComponent } from './demo/demo.component';
 import { ToastComponent } from './toast/toast.component';
+import { RoutingModule } from './routing.module';
+import { HomeComponent } from './pages/home/home.component';
+import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
+import { AccordionsComponent } from './pages/components/accordions/accordions.component';
+import { AlertsComponent } from './pages/components/alerts/alerts.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoComponent,
-    ToastComponent
+    ToastComponent,
+    HomeComponent,
+    GettingStartedComponent,
+    AccordionsComponent,
+    AlertsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +33,8 @@ import { ToastComponent } from './toast/toast.component';
       toasts: [ToastComponent]
     }),
     FormsModule,
-    NgbModule
+    NgbModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

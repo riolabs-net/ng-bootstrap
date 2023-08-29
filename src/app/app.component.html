@@ -1,7 +1,3 @@
-<rlb-modal-container id="modal-c-1" />
-<rlb-toast-container class="position-fixed bottom-0 end-0 p-3" id="toast-c-1" />
-
-
 <rlb-navbar color="light" expand="lg">
 	<a class="d-block d-sm-none" rlb-button href="#" toggle="collapse" toggle-target="sidebar" [outline]="true">
 		<span class="navbar-toggler-icon"></span>
@@ -9,32 +5,27 @@
 	<a rlb-navbar-brand href="#">Navbar</a>
 	<ul rlb-navbar-container class="me-auto">
 		<li rlb-navbar-item>Home</li>
-		<li rlb-navbar-item>Features</li>
-		<li rlb-navbar-item>Pricing</li>
-		<li rlb-navbar-item>About</li>
+		<li rlb-navbar-item>Getting started</li>
+		<li rlb-navbar-item>Components</li>
 	</ul>
-	<form rlb-navbar-container>
+	<!-- <form rlb-navbar-container>
 		<rlb-input />
 		<button rlb-button [outline]="true" color="primary" [size]="'sm'">Search</button>
 	</form>
 	<span rlb-navbar-item>
 		Un testo
-	</span>
+	</span> -->
 </rlb-navbar>
 <div class="d-flex flex-row w-100">
 	<rlb-sidebar id="sidebar" width="300px">
 		<rlb-sidebar-body>
 			<rlb-nav class="px-3 pt-2" [vertical]="true">
 				<rlb-nav-item icon="fs-4 bi-house"> Home </rlb-nav-item>
+				<rlb-nav-item icon="fs-4 bi-house"> Getting started </rlb-nav-item>
 				<rlb-nav-item icon="fs-4 bi-house">
-					<span rlb-nav-title>Dashboard</span>
-					<rlb-nav-item icon="fs-4 bi-house"> Sun 2 </rlb-nav-item>
-					<rlb-nav-item icon="fs-4 bi-house"> Sub 1 </rlb-nav-item>
-					<rlb-nav-item icon="fs-4 bi-house">
-						<span rlb-nav-title>Dashboard</span>
-						<rlb-nav-item icon="fs-4 bi-house"> Sun 2 </rlb-nav-item>
-						<rlb-nav-item icon="fs-4 bi-house"> Sub 1 </rlb-nav-item>
-					</rlb-nav-item>
+					<span rlb-nav-title>Components</span>
+					<rlb-nav-item icon="fs-4 bi-house"> Accordions </rlb-nav-item>
+					<rlb-nav-item icon="fs-4 bi-house"> Alerts </rlb-nav-item>
 				</rlb-nav-item>
 			</rlb-nav>
 		</rlb-sidebar-body>
@@ -54,114 +45,9 @@
 		</rlb-sidebar-footer>
 	</rlb-sidebar>
 	<div class="flex-grow-1 ps-2">
-		<rlb-tabs>
-			<rlb-tab target="pippo">Pippo</rlb-tab>
-			<rlb-tab target="pluto">Pluto</rlb-tab>
-			<rlb-tab target="paperino">Paperino</rlb-tab>
-		</rlb-tabs>
-		<rlb-tab-content>
-			<rlb-tab-pane id="pippo">Pippo</rlb-tab-pane>
-			<rlb-tab-pane id="pluto">Pluto</rlb-tab-pane>
-			<rlb-tab-pane id="paperino">Paperino</rlb-tab-pane>
-		</rlb-tab-content>
-
-		<button rlb-button toggle="collapse" toggle-target="collapse-id" class="me-2">Collapse</button>
-		<button rlb-button (click)="modal()" class="me-2">Open Modal</button>
-		<button rlb-button (click)="toast()" class="me-2">Open Toast</button>
-		<button rlb-button toggle="offcanvas" toggle-target="off-1" class="me-2">Offcanvas</button>
-		<rlb-collapse id="collapse-id">
-			<rlb-card style="width: 300px;" [overlay]="false">
-				<rlb-card-body>
-					<h5 rlb-card-title>Card title</h5>
-					<p rlb-card-text>
-						Some quick example text to build on the card title and make up the bulk of the card's content.
-					</p>
-				</rlb-card-body>
-			</rlb-card>
-		</rlb-collapse>
-		<rlb-offcanvas id="off-1">
-			<rlb-offcanvas-header>
-				<h5 rlb-offcanvas-title>Offcanvas</h5>
-			</rlb-offcanvas-header>
-			<rlb-offcanvas-body>
-				pippo
-			</rlb-offcanvas-body>
-		</rlb-offcanvas>
-
-		<div class="p-3">
-			<rlb-accordion>
-				<div rlb-accordion-item [expanded]="true">
-					<h2 rlb-accordion-header>
-						Titolo 1
-					</h2>
-					<div rlb-accordion-body>
-						body 1
-					</div>
-				</div>
-				<div rlb-accordion-item>
-					<h2 rlb-accordion-header>
-						Titolo 2
-					</h2>
-					<div rlb-accordion-body>
-						body 2
-					</div>
-				</div>
-				<div rlb-accordion-item>
-					<h2 rlb-accordion-header>
-						Titolo 3
-					</h2>
-					<div rlb-accordion-body>
-						body 3
-					</div>
-				</div>
-			</rlb-accordion>
-
-		</div>
-
-		<div class="p-3">
-			<button rlb-button class="position-relative" [color]="'danger'" [outline]="true" size="lg" badge="pippo"
-				[badge-start]="100" [badge-top]="0" [badge-color]="'info'" [badge-pill]="true" [tooltip]="'Ciao'"
-				[tooltip-placement]="'right'">Toggle</button>
-		</div>
-
-		<div class="p-3">
-			<span rlb-badge [pill]="true">ppp</span>
-		</div>
-
-		<div class="p-3">
-			<rlb-card style="width: 300px;" [overlay]="false">
-				<rlb-card-header>Header</rlb-card-header>
-				<img rlb-card-image src="https://via.placeholder.com/150" alt="Card image cap">
-				<rlb-card-body>
-					<h5 rlb-card-title>Card title</h5>
-					<h6 rlb-card-subtitle>Card subtitle</h6>
-					<p rlb-card-text>Some quick example text to build on the card title and make up the bulk of the card's
-						content.</p>
-					<a href="#" rlb-card-link>Card link</a>
-					<a href="#" rlb-card-link>Another link</a>
-				</rlb-card-body>
-				<rlb-card-footer>Footer</rlb-card-footer>
-			</rlb-card>
-		</div>
-
-		<div class="p-3">
-			<rlb-progress class="mb-2" [value]="22" [animated]="true" [height]="5"></rlb-progress>
-			<rlb-progress class="mb-2" [value]="44" [animated]="true" [height]="10" color="danger"></rlb-progress>
-			<rlb-progress class="mb-2" [value]="66" [animated]="true" [height]="15" color="success"></rlb-progress>
-			<rlb-progress class="mb-2" [value]="66" [animated]="true" [height]="15" color="success"
-				[striped]="true"></rlb-progress>
-			<rlb-progress class="mb-2" [value]="66" [animated]="true" [height]="15" color="success"
-				[showValue]="true">pippo</rlb-progress>
-		</div>
-
-		<div class="p-3">
-			<rlb-spinner [color]="'primary'" [size]="'lg'"></rlb-spinner>
-		</div>
-
-		<div class="p-3">
-
-		</div>
-
-
+		<router-outlet />
 	</div>
 </div>
+
+<rlb-modal-container id="modal-c-1" />
+<rlb-toast-container class="position-fixed bottom-0 end-0 p-3" id="toast-c-1" />
