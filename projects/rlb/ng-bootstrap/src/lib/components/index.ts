@@ -32,12 +32,14 @@ import { DropdownDirective } from './dropdown/dropdown.directive';
 import { ProgressComponent } from './loaders/progress.component';
 import { SpinnerComponent } from './loaders/spinner.component';
 import { MODALS } from './modals';
-import { NavItemComponent } from './navbar/nav/nav-item.component';
-import { NavComponent } from './navbar/nav/nav.component';
-import { NavbarBrandDirective } from './navbar/navbar/navbar-brand.directive';
-import { NavbarContainerComponent } from './navbar/navbar/navbar-container.component';
-import { NavbarMenuItemComponent } from './navbar/navbar/navbar-menu-item.component';
-import { NavbarComponent } from './navbar/navbar/navbar.component';
+import { NavItemComponent } from './navigation/nav/nav-item.component';
+import { NavComponent } from './navigation/nav/nav.component';
+import { NavbarBrandDirective } from './navigation/navbar/navbar-brand.directive';
+import { NavbarFormComponent } from './navigation/navbar/navbar-form.component';
+
+import { NavbarItemsComponent } from './navigation/navbar/navbar-items.component';
+import { NavbarItemComponent } from './navigation/navbar/navbar-item.component';
+import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { OffcanvasBodyComponent } from './offcanvas/offcanvas-body.component';
 import { OffcanvasHeaderComponent } from './offcanvas/offcanvas-header.component';
 import { OffcanvasTitleComponent } from './offcanvas/offcanvas-title.component';
@@ -57,6 +59,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { TOASTS } from './toast';
 import { PopoverDirective } from './tooltips/popover.directive';
 import { TooltipDirective } from './tooltips/tooltip.directive';
+import { NavbarTextComponent } from './navigation/navbar/navbar-text.component';
 
 export * from './alerts/alert.component';
 export * from './breadcrumb/breadcrumb.component';
@@ -90,10 +93,15 @@ export * from './dropdown/dropdown.component';
 export * from './dropdown/dropdown-container.component';
 export * from './dropdown/dropdown-menu-item.component';
 export * from './dropdown/dropdown.directive';
-export * from './navbar/navbar/navbar.component';
-export * from './navbar/navbar/navbar-container.component';
-export * from './navbar/navbar/navbar-menu-item.component';
-export * from './navbar/navbar/navbar-brand.directive';
+export * from './navigation/navbar/navbar.component';
+export * from './navigation/navbar/navbar-form.component';
+export * from './navigation/navbar/navbar-text.component';
+export * from './navigation/navbar/navbar-item.component';
+export * from './navigation/navbar/navbar-items.component';
+export * from './navigation/navbar/navbar-brand.directive';
+export * from './navigation/nav/nav.component';
+export * from './navigation/nav/nav.component';
+export * from './navigation/nav/nav-item.component';
 export * from './offcanvas/offcanvas.component';
 export * from './offcanvas/offcanvas-body.component';
 export * from './offcanvas/offcanvas-header.component';
@@ -103,8 +111,6 @@ export * from './sidebar/sidebar.component';
 export * from './sidebar/sidebar-body.component';
 export * from './sidebar/sidebar-header.component';
 export * from './sidebar/sidebar-footer.component';
-export * from './navbar/nav/nav.component';
-export * from './navbar/nav/nav-item.component';
 export * from './tabs/tabs.component';
 export * from './tabs/tab.component';
 export * from './tabs/tab-content.component';
@@ -153,8 +159,10 @@ export const COMPONENTS = [
   DropdownDirective,
   NavbarBrandDirective,
   NavbarComponent,
-  NavbarContainerComponent,
-  NavbarMenuItemComponent,
+  NavbarFormComponent,
+  NavbarTextComponent,
+  NavbarItemsComponent,
+  NavbarItemComponent,
   OffcanvasComponent,
   OffcanvasHeaderComponent,
   OffcanvasTitleComponent,
