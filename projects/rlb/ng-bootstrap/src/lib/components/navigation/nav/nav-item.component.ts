@@ -8,7 +8,7 @@ import { UniqueIdService } from '../../../shared/unique-id.service';
     <li class="nav-item"
       [class.w-100]="view==='responsive' || view === 'expand'">
       <ng-container *ngIf="!isContainer; else container">
-        <a [href]="href" class="nav-link align-middle px-0 py-0 ">
+        <a [routerLink]="href" routerLinkActive="active" class="nav-link align-middle px-0 py-0 ">
           <i *ngIf="icon" [class]="icon"></i>
           <span
             [class.d-none]="view === 'responsive' || view === 'shrink'"
@@ -41,9 +41,9 @@ import { UniqueIdService } from '../../../shared/unique-id.service';
   </ng-template>`
 })
 export class NavItemComponent implements OnInit, DoCheck {
-  @Input() href: string = '#';
-  @Input() icon: string = '';
-  @Input() isContainer!: boolean;
+  @Input() href?: string | any[] | null | undefined = '#';
+  @Input() icon?: string = '';
+  isContainer!: boolean;
   @ViewChild('template', { static: true }) template!: TemplateRef<any>;
   @ContentChildren(NavItemComponent) children!: QueryList<NavItemComponent>;
 

@@ -24,12 +24,12 @@ import { Component, ElementRef, Input, TemplateRef, ViewChild, ViewContainerRef 
   },
 })
 export class NavComponent {
-  @Input() horizontalAlignment!: 'center' | 'end'
-  @Input() vertical: boolean = false;
-  @Input() view!: 'tab' | 'pills' | 'underline' | 'none';
-  @Input() fill!: 'fill' | 'justified'
+  @Input() horizontalAlignment?: 'center' | 'end'
+  @Input() vertical?: boolean = false;
+  @Input() view?: 'tab' | 'pills' | 'underline' | 'none';
+  @Input() fill?: 'fill' | 'justified'
   @Input() id!: string;
-  @Input() class!: string;
+  @Input() class?: string;
 
   @ViewChild('template', { static: true }) template!: TemplateRef<any>;
 

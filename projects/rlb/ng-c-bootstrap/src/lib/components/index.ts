@@ -4,6 +4,7 @@ import { BadgeComponent } from "./badges/badge.component";
 import { BreadcrumbComponent } from "./breadcrumb/breadcrumb.component";
 import { CardComponent } from "./cards/card.component";
 import { CarouselComponent } from "./carousel/carousel.component";
+import { NavComponent } from "./nav/nav.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { ProgressComponent } from "./progress/progress.component";
 import { SpinnerComponent } from "./spinners/spinner.component";
@@ -23,6 +24,8 @@ export * from './cards/card.component';
 export * from './carousel/carousel.data';
 export * from './carousel/carousel.component';
 
+export * from './nav/nav.data';
+export * from './nav/nav.component';
 export * from './navbar/navbar.data';
 export * from './navbar/navbar.component';
 export * from './progress/progress.data';
@@ -42,7 +45,7 @@ export const COMPONENTS = [
   CarouselComponent,
 
 
-
+  NavComponent,
   NavbarComponent,
   ProgressComponent,
   SpinnerComponent,
