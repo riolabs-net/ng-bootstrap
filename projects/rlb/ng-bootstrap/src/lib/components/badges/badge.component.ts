@@ -1,20 +1,23 @@
-import { Component, ElementRef, Renderer2, Input, DoCheck } from "@angular/core";
+import { Component, Renderer2, Input, ViewChild, ViewContainerRef, TemplateRef } from "@angular/core";
 import { Color } from "../../shared/types";
 
 @Component({
   selector: "span[rlb-badge]",
-  template: "<ng-content></ng-content>",
-  host: {
-    '[class]': 'style',
-  }
+  template: `
+    <ng-template #template>
+      <span [class]="style">
+        <ng-content></ng-content>
+        <span *ngIf="hiddenText" class="visually-hidden">{{hiddenText}}</span>
+      </span>
+    </ng-template>`,
 })
-export class BadgeComponent implements DoCheck {
+export class BadgeComponent {
 
   @Input('pill') pill!: boolean | undefined;
   @Input('color') color: Color | undefined = 'primary'
   @Input('hidden-text') hiddenText!: string | undefined;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private viewContainerRef: ViewContainerRef) { }
 
   get style() {
     let style = 'badge';
@@ -27,12 +30,10 @@ export class BadgeComponent implements DoCheck {
     return style;
   }
 
-  ngDoCheck() {
-    if (this.hiddenText) {
-      const text = this.renderer.createElement('span');
-      this.renderer.addClass(text, 'visually-hidden');
-      this.renderer.appendChild(text, this.renderer.createText(this.hiddenText));
-      this.renderer.appendChild(this.elementRef.nativeElement, text)
-    }
+  @ViewChild('template', { static: true }) template!: TemplateRef<any>;
+
+  ngOnInit() {
+    this.viewContainerRef.createEmbeddedView(this.template);
+    this.viewContainerRef.element.nativeElement.remove()
   }
 }
