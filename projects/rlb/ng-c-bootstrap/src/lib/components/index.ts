@@ -2,6 +2,7 @@ import { AccordionComponent } from "./accordions/accordion.component";
 import { AlertComponent } from "./alerts/alert.component";
 import { BadgeComponent } from "./badges/badge.component";
 import { BreadcrumbComponent } from "./breadcrumb/breadcrumb.component";
+import { CardComponent } from "./cards/card.component";
 import { CarouselComponent } from "./carousel/carousel.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { ProgressComponent } from "./progress/progress.component";
@@ -15,6 +16,9 @@ export * from './badges/badge.data';
 export * from './badges/badge.component';
 export * from './breadcrumb/breadcrumb.data';
 export * from './breadcrumb/breadcrumb.component';
+
+export * from './cards/card.data';
+export * from './cards/card.component';
 
 export * from './carousel/carousel.data';
 export * from './carousel/carousel.component';
@@ -31,8 +35,13 @@ export const COMPONENTS = [
   BadgeComponent,
   BreadcrumbComponent,
 
+  CardComponent,
   CarouselComponent,
+
+
+
   NavbarComponent,
   ProgressComponent,
-  SpinnerComponent
+  SpinnerComponent,
+  
 ];

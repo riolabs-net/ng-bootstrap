@@ -33,10 +33,10 @@ import { CardImageComponent } from './card-image.component';
   }
 })
 export class CardComponent implements DoCheck {
-  @Input() align: TextAlignment = 'left';
-  @Input() overlay!: boolean;
-  @Input() background!: Color;
-  @Input() border!: Color;
+  @Input() align?: TextAlignment = 'left';
+  @Input() overlay?: boolean;
+  @Input() background?: Color;
+  @Input() border?: Color;
 
   @ContentChild(CardBodyComponent) public body!: CardBodyComponent
   @ContentChild(CardImageComponent) public image!: CardImageComponent

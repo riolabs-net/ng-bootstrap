@@ -11,5 +11,5 @@ import { Component, Input } from '@angular/core';
 })
 export class CardImageComponent {
   @Input() position: 'top' | 'bottom' = 'top';
-  overlay: boolean = false;
+  overlay?: boolean = false;
 }

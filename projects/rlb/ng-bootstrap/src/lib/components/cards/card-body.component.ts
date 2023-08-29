@@ -13,5 +13,5 @@ import { Component } from '@angular/core';
   }
 })
 export class CardBodyComponent {
-  overlay: boolean = false;
+  overlay?: boolean = false;
 }
