@@ -28,10 +28,10 @@ import { UniqueIdService } from '../../../shared/unique-id.service';
 })
 export class NavbarComponent {
   @ViewChild('template', { static: true }) template!: TemplateRef<any>;
-  @Input() dark: boolean = false
-  @Input() color: Color = 'primary'
-  @Input() placement!: 'fixed-top' | 'fixed-bottom' | 'sticky-top' | 'sticky-bottom'
-  @Input() expand!: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'always'
+  @Input() dark?: boolean = false
+  @Input() color?: Color = 'primary'
+  @Input() placement?: 'fixed-top' | 'fixed-bottom' | 'sticky-top' | 'sticky-bottom'
+  @Input() expand?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'always'
 
   private _navId: string
   public get navId(): string { return this._navId }

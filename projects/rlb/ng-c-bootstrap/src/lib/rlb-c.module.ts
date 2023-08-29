@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { COMPONENTS } from "./components";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
 import { RlbBootstrapModule } from "@rlb/ng-bootstrap";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -10,7 +10,8 @@ import { RlbBootstrapModule } from "@rlb/ng-bootstrap";
   ],
   imports: [
     CommonModule,
-    RlbBootstrapModule
+    RlbBootstrapModule,
+    RouterModule
   ],
   exports: [
     ...COMPONENTS,
