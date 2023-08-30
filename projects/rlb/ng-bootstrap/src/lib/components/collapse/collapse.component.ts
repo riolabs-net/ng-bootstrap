@@ -13,7 +13,7 @@ import { ToggleAbstractComponent } from '../abstract/toggle-abstract.component';
 export class CollapseComponent extends ToggleAbstractComponent<Collapse> implements OnInit, OnDestroy {
 
   @Input({ alias: `id`, required: true }) id!: string;
-  @Input() orientation: 'horizontal' | 'vertical' = 'vertical';
+  @Input() orientation?: 'horizontal' | 'vertical' = 'vertical';
 
   constructor(elementRef: ElementRef<HTMLElement>) {
     super(elementRef)

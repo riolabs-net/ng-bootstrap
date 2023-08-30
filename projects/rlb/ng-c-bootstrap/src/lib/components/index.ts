@@ -4,6 +4,7 @@ import { BadgeComponent } from "./badges/badge.component";
 import { BreadcrumbComponent } from "./breadcrumb/breadcrumb.component";
 import { CardComponent } from "./cards/card.component";
 import { CarouselComponent } from "./carousel/carousel.component";
+import { CollapseComponent } from "./collapse/collapse.component";
 import { NavComponent } from "./nav/nav.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { ProgressComponent } from "./progress/progress.component";
@@ -23,7 +24,8 @@ export * from './cards/card.data';
 export * from './cards/card.component';
 export * from './carousel/carousel.data';
 export * from './carousel/carousel.component';
-
+export * from './collapse/collapse.data';
+export * from './collapse/collapse.component';
 export * from './nav/nav.data';
 export * from './nav/nav.component';
 export * from './navbar/navbar.data';
@@ -43,8 +45,7 @@ export const COMPONENTS = [
 
   CardComponent,
   CarouselComponent,
-
-
+  CollapseComponent,
   NavComponent,
   NavbarComponent,
   ProgressComponent,
